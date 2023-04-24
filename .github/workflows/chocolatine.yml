@@ -21,6 +21,7 @@ jobs:
   check-commit-style:
     name: Checking that the commit respects the commit style
     runs-on: ubuntu-latest
+    if: github.event_name != 'workflow_dispatch'
     steps:
      - name: Check commit style
        uses: gsactions/commit-message-checker@v2
