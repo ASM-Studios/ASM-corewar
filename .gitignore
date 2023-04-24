@@ -1,5 +1,7 @@
 asm/asm
+asm/asm_test
 corewar/corewar
+corewar/corewar_test
 *.o
 *.a
 *.exe
