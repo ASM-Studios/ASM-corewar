@@ -74,7 +74,11 @@ jobs:
         timeout-minutes: 2
         run: make tests_run
       - name : Verify if there is failure test
-        run: ./unit_tests
+        run: ./asm/asm_test
+        if: ${{ failure() }}
+          exit 1
+      - name : Verify if there is failure test
+        run: ./corewar/corewar_test
         if: ${{ failure() }}
           exit 1
 
