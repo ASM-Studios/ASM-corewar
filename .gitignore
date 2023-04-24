@@ -1,0 +1,15 @@
+asm/asm
+corewar/corewar
+*.o
+*.a
+*.exe
+*.out
+*.swp
+*.idea
+.idea
+*.vgcore
+vgcore.
+*.log
+.log
+*.gcda
+*.gcno
