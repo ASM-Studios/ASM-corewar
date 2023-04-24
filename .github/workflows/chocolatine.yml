@@ -13,7 +13,18 @@ env:
 
 jobs:
 
+  check-commit-style:
+    name: Checking that the commit respects the commit style
+    runs-on: ubuntu-latest
+    steps:
+     - name: Check commit style
+       uses: gsactions/commit-message-checker@v2
+       with:
+        pattern: '^(Add|Update|Fix|Remove|Delete):\s.+'
+        error: 'Bad commit style!'
+
   check_program_compilation:
+    needs: check-commit-style
     name: Checking that the program compiles correctly
     runs-on: ubuntu-latest
     container:
