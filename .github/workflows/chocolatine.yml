@@ -2,8 +2,8 @@ name: Corewar workflow
 
 on:
   push:
-    branches-ignore:
-      - 'ga-ignore-*'
+    branches:
+      - main
   pull_request:
     branches-ignore:
       - 'ga-ignore-*'
