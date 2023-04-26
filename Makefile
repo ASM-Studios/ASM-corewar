@@ -30,3 +30,6 @@ unit_tests:
 tests_run:	unit_tests
 			make -C ./asm tests_run
 			make -C ./corewar tests_run
+
+clib:
+		make -C ./lib
