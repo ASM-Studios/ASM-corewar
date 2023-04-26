@@ -34,11 +34,10 @@ $(EXE):	$(FILE_OBJ) $(MAIN_OBJ)
 		$(CC) -o $(EXE) $^ $(LDFLAGS)
 
 clean:
-		rm -rf $(OBJ)
+		rm -rf $(MAIN_OBJ) $(FILE_OBJ) $(TEST_OBJ)
 		rm -rf vgcore*
 		$(shell find * -name "*.gcda" -delete)
 		$(shell find * -name "*.gcno" -delete)
-		$(shell find * -name "*.o" -delete)
 
 fclean:	clean
 		rm -rf $(EXE)

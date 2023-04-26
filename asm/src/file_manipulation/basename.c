@@ -12,7 +12,7 @@ char *get_basename(const char *path)
     int i = 0;
     char *copy = my_strdup(path);
 
-    while (copy[i] != '.') {
+    while (copy[i] != '.' && copy[i] != '\0') {
         i += 1;
     }
     copy[i] = '\0';

@@ -7,14 +7,16 @@
 
 MAIN_SRC	=	src/main.c
 
-TEST_SRC	=	tests/is_working.c \
+TEST_SRC	=	tests/create_app.c \
+				tests/file_manipulation.c
 
 FILE_SRC	=	src/asm.c \
 				\
-				src/file/basename.c \
 				src/file/open_file.c \
 				src/file/close_file.c \
-				src/file/extension.c \
+				\
+				src/file_manipulation/extension.c \
+				src/file_manipulation/basename.c \
 				\
 				src/app/create_app.c \
 				src/app/destroy_app.c
@@ -42,11 +44,10 @@ $(EXE):	$(FILE_OBJ) $(MAIN_OBJ)
 		$(CC) -o $(EXE) $^ $(LDFLAGS)
 
 clean:
-		rm -rf $(OBJ)
+		rm -rf $(MAIN_OBJ) $(FILE_OBJ) $(TEST_OBJ)
 		rm -rf vgcore*
 		$(shell find * -name "*.gcda" -delete)
 		$(shell find * -name "*.gcno" -delete)
-		$(shell find * -name "*.o" -delete)
 
 fclean:	clean
 		rm -rf $(EXE)
