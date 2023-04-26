@@ -28,3 +28,21 @@ Test(get_basename, only_suffix) {
     char *base = get_basename(path);
     cr_assert_str_eq(base, "");
 }
+
+Test(change_suffix, basic) {
+    char path[] = "basename.s";
+    char *new_path = change_suffix(path, ".cor");
+    cr_assert_str_eq(new_path, "basename.cor");
+}
+
+Test(change_suffix, no_suffix) {
+    char path[] = "basename";
+    char *new_path = change_suffix(path, ".cor");
+    cr_assert_str_eq(new_path, "basename.cor");
+}
+
+Test(change_suffix, only_suffix) {
+    char path[] = "";
+    char *new_path = change_suffix(path, ".cor");
+    cr_assert_str_eq(new_path, ".cor");
+}

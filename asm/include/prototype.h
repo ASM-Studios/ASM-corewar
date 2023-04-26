@@ -11,7 +11,7 @@
     #include "include.h"
     #include "app.h"
 
-    int asm_main(const int ac, const char **av);
+    int asm_main(const char *path);
 
     /* file */
     char *get_basename(const char *path);

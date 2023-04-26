@@ -8,6 +8,7 @@
 MAIN_SRC	=	src/main.c
 
 TEST_SRC	=	tests/create_app.c \
+				tests/open_file.c \
 				tests/file_manipulation.c
 
 FILE_SRC	=	src/asm.c \
@@ -28,7 +29,7 @@ TEST_OBJ	=	$(TEST_SRC:.c=.o)
 CC	=	gcc
 CFLAGS	= -Wall -Wextra -g3
 LDFLAGS	=	-L../lib -lmy_printf -lmy_stdlib -lmy_string
-COVERAGE	=	--coverage -lcriterion
+COVERAGE	=	--coverage -lcriterion -fprofile-arcs -ftest-coverage
 EXE	=	asm
 TEST_EXE	=	$(EXE)_test
 

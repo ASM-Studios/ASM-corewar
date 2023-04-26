@@ -7,11 +7,13 @@
 
 #include "../include/prototype.h"
 
-int asm_main(const int ac, const char **av)
+int asm_main(const char *path)
 {
     app_t *app = create_app();
-
-    open_file(app, av[1]);
+    if (app == NULL)
+        return 84;
+    if (open_file(app, path) == 84)
+        return 84;
     close_file(app);
     destroy_app(app);
     return 0;
