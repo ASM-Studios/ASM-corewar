@@ -44,6 +44,9 @@ main.o:	main.c
 $(EXE):	$(FILE_OBJ) $(MAIN_OBJ)
 		$(CC) -o $(EXE) $^ $(LDFLAGS)
 
+no_malloc:	$(FILE_OBJ) $(MAIN_OBJ)
+			$(CC) -o $(EXE) $^ $(LDFLAGS)
+
 clean:
 		rm -rf $(MAIN_OBJ) $(FILE_OBJ) $(TEST_OBJ)
 		rm -rf vgcore*
@@ -66,6 +69,7 @@ unit_tests: $(FILE_OBJ) $(TEST_OBJ)
 tests_run:	unit_tests
 			./$(TEST_EXE)
 
-.PHONY:	unit_tests
+.PHONY:
+no_malloc: CFLAGS += -DNO_MALLOC
 unit_tests: CFLAGS += $(COVERAGE)
 unit_tests: LDFLAGS += $(COVERAGE)
