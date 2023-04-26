@@ -9,6 +9,7 @@
 
 int main(const int ac, const char **av)
 {
-    my_printf("Hello world!\n");
-    return 0;
+    if (ac != 3)
+        return 84;
+    return asm_main(ac, av);
 }

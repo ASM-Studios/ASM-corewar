@@ -9,7 +9,10 @@ MAIN_SRC	=	src/main.c
 
 TEST_SRC	=	tests/is_working.c \
 
-FILE_SRC	=
+FILE_SRC	=	src/asm.c \
+				\
+				src/app/create_app.c \
+				src/app/destroy_app.c
 
 FILE_OBJ	=	$(FILE_SRC:.c=.o)
 MAIN_OBJ	=	$(MAIN_SRC:.c=.o)

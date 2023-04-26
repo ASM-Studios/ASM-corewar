@@ -9,5 +9,8 @@
     #define BASE_REPO_PROTOTYPE_H
 
     #include "include.h"
+    #include "app.h"
+
+    int asm_main(const int ac, const char **av);
 
 #endif //BASE_REPO_PROTOTYPE_H
