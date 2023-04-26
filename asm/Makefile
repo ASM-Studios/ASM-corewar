@@ -27,9 +27,10 @@ MAIN_OBJ	=	$(MAIN_SRC:.c=.o)
 TEST_OBJ	=	$(TEST_SRC:.c=.o)
 
 CC	=	gcc
-CFLAGS	= -Wall -Wextra -g3
+INCLUDE	=	./include
+CFLAGS	= -I$(INCLUDE) -Wall -Wextra -g3
 LDFLAGS	=	-L../lib -lmy_printf -lmy_stdlib -lmy_string
-COVERAGE	=	--coverage -lcriterion -fprofile-arcs -ftest-coverage
+COVERAGE	=	--coverage -lcriterion
 EXE	=	asm
 TEST_EXE	=	$(EXE)_test
 
@@ -47,6 +48,12 @@ $(EXE):	$(FILE_OBJ) $(MAIN_OBJ)
 no_malloc:	$(FILE_OBJ) $(MAIN_OBJ)
 			$(CC) -o $(EXE) $^ $(LDFLAGS)
 
+unit_tests: $(FILE_OBJ) $(TEST_OBJ)
+			$(CC) -o $(TEST_EXE) $^ $(LDFLAGS)
+
+tests_run:	unit_tests
+			./$(TEST_EXE)
+
 clean:
 		rm -rf $(MAIN_OBJ) $(FILE_OBJ) $(TEST_OBJ)
 		rm -rf vgcore*
@@ -62,14 +69,8 @@ re:	fclean all
 lib:
 		make -C ../lib
 
+.PHONY: all clean fclean re lib unit_tests tests_run
 
-unit_tests: $(FILE_OBJ) $(TEST_OBJ)
-			$(CC) -o $(TEST_EXE) $^ $(LDFLAGS)
-
-tests_run:	unit_tests
-			./$(TEST_EXE)
-
-.PHONY:
 no_malloc: CFLAGS += -DNO_MALLOC
 unit_tests: CFLAGS += $(COVERAGE)
 unit_tests: LDFLAGS += $(COVERAGE)

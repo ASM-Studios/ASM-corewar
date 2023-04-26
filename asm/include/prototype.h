@@ -9,12 +9,8 @@
     #define BASE_REPO_PROTOTYPE_H
 
     #include "include.h"
+    #include "macros.h"
     #include "app.h"
-
-    #ifdef NO_MALLOC
-        #define malloc(size) NULL
-    #endif
-
 
     int asm_main(const char *path);
 
