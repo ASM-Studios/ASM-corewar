@@ -9,6 +9,5 @@
 
 int main(const int ac, const char **av)
 {
-    my_printf("Hello world!\n");
-    return 0;
+    return 84;
 }
