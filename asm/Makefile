@@ -11,8 +11,10 @@ TEST_SRC	=	tests/is_working.c \
 
 FILE_SRC	=	src/asm.c \
 				\
+				src/file/basename.c \
 				src/file/open_file.c \
 				src/file/close_file.c \
+				src/file/extension.c \
 				\
 				src/app/create_app.c \
 				src/app/destroy_app.c

@@ -7,10 +7,12 @@
 
 #include "../../include/prototype.h"
 
-int open_file(app_t *app, const char **av)
+int open_file(app_t *app, const char *path)
 {
-    app->input = fopen(av[1], "r");
-    app->output = fopen(av[1], "wb");
+    char *dest = change_suffix(path, ".cor");
+    app->input = fopen(path, "r");
+    app->output = fopen(dest, "wb");
+    free(dest);
     if (app->input == NULL || app->output == NULL)
         return 84;
     return 0;

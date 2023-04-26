@@ -9,7 +9,7 @@
 
 int main(const int ac, const char **av)
 {
-    if (ac != 3)
+    if (ac != 2)
         return 84;
     return asm_main(ac, av);
 }
