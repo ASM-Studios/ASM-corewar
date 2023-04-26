@@ -10,6 +10,7 @@
 int asm_main(const char *path)
 {
     app_t *app = create_app();
+
     if (app == NULL)
         return 84;
     if (open_file(app, path) == 84)
