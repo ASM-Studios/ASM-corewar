@@ -12,6 +12,10 @@
     #include "macros.h"
     #include "app.h"
 
+    #ifdef NO_MALLOC
+        #define malloc(size)    NULL
+    #endif
+
     int asm_main(const char *path);
 
     /* file */

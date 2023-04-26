@@ -20,4 +20,3 @@ Test(create_resources, null_app) {
     app_t *app = create_app();
     cr_assert_not_null(app);
 }
-

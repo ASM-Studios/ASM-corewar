@@ -5,10 +5,6 @@
 ** macros.h
 */
 
-#ifdef NO_MALLOC
-    #define malloc(size)    NULL
-#endif
-
 #ifndef MACROS_H_
     #define MACROS_H_
 
