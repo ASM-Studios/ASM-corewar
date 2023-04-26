@@ -12,7 +12,7 @@
 void redirect_all_std(void);
 
 Test(open_file, basic) {
-    char path[] = "test_file.s";
+    char path[] = "./tests/test_file.s";
     int status = 0;
     app_t app = {NULL, NULL};
     status = open_file(&app, path);
@@ -20,7 +20,7 @@ Test(open_file, basic) {
 }
 
 Test(open_file, inexisting_file) {
-    char path[] = "basename.s";
+    char path[] = "qmlskd";
     int status = 0;
     app_t app = {NULL, NULL};
     status = open_file(&app, path);
