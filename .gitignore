@@ -17,3 +17,4 @@ vgcore.
 *.gcno
 *.s
 *.cor
+!./asm/tests/test_file.s
