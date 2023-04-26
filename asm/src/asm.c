@@ -10,6 +10,9 @@
 int asm_main(const int ac, const char **av)
 {
     app_t *app = create_app();
+    open_file(app, av);
+
+    close_file(app);
     destroy_app(app);
     return 0;
 }

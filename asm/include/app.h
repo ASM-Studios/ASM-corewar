@@ -18,4 +18,7 @@
     app_t *create_app(void);
     int destroy_app(app_t *app);
 
+    int open_file(app_t *app, const char **av);
+    int close_file(app_t *app);
+
 #endif //ASM_H_
