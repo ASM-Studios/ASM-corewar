@@ -10,6 +10,7 @@
 app_t *create_app(void)
 {
     app_t *app = malloc(sizeof(app_t));
+
     if (app == NULL)
         return NULL;
     app->input = NULL;

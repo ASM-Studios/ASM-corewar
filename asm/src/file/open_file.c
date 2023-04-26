@@ -10,6 +10,7 @@
 int open_file(app_t *app, const char *path)
 {
     char *dest = change_suffix(path, ".cor");
+
     app->input = fopen(path, "r");
     app->output = fopen(dest, "wb");
     free(dest);
