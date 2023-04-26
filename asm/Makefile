@@ -28,6 +28,7 @@ TEST_OBJ	=	$(TEST_SRC:.c=.o)
 
 CC	=	gcc
 INCLUDE	=	./include
+SANITIZE	=	-fsanitize=address
 CFLAGS	= -I$(INCLUDE) -Wall -Wextra -g3
 LDFLAGS	=	-L../lib -lmy_printf -lmy_stdlib -lmy_string
 COVERAGE	=	--coverage -lcriterion
@@ -46,6 +47,9 @@ $(EXE):	$(FILE_OBJ) $(MAIN_OBJ)
 		$(CC) -o $(EXE) $^ $(LDFLAGS)
 
 no_malloc:	$(FILE_OBJ) $(MAIN_OBJ)
+			$(CC) -o $(EXE) $^ $(LDFLAGS)
+
+sanitize:	$(FILE_OBJ) $(MAIN_OBJ)
 			$(CC) -o $(EXE) $^ $(LDFLAGS)
 
 unit_tests: $(FILE_OBJ) $(TEST_OBJ)
@@ -71,6 +75,8 @@ lib:
 
 .PHONY: all clean fclean re lib unit_tests tests_run
 
+sanitize: CFLAGS += $(SANITIZE)
+sanitize: LDFLAGS += $(SANITIZE)
 no_malloc: CFLAGS += -DNO_MALLOC
 unit_tests: CFLAGS += $(COVERAGE)
 unit_tests: LDFLAGS += $(COVERAGE)
