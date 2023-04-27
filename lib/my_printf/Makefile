@@ -11,6 +11,7 @@ SRC	=	src/my_printf.c	\
 		src/mp_putchar.c	\
 		src/mp_putfloat.c	\
 
+CC	=	gcc
 OBJ	=	$(SRC:.c=.o)
 FLAGS	=	-Wall -Werror
 LIBNAME	=	../libmy_printf.a

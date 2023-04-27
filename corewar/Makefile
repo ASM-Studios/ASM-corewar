@@ -31,26 +31,24 @@ main.o:	main.c
 		$(CC) -o $@ -c $< $(CFLAGS)
 
 $(EXE):	$(FILE_OBJ) $(MAIN_OBJ)
-		@make -C ../lib
 		$(CC) -o $(EXE) $^ $(LDFLAGS)
 
 clean:
-		@make -C ../lib clean
-		rm -rf $(OBJ)
+		rm -rf $(MAIN_OBJ) $(FILE_OBJ) $(TEST_OBJ)
 		rm -rf vgcore*
 		$(shell find * -name "*.gcda" -delete)
 		$(shell find * -name "*.gcno" -delete)
-		$(shell find * -name "*.o" -delete)
 
 fclean:	clean
-		@make -C ../lib fclean
 		rm -rf $(EXE)
 		rm -rf $(TEST_EXE)
 
 re:	fclean all
 
+lib:
+		make -C ../lib
+
 unit_tests: $(FILE_OBJ) $(TEST_OBJ)
-			@make -C ../lib
 			$(CC) -o $(TEST_EXE) $^ $(LDFLAGS)
 
 tests_run:	unit_tests

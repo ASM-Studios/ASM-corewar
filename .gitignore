@@ -15,3 +15,6 @@ vgcore.
 .log
 *.gcda
 *.gcno
+*.s
+*.cor
+!test_file.s

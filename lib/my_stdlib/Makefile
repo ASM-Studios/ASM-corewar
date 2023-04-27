@@ -10,6 +10,7 @@ SRC	=	my_atoi.c	\
 		my_putnbr.c	\
 		my_atox_globalf.c	\
 
+CC	=	gcc
 OBJ	=	$(SRC:.c=.o)
 FLAGS	=	-Wall -Werror
 LIBNAME	=	../libmy_stdlib.a
