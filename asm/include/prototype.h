@@ -20,6 +20,8 @@
 
     /* file */
     char *get_basename(const char *path);
+    char *get_suffix(const char *path);
+
     char *change_suffix(const char *path, const char *new_suffix);
 
     int open_file(app_t *app, const char *path);

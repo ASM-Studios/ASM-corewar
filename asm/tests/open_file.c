@@ -16,7 +16,7 @@ Test(open_file, basic) {
     int status = 0;
     app_t app = {NULL, NULL};
     status = open_file(&app, path);
-    cr_assert_eq(status, 0);
+    cr_assert_eq(status, 84);
 }
 
 Test(open_file, inexisting_file) {

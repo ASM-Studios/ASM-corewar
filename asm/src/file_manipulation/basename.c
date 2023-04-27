@@ -18,3 +18,17 @@ char *get_basename(const char *path)
     copy[i] = '\0';
     return copy;
 }
+
+char *get_suffix(const char *path)
+{
+    int i = 0;
+    char *suffix = NULL;
+
+    while (path[i] != '.' && path[i] != '\0') {
+        i += 1;
+    }
+    if (path[i] == '\0')
+        return NULL;
+    suffix = my_strdup(&path[i]);
+    return suffix;
+}
