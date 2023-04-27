@@ -11,6 +11,7 @@ FILE *open_input_file(const char *path)
 {
     char *suffix = get_suffix(path);
     FILE *input = NULL;
+
     if (suffix == NULL)
         return NULL;
     if (my_strcmp(suffix, ".s") != 0) {
@@ -26,6 +27,7 @@ FILE *open_output_file(const char *path)
 {
     char *dest = change_suffix(path, ".cor");
     FILE *output = fopen(dest, "wb");
+
     free(dest);
     return output;
 }

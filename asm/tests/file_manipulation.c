@@ -25,10 +25,17 @@ Test(get_basename, no_suffix) {
     free(base);
 }
 
-Test(get_basename, only_suffix) {
-    char path[] = ".s";
+Test(get_basename, not_in_dir) {
+    char path[] = "./tests/tests_file/basic.s";
     char *base = get_basename(path);
-    cr_assert_str_eq(base, "");
+    cr_assert_str_eq(base, "./tests/tests_file/basic");
+    free(base);
+}
+
+Test(get_basename, no_file_no_extension) {
+    char path[] = "./tests/tests_file/basic";
+    char *base = get_basename(path);
+    cr_assert_str_eq(base, "./tests/tests_file/basic");
     free(base);
 }
 
@@ -43,6 +50,13 @@ Test(change_suffix, no_suffix) {
     char path[] = "basename";
     char *new_path = change_suffix(path, ".cor");
     cr_assert_str_eq(new_path, "basename.cor");
+    free(new_path);
+}
+
+Test(change_suffix, not_in_dir) {
+    char path[] = "./tests/file";
+    char *new_path = change_suffix(path, ".cor");
+    cr_assert_str_eq(new_path, "./tests/file.cor");
     free(new_path);
 }
 
