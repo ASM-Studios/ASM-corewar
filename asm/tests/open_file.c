@@ -12,7 +12,7 @@
 void redirect_all_std(void);
 
 Test(open_file, basic) {
-    char path[] = "./tests/test_file.s";
+    char path[] = "./tests/tests_file/basic.s";
     int status = 0;
     app_t app = {NULL, NULL};
     status = open_file(&app, path);
@@ -20,7 +20,9 @@ Test(open_file, basic) {
 }
 
 Test(open_file, invalid_extension) {
-    char path[] = "./tests/test_file";
+    char path[] = "./tests/tests_file/no_extension";
+    FILE *fp = fopen(path, "r");
+    cr_assert_not_null(fp);
     int status = 0;
     app_t app = {NULL, NULL};
     status = open_file(&app, path);
@@ -42,8 +44,10 @@ Test(close_file, no_file) {
 }
 
 Test(close_file, basic) {
-    FILE *fp_1 = fopen("./tests/test_file.s", "r");
-    FILE *fp_2 = fopen("./tests/test_file.s", "r");
+    FILE *fp_1 = fopen("./tests/tests_file/basic.s", "r");
+    FILE *fp_2 = fopen("./tests/tests_file/basic.s", "r");
+    cr_assert_not_null(fp_1);
+    cr_assert_not_null(fp_2);
     app_t app = {fp_1, fp_2};
     int status = close_file(&app);
     cr_assert_null(app.input);

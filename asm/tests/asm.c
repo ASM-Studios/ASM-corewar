@@ -12,19 +12,22 @@
 void redirect_all_std(void);
 
 Test(asm, basic) {
-    char path[] = "./tests/test_file.s";
+    char path[] = "./tests/tests_file/basic.s";
     int status = asm_main(path);
     cr_assert_eq(status, 0);
 }
 
 Test(asm, bad_file) {
-    char path[] = "./tests/test_file";
+    char path[] = "./tests/tests_fil";
     int status = asm_main(path);
     cr_assert_eq(status, 84);
 }
 
 Test(asm, bad_extension) {
-    char path[] = "./tests/test_file.c";
+    char path[] = "./tests/tests_file/no_extension";
+    FILE *fp = fopen(path, "r");
+    cr_assert_not_null(fp);
     int status = asm_main(path);
     cr_assert_eq(status, 84);
+    fclose(fp);
 }
