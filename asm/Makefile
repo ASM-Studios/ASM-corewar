@@ -20,6 +20,11 @@ FILE_SRC	=	src/asm.c \
 				src/parser/parse_line.c \
 				src/parser/trailing_space.c \
 				\
+				src/array_manipulation/split.c \
+				src/array_manipulation/free_array.c \
+				src/array_manipulation/len_array.c \
+				src/array_manipulation/print_array.c \
+				\
 				src/file/open_file.c \
 				src/file/close_file.c \
 				\

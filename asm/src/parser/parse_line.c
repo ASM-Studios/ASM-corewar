@@ -11,6 +11,8 @@ static int parser_main_action(app_t *app, char *line)
 {
     header(app, line);
     comment(app, line);
+    char **array = split(line, ' ');
+    print_array(array);
     return 0;
 }
 

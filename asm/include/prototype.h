@@ -11,6 +11,7 @@
     #include "include.h"
     #include "macros.h"
     #include "parser.h"
+    #include "array.h"
     #include "app.h"
 
     #ifdef NO_MALLOC
