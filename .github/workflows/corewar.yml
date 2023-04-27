@@ -27,7 +27,7 @@ jobs:
         if: ${{ github.event_name != 'workflow_dispatch' }}
         uses: gsactions/commit-message-checker@v2
         with:
-          pattern: '^(Add|Update|Fix|Remove|Edit|Delete):\s.+'
+          pattern: '^(Add:|Update:|Fix:|Remove:|Edit:|Delete:|Merge)\s.+'
           error: 'Bad commit style!'
 
   check_program_compilation:
@@ -117,5 +117,3 @@ jobs:
             ${{ vars.MIRROR_URL }}
           ssh_private_key:
             ${{ secrets.GIT_SSH_PRIVATE_KEY }}
-          source_branch:
-            main
