@@ -15,11 +15,18 @@
     #include "app.h"
 
     #ifdef NO_MALLOC
-        #define malloc(size)    NULL
+        #define malloc(size)    my_malloc(size)
+    #endif
+
+    #ifdef UNIT_TEST
+        #define STATIC
+    #else
+        #define STATIC  static
     #endif
 
     int asm_main(const char *path);
     int remove_trailing_space(char *line);
+    void *my_malloc(size_t sz);
 
     /* file */
     char *get_basename(const char *path);

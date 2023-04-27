@@ -43,7 +43,6 @@ Test(split, multiple_space) {
     free_array(array);
 }
 
-
 Test(split, empty) {
     char line[] = "";
     char **array = split(line, ' ');

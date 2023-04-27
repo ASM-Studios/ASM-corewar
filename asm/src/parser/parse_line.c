@@ -7,12 +7,13 @@
 
 #include "../../include/prototype.h"
 
-static int parser_main_action(app_t *app, char *line)
+STATIC int parser_main_action(app_t *app, char *line)
 {
     header(app, line);
     comment(app, line);
     char **array = split(line, ' ');
     print_array(array);
+    free_array(array);
     return 0;
 }
 
@@ -22,6 +23,5 @@ int parse_line(app_t *app, char *line)
     if (my_strlen(line) == 0)
         return 0;
     parser_main_action(app, line);
-    printf(">%s<\n", line);
     return 0;
 }
