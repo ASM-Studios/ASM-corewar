@@ -25,6 +25,9 @@ Test(asm, bad_file) {
 
 Test(asm, bad_extension) {
     char path[] = "./tests/tests_file/no_extension";
+    FILE *fp = fopen(path, "r");
+    cr_assert_not_null(fp);
     int status = asm_main(path);
     cr_assert_eq(status, 84);
+    fclose(fp);
 }

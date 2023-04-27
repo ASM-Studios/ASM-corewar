@@ -15,48 +15,56 @@ Test(get_basename, basic) {
     char path[] = "basename.s";
     char *base = get_basename(path);
     cr_assert_str_eq(base, "basename");
+    free(base);
 }
 
 Test(get_basename, no_suffix) {
     char path[] = "basename";
     char *base = get_basename(path);
     cr_assert_str_eq(base, "basename");
+    free(base);
 }
 
 Test(get_basename, only_suffix) {
     char path[] = ".s";
     char *base = get_basename(path);
     cr_assert_str_eq(base, "");
+    free(base);
 }
 
 Test(change_suffix, basic) {
     char path[] = "basename.s";
     char *new_path = change_suffix(path, ".cor");
     cr_assert_str_eq(new_path, "basename.cor");
+    free(new_path);
 }
 
 Test(change_suffix, no_suffix) {
     char path[] = "basename";
     char *new_path = change_suffix(path, ".cor");
     cr_assert_str_eq(new_path, "basename.cor");
+    free(new_path);
 }
 
 Test(change_suffix, only_suffix) {
     char path[] = "";
     char *new_path = change_suffix(path, ".cor");
     cr_assert_str_eq(new_path, ".cor");
+    free(new_path);
 }
 
 Test(get_suffix, basic) {
     char path[] = "test.s";
     char *suffix = get_suffix(path);
     cr_assert_str_eq(suffix, ".s");
+    free(suffix);
 }
 
 Test(get_suffix, not_in_dir) {
     char path[] = "./test/test.s";
     char *suffix = get_suffix(path);
     cr_assert_str_eq(suffix, ".s");
+    free(suffix);
 }
 
 Test(get_suffix, hidden_file) {
