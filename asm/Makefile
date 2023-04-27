@@ -14,6 +14,12 @@ TEST_SRC	=	tests/asm.c \
 
 FILE_SRC	=	src/asm.c \
 				\
+				src/parser/header.c \
+				src/parser/parser.c \
+				src/parser/comment.c \
+				src/parser/parse_line.c \
+				src/parser/trailing_space.c \
+				\
 				src/file/open_file.c \
 				src/file/close_file.c \
 				\

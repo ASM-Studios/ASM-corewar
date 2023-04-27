@@ -15,6 +15,7 @@ int asm_main(const char *path)
         return 84;
     if (open_file(app, path) == 84)
         return 84;
+    parser(app);
     close_file(app);
     destroy_app(app);
     return 0;

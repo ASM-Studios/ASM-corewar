@@ -10,6 +10,7 @@
 
     #include "include.h"
     #include "macros.h"
+    #include "parser.h"
     #include "app.h"
 
     #ifdef NO_MALLOC
@@ -17,6 +18,7 @@
     #endif
 
     int asm_main(const char *path);
+    int remove_trailing_space(char *line);
 
     /* file */
     char *get_basename(const char *path);
