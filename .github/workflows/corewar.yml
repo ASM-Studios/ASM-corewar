@@ -91,14 +91,6 @@ jobs:
       - name: Execute tests
         timeout-minutes: 2
         run: make tests_run
-      - name : Verify if there is failure test
-        run: ./asm/asm_test
-        if: ${{ failure() }}
-          exit 1
-      - name : Verify if there is failure test
-        run: ./corewar/corewar_test
-        if: ${{ failure() }}
-          exit 1
 
   push_to_mirror:
     needs: run_tests
