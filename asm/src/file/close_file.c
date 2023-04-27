@@ -9,7 +9,13 @@
 
 int close_file(app_t *app)
 {
-    fclose(app->input);
-    fclose(app->output);
+    if (app->input != NULL) {
+        fclose(app->input);
+        app->input = NULL;
+    }
+    if (app->output != NULL) {
+        fclose(app->output);
+        app->output = NULL;
+    }
     return 0;
 }
