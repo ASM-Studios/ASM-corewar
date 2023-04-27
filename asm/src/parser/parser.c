@@ -13,7 +13,8 @@ int parser(app_t *app)
     char *line = 0;
 
     while (getline(&line, &len, app->input) != -1) {
-        parse_line(app, line);
+        if (parse_line(app, line) == 84)
+            return 84;
     }
     free(line);
     return 0;
