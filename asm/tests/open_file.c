@@ -16,6 +16,14 @@ Test(open_file, basic) {
     int status = 0;
     app_t app = {NULL, NULL};
     status = open_file(&app, path);
+    cr_assert_eq(status, 0);
+}
+
+Test(open_file, invalid_extension) {
+    char path[] = "./tests/test_file";
+    int status = 0;
+    app_t app = {NULL, NULL};
+    status = open_file(&app, path);
     cr_assert_eq(status, 84);
 }
 

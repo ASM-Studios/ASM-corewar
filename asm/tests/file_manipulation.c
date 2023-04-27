@@ -46,3 +46,27 @@ Test(change_suffix, only_suffix) {
     char *new_path = change_suffix(path, ".cor");
     cr_assert_str_eq(new_path, ".cor");
 }
+
+Test(get_suffix, basic) {
+    char path[] = "test.s";
+    char *suffix = get_suffix(path);
+    cr_assert_str_eq(suffix, ".s");
+}
+
+Test(get_suffix, not_in_dir) {
+    char path[] = "./test/test.s";
+    char *suffix = get_suffix(path);
+    cr_assert_str_eq(suffix, ".s");
+}
+
+Test(get_suffix, hidden_file) {
+    char path[] = ".git";
+    char *suffix = get_suffix(path);
+    cr_assert_null(suffix);
+}
+
+Test(get_suffix, no_suffix) {
+    char path[] = "./test/test";
+    char *suffix = get_suffix(path);
+    cr_assert_null(suffix);
+}

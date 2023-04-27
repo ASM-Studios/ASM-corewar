@@ -21,13 +21,15 @@ char *get_basename(const char *path)
 
 char *get_suffix(const char *path)
 {
-    int i = 0;
+    int i = my_strlen(path) - 1;
     char *suffix = NULL;
 
-    while (path[i] != '.' && path[i] != '\0') {
-        i += 1;
+    while (i >= 0) {
+        if (path[i] == '.')
+            break;
+        i -= 1;
     }
-    if (path[i] == '\0')
+    if (i == 0)
         return NULL;
     suffix = my_strdup(&path[i]);
     return suffix;
