@@ -11,10 +11,10 @@ static int detect_start(int start, char *token, char separator)
 {
     int i = start;
     while (token[i] == separator) {
-        if (token[i] == '\0')
-            return -1;
         i += 1;
     }
+    if (token[i] == '\0')
+        return -1;
     return i;
 }
 

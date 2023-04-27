@@ -10,7 +10,8 @@ MAIN_SRC	=	src/main.c
 TEST_SRC	=	tests/asm.c \
 				tests/open_file.c \
 				tests/create_app.c \
-				tests/file_manipulation.c
+				tests/file_manipulation.c \
+				tests/array_manipulation.c \
 
 FILE_SRC	=	src/asm.c \
 				\

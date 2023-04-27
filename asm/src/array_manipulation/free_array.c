@@ -11,6 +11,8 @@ int free_array(char **array)
 {
     int i = 0;
 
+    if (array == NULL)
+        return 0;
     while (array[i] != NULL) {
         free(array[i]);
         i += 1;
