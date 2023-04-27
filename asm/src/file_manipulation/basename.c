@@ -23,7 +23,6 @@ char *get_suffix(const char *path)
 {
     int i = my_strlen(path) - 1;
     char *suffix = NULL;
-
     while (i >= 0) {
         if (path[i] == '.')
             break;

@@ -11,7 +11,6 @@ FILE *open_input_file(const char *path)
 {
     char *suffix = get_suffix(path);
     FILE *input = NULL;
-
     if (suffix == NULL)
         return NULL;
     if (my_strcmp(suffix, ".s") != 0) {
