@@ -20,6 +20,7 @@ SRC	=   my_putstr.c	\
 		my_stricat.c \
 
 
+CC	=	gcc
 OBJ	=	$(SRC:.c=.o)
 FLAGS	=	-Wall -Werror
 LIBNAME	=	../libmy_string.a
