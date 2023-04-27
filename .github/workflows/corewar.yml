@@ -27,7 +27,7 @@ jobs:
         if: ${{ github.event_name != 'workflow_dispatch' }}
         uses: gsactions/commit-message-checker@v2
         with:
-          pattern: '^(Add:|Update:|Fix:|Remove:|Edit:|Delete:|Merge)\s.+'
+          pattern: '^(Add:|Update:|Fix:|Remove:|Edit:|Delete:|Merge:|Merge)\s.+'
           error: 'Bad commit style!'
 
   check_program_compilation:
