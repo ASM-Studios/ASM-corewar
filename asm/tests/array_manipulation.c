@@ -31,6 +31,9 @@ Test(split, basic) {
     char line[] = "this is line";
     char **array = split(line, ' ');
     cr_assert_str_eq(array[0], "this");
+    cr_assert_str_eq(array[1], "is");
+    cr_assert_str_eq(array[2], "line");
+    cr_assert_null(array[3]);
     free_array(array);
 }
 

@@ -9,10 +9,12 @@
 
 STATIC int parser_main_action(app_t *app, char *line)
 {
-    header(app, line);
-    comment(app, line);
     char **array = split(line, ' ');
+    header(app, array, line);
+    comment(app, line);
     print_array(array);
+    printf("\n");
+
     free_array(array);
     return 0;
 }

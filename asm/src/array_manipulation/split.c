@@ -25,6 +25,8 @@ static int detect_end(char **array, int *index, char *token, char separator)
 
     while (token[i] != separator) {
         if (token[i] == '\0') {
+            array[*index] = token;
+            *index += 1;
             return -1;
         }
         i += 1;
@@ -48,9 +50,8 @@ char **split(char *arg, char separator)
         if (i == -1)
             break;
         j = detect_end(array, &index, token, separator);
-        if (j == -1) {
+        if (j == -1)
             break;
-        }
         i += j;
     }
     array[index] = NULL;

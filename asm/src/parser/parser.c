@@ -10,7 +10,7 @@
 int parser(app_t *app)
 {
     size_t len = 0;
-    char *line = 0;
+    char *line = NULL;
 
     while (getline(&line, &len, app->input) != -1) {
         if (parse_line(app, line) == 84)

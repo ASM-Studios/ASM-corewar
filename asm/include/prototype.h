@@ -5,8 +5,8 @@
 ** prototype
 */
 
-#ifndef BASE_REPO_PROTOTYPE_H
-    #define BASE_REPO_PROTOTYPE_H
+#ifndef PROTOTYPE_H_
+    #define PROTOTYPE_H_
 
     #include "include.h"
     #include "macros.h"
@@ -40,4 +40,4 @@
     int open_file(app_t *app, const char *path);
     int close_file(app_t *app);
 
-#endif //BASE_REPO_PROTOTYPE_H
+#endif //PROTOTYPE_H_
