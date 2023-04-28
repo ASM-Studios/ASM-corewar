@@ -31,8 +31,6 @@
     int remove_trailing_space(char *line);
     void *my_malloc(size_t sz);
 
-    void do_nothing(void);
-
     /* file */
     char *get_basename(const char *path);
     char *get_suffix(const char *path);

@@ -17,7 +17,6 @@ TEST_SRC	=	tests/asm.c \
 				tests/array_manipulation.c \
 
 FILE_SRC	=	src/asm.c \
-				src/do_nothing.c \
 				\
 				src/parser/header.c \
 				src/parser/parser.c \
