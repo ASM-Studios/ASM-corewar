@@ -7,7 +7,7 @@
 
 #include "../../include/prototype.h"
 
-int comment(app_t *app, char *line)
+int comment(app_t *app, char **array, char *line)
 {
     return 0;
 }

@@ -14,11 +14,12 @@
     op_t linker(char *mnemonique);
     op_constructor_t *create_node(op_t op);
     int destroy_node(op_constructor_t *node);
+    int append_node(op_constructor_t **node, op_t op);
 
     /* parser */
     int parser(app_t *app);
     int header(app_t *app, char **array, char *line);
-    int comment(app_t *app, char *line);
+    int comment(app_t *app, char **array, char *line);
     int parse_line(app_t *app, char *line);
 
 #endif //PARSER_H_
