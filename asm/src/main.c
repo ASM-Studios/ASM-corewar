@@ -13,8 +13,11 @@ static int display_help(void)
     size_t len;
     char *line = NULL;
 
-    if (!stream)
-        return 1;
+    if (!stream) {
+        stream = fopen("help.txt", "r");
+        if (!stream)
+            return 1;
+    }
     while (getline(&line, &len, stream) != -1)
         my_printf(line);
     fclose(stream);
