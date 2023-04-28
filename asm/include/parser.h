@@ -12,6 +12,8 @@
 
     /* op */
     op_t linker(char *mnemonique);
+    op_constructor_t *create_node(op_t op);
+    int destroy_node(op_constructor_t *node);
 
     /* parser */
     int parser(app_t *app);

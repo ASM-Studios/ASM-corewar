@@ -20,7 +20,7 @@
         FILE *input;
         FILE *output;
         header_t *header;
-        op_t *op;
+        op_constructor_t *op;
     } app_t;
 
     app_t *create_app(void);

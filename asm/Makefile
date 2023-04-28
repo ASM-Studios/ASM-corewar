@@ -9,7 +9,8 @@ MAIN_SRC	=	src/main.c
 
 MALLOC_SRC	=	src/my_malloc.c
 
-TEST_SRC	=	tests/asm.c \
+TEST_SRC	=	tests/op.c \
+				tests/asm.c \
 				tests/parser.c \
 				tests/open_file.c \
 				tests/create_app.c \
@@ -21,7 +22,7 @@ FILE_SRC	=	src/asm.c \
 				src/op/op.c \
 				src/op/linker.c \
 				src/op/create_node.c \
-				src/op/delete_node.c \
+				src/op/destroy_node.c \
 				\
 				src/parser/header.c \
 				src/parser/parser.c \

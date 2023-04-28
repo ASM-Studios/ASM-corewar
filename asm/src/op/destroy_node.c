@@ -7,7 +7,7 @@
 
 #include "../../include/prototype.h"
 
-int delete_node(op_constructor_t *node)
+int destroy_node(op_constructor_t *node)
 {
     free(node);
     return 0;
