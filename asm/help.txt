@@ -1,5 +1,16 @@
 USAGE
-./asm file_name[.s]
+    ./asm file_name[.s]
+
 DESCRIPTION
-file_name file in assembly language to be converted into file_name.cor, an
-executable in the Virtual Machine.
+    file_name file in assembly language to be converted into file_name.cor, an
+    executable in the Virtual Machine.
+
+OPTIONS
+    -h                  display the help
+
+RETURN VALUES
+    0                   Successful program execution,
+    1                   Usage, syntax or file error.
+
+BUGS
+    there is no bug
