@@ -17,6 +17,7 @@ TEST_SRC	=	tests/asm.c \
 				tests/array_manipulation.c \
 
 FILE_SRC	=	src/asm.c \
+				src/do_nothing.c \
 				\
 				src/parser/header.c \
 				src/parser/parser.c \
@@ -76,7 +77,7 @@ tests_run:	unit_tests
 			./$(TEST_EXE)
 
 clean:
-		rm -rf $(MAIN_OBJ) $(FILE_OBJ) $(TEST_OBJ)
+		rm -rf $(MAIN_OBJ) $(FILE_OBJ) $(TEST_OBJ) $(MALLOC_OBJ)
 		rm -rf vgcore*
 		$(shell find * -name "*.gcda" -delete)
 		$(shell find * -name "*.gcno" -delete)

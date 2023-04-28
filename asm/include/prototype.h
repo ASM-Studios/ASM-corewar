@@ -18,6 +18,9 @@
         #define malloc(size)    my_malloc(size)
     #endif
 
+    #define MAX_MALLOC 10
+    #define MIN_MALLOC 0
+
     #ifdef UNIT_TEST
         #define STATIC
     #else
@@ -27,6 +30,8 @@
     int asm_main(const char *path);
     int remove_trailing_space(char *line);
     void *my_malloc(size_t sz);
+
+    void do_nothing(void);
 
     /* file */
     char *get_basename(const char *path);

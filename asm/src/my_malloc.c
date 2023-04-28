@@ -7,12 +7,9 @@
 
 #include "../include/prototype.h"
 
-#define MAX 10
-#define MIN 0
-
 void *my_malloc(size_t sz)
 {
-    int state = rand() % ((MAX + 1) - MIN) + MIN;
+    int state = rand() % ((MAX_MALLOC + 1) - MIN_MALLOC) + MIN_MALLOC;
     void *ptr = NULL;
 
     if (state != 5)

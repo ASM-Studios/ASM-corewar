@@ -7,20 +7,22 @@
 
 #include "../../include/include.h"
 
-static int detect_start(int start, char *token, char separator)
+static int detect_start(int start, char *arg, char separator, char **token)
 {
     int i = start;
-    while (token[i] == separator) {
+
+    while (arg[i] == separator)
         i += 1;
-    }
-    if (token[i] == '\0')
+    if (arg[i] == '\0')
         return -1;
+    *token = my_strdup(&arg[i]);
     return i;
 }
 
-static int detect_end(char *token, char separator)
+static int detect_end(char **array, int *index, char *token, char separator)
 {
     int i = 0;
+
     while (token[i] != separator) {
         if (token[i] == '\0') {
             return -1;
@@ -28,28 +30,28 @@ static int detect_end(char *token, char separator)
         i += 1;
     }
     token[i] = '\0';
+    array[*index] = token;
+    *index += 1;
     return i;
 }
 
 char **split(char *arg, char separator)
 {
-    char **array = malloc(sizeof(char *) * my_strlen(arg));
-    int index = 0;
     int i = 0;
+    int j = 0;
+    int index = 0;
+    char *token = NULL;
+    char **array = malloc(sizeof(char *) * my_strlen(arg));
+
     while (arg[i] != '\0') {
-        i = detect_start(i, arg, separator);
+        i = detect_start(i, arg, separator, &token);
         if (i == -1)
             break;
-        char *token = my_strdup(&arg[i]);
-        int j = detect_end(token, separator);
+        j = detect_end(array, &index, token, separator);
         if (j == -1) {
-            array[index] = token;
-            index += 1;
             break;
         }
         i += j;
-        array[index] = token;
-        index += 1;
     }
     array[index] = NULL;
     return array;
