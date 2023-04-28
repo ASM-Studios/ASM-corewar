@@ -19,6 +19,7 @@ fclean:	clean
 		make -C ./lib fclean
 		make -C ./asm fclean
 		make -C ./corewar fclean
+		$(shell find * -name "*.cor" -delete)
 
 re:	fclean all
 
