@@ -47,7 +47,7 @@ FILE_SRC	=	src/asm.c \
 
 FILE_OBJ	=	$(FILE_SRC:.c=.o)
 MAIN_OBJ	=	$(MAIN_SRC:.c=.o)
-TEST_OBJ	=	$(TEST_SRC:.c=.o)
+TEST_OBJ	=	$(TEST_SRC:.c=_test.o)
 MALLOC_OBJ	=	$(MALLOC_SRC:.c=.o)
 
 CC	=	gcc
@@ -64,11 +64,14 @@ all:	$(EXE)
 %.o:	%.c
 		$(CC) -o $@ -c $< $(CFLAGS)
 
+%_test.o:	%.c
+			$(CC) -o $@ -c $<
+
 main.o:	main.c
 		$(CC) -o $@ -c $< $(CFLAGS)
 
 $(EXE):	$(MAIN_OBJ) $(FILE_OBJ)
-		$(CC) -o $(EXE) $^ $(LDFLAGS)
+		$(CC) -o $(EXE) $(MAIN_OBJ) $(FILE_OBJ) $(LDFLAGS)
 
 no_malloc:	$(MAIN_OBJ) $(FILE_OBJ) $(MALLOC_OBJ)
 			$(CC) -o $(EXE) $^ $(LDFLAGS)
@@ -76,15 +79,15 @@ no_malloc:	$(MAIN_OBJ) $(FILE_OBJ) $(MALLOC_OBJ)
 sanitize:	$(MAIN_OBJ) $(FILE_OBJ)
 			$(CC) -o $(EXE) $^ $(LDFLAGS)
 
-unit_tests: $(FILE_OBJ) $(TEST_OBJ)
-			$(CC) -o $(TEST_EXE) $^ $(LDFLAGS)
+unit_tests: clean $(FILE_OBJ) $(TEST_OBJ)
+			$(CC) -o $(TEST_EXE) $(FILE_OBJ) $(TEST_OBJ) $(LDFLAGS)
 
 tests_run:	unit_tests
 			./$(TEST_EXE)
 
 clean:
 		rm -rf $(MAIN_OBJ) $(FILE_OBJ) $(TEST_OBJ) $(MALLOC_OBJ)
-		rm -rf vgcore*
+		$(shell find * -name "vgcore.*" -delete)
 		$(shell find * -name "*.gcda" -delete)
 		$(shell find * -name "*.gcno" -delete)
 

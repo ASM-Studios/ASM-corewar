@@ -23,7 +23,7 @@ fclean:	clean
 
 re:	fclean all
 
-unit_tests:	clean
+unit_tests:
 			make -C ./lib
 			make -C ./asm unit_tests
 			make -C ./corewar unit_tests
