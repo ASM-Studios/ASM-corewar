@@ -17,9 +17,12 @@
     int append_node(op_constructor_t **node, op_t op);
 
     /* parser */
+    void *get_mid(char ***array);
+    int get_len(void **array, void *start, void *end);
     int parser(app_t *app);
-    int header(app_t *app, char **array, char *line);
-    int comment(app_t *app, char **array, char *line);
-    int parse_line(app_t *app, char *line);
+
+    int free_triple_array(char ***array);
+    char ***extract_header(char ***array, void *ptr);
+    char ***extract_body(char ***array, void *ptr);
 
 #endif //PARSER_H_

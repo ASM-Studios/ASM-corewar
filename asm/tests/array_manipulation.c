@@ -90,3 +90,15 @@ Test(print_array, null) {
     int status = print_array(array);
     cr_assert_eq(status, 0);
 }
+
+Test(trailing_space, basic) {
+    char string[] = "  this is line\n";
+    int status = remove_trailing_space(string);
+    cr_assert_str_eq(string, "this is line");
+}
+
+Test(trailing_space, empty) {
+    char string[] = "";
+    int status = remove_trailing_space(string);
+    cr_assert_str_eq(string, "");
+}

@@ -11,6 +11,12 @@
 #ifndef ASM_H_
     #define ASM_H_
 
+    typedef struct vector {
+        int i;
+        int j;
+        int k;
+    } vector_t;
+
     typedef struct op_constructor {
         op_t op;
         struct op_constructor *next;

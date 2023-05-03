@@ -25,10 +25,11 @@ FILE_SRC	=	src/asm.c \
 				src/op/destroy_node.c \
 				src/op/append_node.c \
 				\
-				src/parser/header.c \
 				src/parser/parser.c \
-				src/parser/comment.c \
-				src/parser/parse_line.c \
+				src/parser/body.c \
+				src/parser/header.c \
+				src/parser/get_len.c \
+				src/parser/get_mid.c \
 				src/parser/trailing_space.c \
 				\
 				src/array_manipulation/split.c \
