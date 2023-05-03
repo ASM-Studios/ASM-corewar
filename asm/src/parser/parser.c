@@ -7,7 +7,7 @@
 
 #include "../../include/prototype.h"
 
-STATIC int get_no_line(app_t *app)
+int get_no_line(app_t *app)
 {
     size_t len = 0;
     int no_line = 0;
@@ -21,7 +21,7 @@ STATIC int get_no_line(app_t *app)
     return no_line;
 }
 
-STATIC char ***file_to_array(app_t *app, int no_line)
+char ***file_to_array(app_t *app, int no_line)
 {
     int i = 0;
     size_t len = 0;
@@ -38,7 +38,7 @@ STATIC char ***file_to_array(app_t *app, int no_line)
     return array;
 }
 
-STATIC int free_parser_array(char ***header, char ***body, char ***array)
+int free_parser_array(char ***header, char ***body, char ***array)
 {
     free_triple_array(array);
     free(header);

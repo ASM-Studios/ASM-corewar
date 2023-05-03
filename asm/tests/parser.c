@@ -17,3 +17,10 @@ Test(parser, basic) {
     int status = parser(app);
     cr_assert_eq(status, 0);
 }
+
+Test(parser, no_line) {
+    app_t *app = create_app();
+    open_file(app, "./tests/tests_file/basic.s");
+    int no_line = get_no_line(app);
+    cr_assert_eq(no_line, 7);
+}
