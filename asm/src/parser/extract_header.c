@@ -7,11 +7,11 @@
 
 #include "../../include/prototype.h"
 
-char ***extract_header(char ***array, void *ptr)
+char **extract_header(char **array, void *ptr)
 {
     int i = 0;
     int no = get_len((void **)array, array[0], ptr);
-    char ***header = malloc(sizeof(char **) * (no + 1));
+    char **header = malloc(sizeof(char **) * (no + 1));
 
     while (array[i] != ptr) {
         header[i] = array[i];

@@ -37,7 +37,6 @@ int remove_trailing_space(char *line)
 {
     if (my_strlen(line) == 0)
         return 0;
-    remove_start_space(line);
     remove_end_space(line);
     return 0;
 }

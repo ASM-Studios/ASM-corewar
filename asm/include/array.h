@@ -8,6 +8,8 @@
 #ifndef ARRAY_H_
     #define ARRAY_H_
 
+    char *array_to_line(char **array);
+
     int free_double_array(char **array);
     int len_double_array(char **array);
     int print_double_array(char **array);

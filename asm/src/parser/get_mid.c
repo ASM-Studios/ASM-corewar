@@ -7,13 +7,13 @@
 
 #include "../../include/prototype.h"
 
-void *get_mid(char ***array)
+void *get_mid(char **array)
 {
     int i = 0;
     void *ptr = NULL;
 
     while (array[i] != NULL) {
-        if (len_double_array(array[i]) == 0) {
+        if (my_strlen(array[i]) == 0) {
             ptr = array[i];
             break;
         }

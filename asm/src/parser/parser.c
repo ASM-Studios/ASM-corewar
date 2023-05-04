@@ -21,16 +21,16 @@ int get_no_line(app_t *app)
     return no_line;
 }
 
-char ***file_to_array(app_t *app, int no_line)
+char **file_to_array(app_t *app, int no_line)
 {
     int i = 0;
     size_t len = 0;
     char *line = NULL;
-    char ***array = malloc(sizeof(char **) * (no_line + 1));
+    char **array = malloc(sizeof(char **) * (no_line + 1));
 
     while (getline(&line, &len, app->input) != -1) {
         remove_trailing_space(line);
-        array[i] = split(line, ' ');
+        array[i] = my_strdup(line);
         i += 1;
     }
     array[i] = NULL;
@@ -38,9 +38,9 @@ char ***file_to_array(app_t *app, int no_line)
     return array;
 }
 
-int free_parser_array(char ***header, char ***body, char ***array)
+int free_parser_array(char **header, char **body, char **array)
 {
-    free_triple_array(array);
+    free_double_array(array);
     free(header);
     free(body);
     return 0;
@@ -49,11 +49,13 @@ int free_parser_array(char ***header, char ***body, char ***array)
 int parser(app_t *app)
 {
     int no_line = get_no_line(app);
-    char ***array = file_to_array(app, no_line);
+    char **array = file_to_array(app, no_line);
     void *ptr = get_mid(array);
-    char ***header = extract_header(array, ptr);
-    char ***body = extract_body(array, ptr);
+    char **header = extract_header(array, ptr);
+    char **body = extract_body(array, ptr);
 
+    if (parse_header(app, header) == 84)
+        return 84;
     free_parser_array(header, body, array);
     return 0;
 }
