@@ -16,4 +16,4 @@ vgcore.
 *.gcda
 *.gcno
 *.cor
-tek_binary
+binary

@@ -26,7 +26,7 @@ app_t *create_app(void)
         return NULL;
     app->input = NULL;
     app->output = NULL;
-    app->header = malloc(sizeof(header_t));
-    app->header->magic = little_endian_converter(COREWAR_EXEC_MAGIC);
+    app->header.magic = little_endian_converter(COREWAR_EXEC_MAGIC);
+    app->header.prog_size = 0;
     return app;
 }

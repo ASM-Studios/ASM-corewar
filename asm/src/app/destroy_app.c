@@ -9,7 +9,6 @@
 
 int destroy_app(app_t *app)
 {
-    free(app->header);
     free(app);
     app = NULL;
     return 0;
