@@ -24,6 +24,8 @@ app_t *create_app(void)
 
     if (app == NULL)
         return NULL;
+
+    my_memset(&app->header, 0, sizeof(app->header));
     app->input = NULL;
     app->output = NULL;
     app->header.magic = little_endian_converter(COREWAR_EXEC_MAGIC);

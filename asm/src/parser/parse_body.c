@@ -26,7 +26,7 @@ STATIC int parse_body_line(app_t *app, char **body, int i)
 
     if (exp != NULL) {
         op_t op = linker(exp);
-        fwrite(&op, sizeof(op), 1, app->output);
+        //fwrite(&op, sizeof(op), 1, app->output);
     }
     free_double_array(array);
     return 0;
