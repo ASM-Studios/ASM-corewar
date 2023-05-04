@@ -16,3 +16,5 @@ vgcore.
 *.gcda
 *.gcno
 *.cor
+./tek_binary/asm
+./tek_binary/corewar
