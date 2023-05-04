@@ -32,6 +32,7 @@
     void *my_malloc(size_t sz);
 
     /* file */
+    char *get_filename(const char *path);
     char *get_basename(const char *path);
     char *get_suffix(const char *path);
 
