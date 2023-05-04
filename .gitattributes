@@ -1,0 +1,5 @@
+*.o binary
+asm/asm binary
+corewar/corewar binary
+*.s merge=ours
+*.cor   binary
