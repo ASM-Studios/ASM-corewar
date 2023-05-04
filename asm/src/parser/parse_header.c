@@ -12,12 +12,10 @@ STATIC int detect_start_end(int *r_start, int *r_end, int i)
     if (*r_start == -1) {
         *r_start = i + 1;
         return 0;
-    }
-    if (*r_start != -1) {
+    } else {
         *r_end = i;
         return 0;
     }
-    return 0;
 }
 
 STATIC char *extract_header_text_born(char *line, int start, int end)
