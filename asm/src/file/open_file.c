@@ -30,6 +30,7 @@ FILE *open_output_file(const char *path)
     FILE *output = fopen(filename, "wb");
 
     free(dest);
+    free(filename);
     return output;
 }
 

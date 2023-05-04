@@ -29,6 +29,7 @@ FILE_SRC	=	src/asm.c \
 				src/parser/extract_body.c \
 				src/parser/extract_header.c \
 				src/parser/parse_header.c \
+				src/parser/parse_body.c \
 				src/parser/get_len.c \
 				src/parser/get_mid.c \
 				src/parser/trailing_space.c \

@@ -7,6 +7,23 @@
 
 #include "../../include/prototype.h"
 
+STATIC int shift_char_array(char *line, int index)
+{
+    while (line[index] != '\0') {
+        line[index] = line[index + 1];
+        index += 1;
+    }
+    return 0;
+}
+
+STATIC int remove_start_space(char *line)
+{
+    while (line[0] == ' ') {
+        shift_char_array(line, 0);
+    }
+    return 0;
+}
+
 STATIC int remove_end_space(char *line)
 {
     int len = my_strlen(line);
@@ -20,6 +37,7 @@ int remove_trailing_space(char *line)
 {
     if (my_strlen(line) == 0)
         return 0;
+    remove_start_space(line);
     remove_end_space(line);
     return 0;
 }
