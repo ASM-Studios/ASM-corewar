@@ -24,3 +24,17 @@ Test(parser, no_line) {
     int no_line = get_no_line(app);
     cr_assert_eq(no_line, 7);
 }
+
+Test(parser, no_comment) {
+    app_t *app = create_app();
+    open_file(app, "./tests/tests_file/no_comment.s");
+    int status = parser(app);
+    cr_assert_eq(status, 84);
+}
+
+Test(parser, bad_comment) {
+    app_t *app = create_app();
+    open_file(app, "./tests/tests_file/bad_comment.s");
+    int status = parser(app);
+    cr_assert_eq(status, 84);
+}

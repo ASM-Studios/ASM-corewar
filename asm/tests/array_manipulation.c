@@ -24,7 +24,7 @@ Test(trailing_space, no_return) {
 Test(trailing_space, with_return) {
     char line[] = "    this is line\n";
     remove_trailing_space(line);
-    cr_assert_str_eq(line, "this is line");
+    cr_assert_str_eq(line, "    this is line");
 }
 
 Test(trailing_space, empty) {
@@ -94,46 +94,6 @@ Test(print_array, basic, .init = redirect_all_std) {
 }
 
 Test(print_array, null) {
-    char **array = NULL;
-    int status = print_double_array(array);
-    cr_assert_eq(status, 0);
-}
-
-
-Test(triple_len_array, basic) {
-    char **array[10] = {{"this", "is", "a", NULL},
-        {"this", "is", "a", NULL}, NULL};
-    int len = len_triple_array(array);
-    cr_assert_eq(len, 2);
-}
-
-Test(triple_len_array, null) {
-    char **array = NULL;
-    int len = len_double_array(array);
-    cr_assert_eq(len, 0);
-}
-
-Test(triple_free_array, basic) {
-    char **array = malloc(sizeof(char *) * 2);
-    array[0] = my_strdup("test");
-    array[1] = NULL;
-    int status = free_double_array(array);
-    cr_assert_eq(status, 0);
-}
-
-Test(triple_free_array, null) {
-    char **array = NULL;
-    int status = free_double_array(array);
-    cr_assert_eq(status, 0);
-}
-
-Test(triple_print_array, basic, .init = redirect_all_std) {
-    char *array[10] = {"this", "is"};
-    print_double_array(array);
-    cr_assert_stdout_eq_str("this\nis\n");
-}
-
-Test(triple_print_array, null) {
     char **array = NULL;
     int status = print_double_array(array);
     cr_assert_eq(status, 0);

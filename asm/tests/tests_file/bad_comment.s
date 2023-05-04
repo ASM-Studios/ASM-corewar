@@ -1,4 +1,5 @@
-        .name "Jon Snow"
+        .name "Jon Snow
+        .comment "Jon Snow"
 
         sti r1, %:crow, %1
 crow:   live %234

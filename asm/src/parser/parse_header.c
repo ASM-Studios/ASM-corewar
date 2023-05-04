@@ -7,6 +7,19 @@
 
 #include "../../include/prototype.h"
 
+STATIC int detect_start_end(int *r_start, int *r_end, int i)
+{
+    if (*r_start == -1) {
+        *r_start = i + 1;
+        return 0;
+    }
+    if (*r_start != -1) {
+        *r_end = i;
+        return 0;
+    }
+    return 0;
+}
+
 STATIC char *extract_header_text_born(char *line, int start, int end)
 {
     int i = start;
@@ -14,11 +27,9 @@ STATIC char *extract_header_text_born(char *line, int start, int end)
     int r_end = -1;
     char *text = NULL;
 
-    while (i != end && line[i] != '\0') {
-        if (line[i] == '"' && r_start == -1)
-            r_start = i + 1;
-        if (line[i] == '"' && r_start != -1)
-            r_end = i;
+    while (i <= end && line[i] != '\0') {
+        if (line[i] == '"')
+            detect_start_end(&r_start, &r_end, i);
         i += 1;
     }
     if (r_start == -1 || r_end == -1)
@@ -36,7 +47,7 @@ STATIC int extract_header_text(app_t *app, char *line)
 
     if (name == -1 || comment == -1)
         return 84;
-    name_t = extract_header_text_born(line, name + 5, comment);
+    name_t = extract_header_text_born(line, name + 5, comment - 1);
     comment_t = extract_header_text_born(line, comment + 8, my_strlen(line));
     if (name_t == NULL || comment_t == NULL)
         return 84;
