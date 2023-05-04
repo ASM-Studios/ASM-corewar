@@ -2,20 +2,21 @@
 ** EPITECH PROJECT, 2023
 ** ASM-corewar
 ** File description:
-** print_array.c
+** free_array.c
 */
 
-#include "../../include/prototype.h"
+#include "../../../include/prototype.h"
 
-int print_array(char **array)
+int free_triple_array(char ***array)
 {
     int i = 0;
 
     if (array == NULL)
         return 0;
     while (array[i] != NULL) {
-        my_printf("%s\n", array[i]);
+        free_double_array(array[i]);
         i += 1;
     }
+    free(array);
     return 0;
 }

@@ -26,16 +26,19 @@ FILE_SRC	=	src/asm.c \
 				src/op/append_node.c \
 				\
 				src/parser/parser.c \
-				src/parser/body.c \
-				src/parser/header.c \
+				src/parser/extract_body.c \
+				src/parser/extract_header.c \
 				src/parser/get_len.c \
 				src/parser/get_mid.c \
 				src/parser/trailing_space.c \
 				\
-				src/array_manipulation/split.c \
-				src/array_manipulation/free_array.c \
-				src/array_manipulation/len_array.c \
-				src/array_manipulation/print_array.c \
+				src/array/split.c \
+				src/array/double/free_array.c \
+				src/array/double/len_array.c \
+				src/array/double/print_array.c \
+				src/array/triple/free_array.c \
+				src/array/triple/len_array.c \
+				src/array/triple/print_array.c \
 				\
 				src/file/open_file.c \
 				src/file/close_file.c \

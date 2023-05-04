@@ -24,7 +24,6 @@
     int get_len(void **array, void *start, void *end);
     int parser(app_t *app);
 
-    int free_triple_array(char ***array);
     char ***extract_header(char ***array, void *ptr);
     char ***extract_body(char ***array, void *ptr);
 
