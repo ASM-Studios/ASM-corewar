@@ -5,9 +5,9 @@
 ** len_array.c
 */
 
-#include "../../include/prototype.h"
+#include "../../../include/prototype.h"
 
-int len_array(char **array)
+int len_double_array(char **array)
 {
     int i = 0;
 

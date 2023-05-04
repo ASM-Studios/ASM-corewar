@@ -5,9 +5,9 @@
 ** free_array.c
 */
 
-#include "../../include/prototype.h"
+#include "../../../include/prototype.h"
 
-int free_array(char **array)
+int free_double_array(char **array)
 {
     int i = 0;
 

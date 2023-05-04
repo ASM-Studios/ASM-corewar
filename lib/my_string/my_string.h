@@ -25,7 +25,9 @@
     int my_strcmp(const char *str_1, const char *str_2);
     int my_strncmp(const char *str_1, const char *str_2, int n);
     char *my_strdup(const char *src);
+    char *my_strndup(const char *src, int n);
     char *my_revstr(char *str);
     int my_strerror(int errnum);
+    int my_strstr(const char *fullstring, const char *substring);
 
 #endif

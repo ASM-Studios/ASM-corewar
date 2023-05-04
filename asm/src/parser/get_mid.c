@@ -2,20 +2,22 @@
 ** EPITECH PROJECT, 2023
 ** ASM-corewar
 ** File description:
-** print_array.c
+** get_mid.c
 */
 
 #include "../../include/prototype.h"
 
-int print_array(char **array)
+void *get_mid(char **array)
 {
     int i = 0;
+    void *ptr = NULL;
 
-    if (array == NULL)
-        return 0;
     while (array[i] != NULL) {
-        my_printf("%s\n", array[i]);
+        if (my_strlen(array[i]) == 0) {
+            ptr = array[i];
+            break;
+        }
         i += 1;
     }
-    return 0;
+    return ptr;
 }

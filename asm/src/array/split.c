@@ -43,7 +43,7 @@ char **split(char *arg, char separator)
     int j = 0;
     int index = 0;
     char *token = NULL;
-    char **array = malloc(sizeof(char *) * my_strlen(arg));
+    char **array = malloc(sizeof(char *) * (my_strlen(arg) + 1));
 
     while (arg[i] != '\0') {
         i = detect_start(i, arg, separator, &token);
