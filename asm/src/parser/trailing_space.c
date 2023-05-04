@@ -18,7 +18,7 @@ STATIC int shift_char_array(char *line, int index)
 
 STATIC int remove_start_space(char *line)
 {
-    while (line[0] == ' ') {
+    while (line[0] == ' ' || line[0] == '\t') {
         shift_char_array(line, 0);
     }
     return 0;
@@ -37,7 +37,7 @@ int remove_trailing_space(char *line)
 {
     if (my_strlen(line) == 0)
         return 0;
-    remove_start_space(line);
     remove_end_space(line);
+    remove_start_space(line);
     return 0;
 }

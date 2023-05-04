@@ -1,4 +1,4 @@
-	.name "Bill"
+    .name "Bill"
 	.comment "Equilibre"
 
 	sti r1, %:live, %1

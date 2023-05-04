@@ -58,6 +58,7 @@ int parser(app_t *app)
         return 84;
     if (parse_header(app, header) == 84)
         return 84;
+    fwrite(&app->header, sizeof(app->header), 1, app->output);
     if (parse_body(app, body) == 84)
         return 84;
     free_parser_array(header, body, array);

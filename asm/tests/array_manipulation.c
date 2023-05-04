@@ -22,7 +22,7 @@ Test(trailing_space, no_return) {
 }
 
 Test(trailing_space, with_return) {
-    char line[] = "    this is line\n";
+    char line[] = "    this is line";
     remove_trailing_space(line);
     cr_assert_str_eq(line, "this is line");
 }

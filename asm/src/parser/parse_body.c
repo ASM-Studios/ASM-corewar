@@ -22,8 +22,12 @@ STATIC int parse_body_line(app_t *app, char **body, int i)
 {
     char *line = body[i];
     char **array = split(line, ' ');
+    char *exp = (is_label(array[0]) == 1) ? array[1] : array[0];
 
-
+    if (exp != NULL) {
+        op_t op = linker(exp);
+        fwrite(&op, sizeof(op), 1, app->output);
+    }
     free_double_array(array);
     return 0;
 }
