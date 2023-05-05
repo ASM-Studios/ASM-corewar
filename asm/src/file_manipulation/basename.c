@@ -7,22 +7,43 @@
 
 #include "../../include/prototype.h"
 
+char *get_filename(const char *path)
+{
+    int i = my_strlen(path) - 1;
+    char *filename = NULL;
+
+    while (i >= 0) {
+        if (path[i] == '/') {
+            break;
+        }
+        i -= 1;
+    }
+    i += 1;
+    filename = my_strdup(&path[i]);
+    return filename;
+}
+
 char *get_basename(const char *path)
 {
-    int i = 0;
-    char *copy = my_strdup(path);
+    int i = my_strlen(path) - 1;
+    char *basename = my_strdup(path);
 
-    while (copy[i] != '.' && copy[i] != '\0') {
-        i += 1;
+    while (i >= 0) {
+        if (path[i] == '.')
+            break;
+        i -= 1;
     }
-    copy[i] = '\0';
-    return copy;
+    if (i == 0)
+        return basename;
+    basename[i] = '\0';
+    return basename;
 }
 
 char *get_suffix(const char *path)
 {
     int i = my_strlen(path) - 1;
     char *suffix = NULL;
+
     while (i >= 0) {
         if (path[i] == '.')
             break;

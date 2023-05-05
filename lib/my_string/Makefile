@@ -6,10 +6,12 @@
 ##
 
 SRC	=   my_putstr.c	\
+		my_memset.c \
 		my_strlen.c	\
 		my_strcat.c	\
 		my_strcpy.c	\
 		my_strdup.c	\
+		my_strndup.c \
 		my_strcmp.c	\
 		my_revstr.c	\
 		my_strncpy.c	\
@@ -18,7 +20,7 @@ SRC	=   my_putstr.c	\
 		my_strncmp.c	\
 		my_strappend.c	\
 		my_stricat.c \
-
+		my_strstr.c
 
 CC	=	gcc
 OBJ	=	$(SRC:.c=.o)

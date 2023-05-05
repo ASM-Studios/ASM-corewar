@@ -12,6 +12,8 @@
     #include <stdlib.h>
     #include <string.h>
     #include <errno.h>
+    #include <time.h>
+    #include <stdint.h>
 
     #include "my_lib.h"
 

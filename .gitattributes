@@ -1,0 +1,11 @@
+*.c             text=ascii
+*.h             text=ascii
+Makefile        text=ascii
+
+*.s             merge=ours
+*.cor           binary
+
+*.o             binary
+*.a             binary
+asm/asm         binary
+corewar/corewar binary
