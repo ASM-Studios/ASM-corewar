@@ -28,5 +28,6 @@
     char **extract_body(char **array, void *ptr);
 
     int parse_header(app_t *app, char **header);
+    int parse_body(app_t *app, char **body);
 
 #endif //PARSER_H_

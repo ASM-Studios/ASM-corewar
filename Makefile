@@ -34,3 +34,13 @@ tests_run:	unit_tests
 
 clib:
 		make -C ./lib
+
+export_man:
+			sudo cp ./man/asm.1 /usr/share/man/man1/
+			sudo cp ./man/corewar.1 /usr/share/man/man1/
+			sudo gzip /usr/share/man/man1/asm.1
+			sudo gzip /usr/share/man/man1/corewar.1
+
+delete_man:
+			sudo rm /usr/share/man/man1/asm.1.gz
+			sudo rm /usr/share/man/man1/corewar.1.gz

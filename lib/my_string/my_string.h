@@ -29,5 +29,6 @@
     char *my_revstr(char *str);
     int my_strerror(int errnum);
     int my_strstr(const char *fullstring, const char *substring);
+    void *my_memset(void *ptr, int c, size_t n);
 
 #endif

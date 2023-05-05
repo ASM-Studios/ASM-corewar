@@ -92,3 +92,15 @@ Test(get_suffix, no_suffix) {
     char *suffix = get_suffix(path);
     cr_assert_null(suffix);
 }
+
+Test(get_filename, basic) {
+    char path[] = "./test/test.s";
+    char *new_path = get_filename(path);
+    cr_assert_str_eq(new_path, "test.s");
+}
+
+Test(get_filename, no_folder) {
+    char path[] = "test.s";
+    char *new_path = get_filename(path);
+    cr_assert_str_eq(new_path, "test.s");
+}

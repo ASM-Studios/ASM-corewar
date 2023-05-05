@@ -25,7 +25,7 @@
     typedef struct app {
         FILE *input;
         FILE *output;
-        header_t *header;
+        header_t header;
         op_constructor_t *op;
     } app_t;
 

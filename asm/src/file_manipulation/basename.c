@@ -7,6 +7,22 @@
 
 #include "../../include/prototype.h"
 
+char *get_filename(const char *path)
+{
+    int i = my_strlen(path) - 1;
+    char *filename = NULL;
+
+    while (i >= 0) {
+        if (path[i] == '/') {
+            break;
+        }
+        i -= 1;
+    }
+    i += 1;
+    filename = my_strdup(&path[i]);
+    return filename;
+}
+
 char *get_basename(const char *path)
 {
     int i = my_strlen(path) - 1;

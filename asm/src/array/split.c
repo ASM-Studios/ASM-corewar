@@ -5,13 +5,13 @@
 ** split
 */
 
-#include "../../include/include.h"
+#include "../../include/prototype.h"
 
-static int detect_start(int start, char *arg, char separator, char **token)
+static int detect_start(int start, char *arg, char *separator, char **token)
 {
     int i = start;
 
-    while (arg[i] == separator)
+    while (is_in(arg[i], separator) == 1)
         i += 1;
     if (arg[i] == '\0')
         return -1;
@@ -19,11 +19,11 @@ static int detect_start(int start, char *arg, char separator, char **token)
     return i;
 }
 
-static int detect_end(char **array, int *index, char *token, char separator)
+static int detect_end(char **array, int *index, char *token, char *separator)
 {
     int i = 0;
 
-    while (token[i] != separator) {
+    while (is_in(token[i], separator) == 0) {
         if (token[i] == '\0') {
             array[*index] = token;
             *index += 1;
@@ -37,7 +37,7 @@ static int detect_end(char **array, int *index, char *token, char separator)
     return i;
 }
 
-char **split(char *arg, char separator)
+char **split(char *arg, char *separator)
 {
     int i = 0;
     int j = 0;

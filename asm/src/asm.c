@@ -17,7 +17,13 @@ int asm_main(const char *path)
         return 84;
     if (parser(app) == 84)
         return 84;
-    fwrite(app->header, sizeof(header_t), 1, app->output);
+    app->header.prog_size = little_endian_converter(app->header.prog_size);
+    fwrite(&app->header, sizeof(app->header), 1, app->output);
+    op_constructor_t *op = app->op;
+    while (op != NULL) {
+        fwrite(&(op->op), sizeof(op_t), 1, app->output);
+        op = op->next;
+    }
     close_file(app);
     destroy_app(app);
     return 0;
