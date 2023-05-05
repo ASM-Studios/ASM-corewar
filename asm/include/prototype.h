@@ -28,6 +28,7 @@
     #endif
 
     int asm_main(const char *path);
+    int little_endian_converter(int number);
     int remove_trailing_space(char *line);
     void *my_malloc(size_t sz);
 
