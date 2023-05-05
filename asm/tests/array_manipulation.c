@@ -35,7 +35,7 @@ Test(trailing_space, empty) {
 
 Test(split, basic) {
     char line[] = "this is line";
-    char **array = split(line, ' ');
+    char **array = split(line, " ");
     cr_assert_str_eq(array[0], "this");
     cr_assert_str_eq(array[1], "is");
     cr_assert_str_eq(array[2], "line");
@@ -45,7 +45,7 @@ Test(split, basic) {
 
 Test(split, multiple_space) {
     char line[] = "  hello   this  ";
-    char **array = split(line, ' ');
+    char **array = split(line, " ");
     cr_assert_str_eq(array[0], "hello");
     cr_assert_str_eq(array[1], "this");
     cr_assert_null(array[2]);
@@ -54,7 +54,7 @@ Test(split, multiple_space) {
 
 Test(split, empty) {
     char line[] = "";
-    char **array = split(line, ' ');
+    char **array = split(line, " ");
     cr_assert_null(array[0]);
     free_double_array(array);
 }

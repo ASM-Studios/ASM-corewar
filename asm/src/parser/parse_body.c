@@ -7,8 +7,6 @@
 
 #include "../../include/prototype.h"
 
-//TODO change split function to admit char * & not only char
-
 STATIC int is_label(char *exp)
 {
     int len = my_strlen(exp);
@@ -23,7 +21,7 @@ STATIC int is_label(char *exp)
 STATIC int parse_body_line(app_t *app, char **body, int i)
 {
     char *line = body[i];
-    char **array = split(line, ' ');
+    char **array = split(line, " \t");
     char *exp = (is_label(array[0]) == 1) ? array[1] : array[0];
 
     if (exp != NULL) {
