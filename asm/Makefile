@@ -18,6 +18,7 @@ TEST_SRC	=	tests/op.c \
 				tests/array_manipulation.c \
 
 FILE_SRC	=	src/asm.c \
+				src/write_file.c \
 				\
 				src/op/op.c \
 				src/op/linker.c \
@@ -25,6 +26,9 @@ FILE_SRC	=	src/asm.c \
 				src/op/destroy_node.c \
 				src/op/append_node.c \
 				src/op/destroy_list.c \
+				\
+				src/parameter/create_parameter.c \
+				src/parameter/destroy_parameter.c \
 				\
 				src/parser/parser.c \
 				src/parser/extract_body.c \

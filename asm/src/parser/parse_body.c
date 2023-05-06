@@ -21,12 +21,13 @@ STATIC int is_label(char *exp)
 STATIC int parse_body_line(app_t *app, char **body, int i)
 {
     char *line = body[i];
-    char **array = split(line, " \t");
+    char **array = split(line, " ,\t");
     char *exp = (is_label(array[0]) == 1) ? array[1] : array[0];
 
     if (exp != NULL) {
+        print_double_array(array);
         op_t op = linker(exp);
-        app->header.prog_size += sizeof(op);
+        app->header.prog_size += (1 + op.nbr_args);
         append_node(&(app->op), op);
     }
     free_double_array(array);
