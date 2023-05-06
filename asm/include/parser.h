@@ -15,6 +15,7 @@
     op_constructor_t *create_node(op_t op);
     int destroy_node(op_constructor_t *node);
     int append_node(op_constructor_t **node, op_t op);
+    int destroy_list(op_constructor_t *op);
 
     char **file_to_array(app_t *app, int no_line);
     int get_no_line(app_t *app);

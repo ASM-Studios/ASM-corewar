@@ -7,6 +7,14 @@
 
 #include "../include/prototype.h"
 
+STATIC int close_app(app_t *app)
+{
+    destroy_list(app->op);
+    close_file(app);
+    destroy_app(app);
+    return 0;
+}
+
 int asm_main(const char *path)
 {
     app_t *app = create_app();
@@ -21,10 +29,9 @@ int asm_main(const char *path)
     fwrite(&app->header, sizeof(app->header), 1, app->output);
     op_constructor_t *op = app->op;
     while (op != NULL) {
-        fwrite(&(op->op), sizeof(op_t), 1, app->output);
+        printf("%s\n", op->op.mnemonique);
         op = op->next;
     }
-    close_file(app);
-    destroy_app(app);
+    close_app(app);
     return 0;
 }

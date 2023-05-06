@@ -24,6 +24,7 @@ FILE_SRC	=	src/asm.c \
 				src/op/create_node.c \
 				src/op/destroy_node.c \
 				src/op/append_node.c \
+				src/op/destroy_list.c \
 				\
 				src/parser/parser.c \
 				src/parser/extract_body.c \
