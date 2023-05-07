@@ -13,6 +13,7 @@ op_constructor_t *create_node(op_t op, parameter_t **parameter)
 
     node->op = op;
     node->parameter = parameter;
+    node->bytecode = 1;
     node->next = NULL;
     return node;
 }

@@ -24,6 +24,7 @@
 
     typedef struct op_constructor {
         op_t op;
+        int bytecode;
         parameter_t **parameter;
         struct op_constructor *next;
     } op_constructor_t;

@@ -22,6 +22,7 @@ STATIC parameter_t **detect_parameter(app_t *app, char **arg, op_t op)
 {
     int i = 0;
     parameter_t **parameters = create_parameter_list();
+
     while (arg[i] != NULL) {
         args_type_t type = get_parameter_type(arg[i]);
         parameters[i] = create_parameter(arg[i], type);
@@ -40,7 +41,8 @@ STATIC int parse_body_line(app_t *app, char **body, int i)
     if (exp != NULL) {
         op_t op = linker(exp);
         parameter_t **parameters = detect_parameter(app, arg, op);
-        append_node(&(app->op), op, parameters);
+        op_constructor_t *op_c = append_node(&(app->op), op, parameters);
+        calcul_bytecode(op_c);
     }
     free_double_array(array);
     return 0;

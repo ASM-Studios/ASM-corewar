@@ -18,7 +18,9 @@ TEST_SRC	=	tests/op.c \
 				tests/array_manipulation.c \
 
 FILE_SRC	=	src/asm.c \
-				src/write_file.c \
+				\
+				src/write/write_file.c \
+				src/write/write_value.c \
 				\
 				src/op/op.c \
 				src/op/linker.c \
@@ -39,6 +41,7 @@ FILE_SRC	=	src/asm.c \
 				src/parser/get_len.c \
 				src/parser/get_mid.c \
 				src/parser/trailing_space.c \
+				src/parser/calcul_bytecode.c \
 				\
 				src/array/is_in.c \
 				src/array/split.c \

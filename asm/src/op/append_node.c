@@ -24,7 +24,8 @@ STATIC int create_final_node(op_constructor_t *node,
     return 0;
 }
 
-int append_node(op_constructor_t **node, op_t op, parameter_t **parameter)
+op_constructor_t *append_node(op_constructor_t **node, op_t op,
+    parameter_t **parameter)
 {
     op_constructor_t *op_constructor = create_node(op, parameter);
 
@@ -33,5 +34,5 @@ int append_node(op_constructor_t **node, op_t op, parameter_t **parameter)
     } else {
         create_final_node((*node), op_constructor);
     }
-    return 0;
+    return op_constructor;
 }
