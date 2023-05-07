@@ -10,7 +10,7 @@ corewar/corewar_test
 *.idea
 .idea
 *.vgcore
-vgcore.
+vgcore.*
 *.log
 .log
 *.gcda
