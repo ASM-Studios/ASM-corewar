@@ -5,7 +5,7 @@
 ** parse_body.c
 */
 
-#include "../../include/prototype.h"
+#include "../../../include/prototype.h"
 
 STATIC int is_label(char *exp)
 {

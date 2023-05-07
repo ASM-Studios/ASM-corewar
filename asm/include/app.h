@@ -17,6 +17,11 @@
         int k;
     } vector_t;
 
+    typedef struct label {
+        char *name;
+        int position;
+    } label_t;
+
     typedef struct parameter {
         args_type_t type;
         char *arg;

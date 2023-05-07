@@ -34,17 +34,17 @@ FILE_SRC	=	src/asm.c \
 				src/parameter/get_parameter_type.c \
 				\
 				src/parser/parser.c \
-				src/parser/extract_body.c \
-				src/parser/extract_header.c \
-				src/parser/parse_header.c \
-				src/parser/parse_body.c \
 				src/parser/get_len.c \
 				src/parser/get_mid.c \
-				src/parser/trailing_space.c \
 				src/parser/calcul_bytecode.c \
+				src/parser/body/extract_body.c \
+				src/parser/body/parse_body.c \
+				src/parser/header/extract_header.c \
+				src/parser/header/parse_header.c \
 				\
 				src/array/is_in.c \
 				src/array/split.c \
+				src/array/trailing_space.c \
 				src/array/double/array_to_line.c \
 				src/array/double/free_array.c \
 				src/array/double/len_array.c \
