@@ -40,5 +40,6 @@
 
     parameter_t *create_parameter(char *arg, args_type_t type);
     int destroy_parameter(parameter_t *parameter);
+    args_type_t get_parameter_type(char *parameter);
 
 #endif //ASM_H_

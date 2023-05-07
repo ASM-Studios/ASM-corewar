@@ -29,6 +29,7 @@ FILE_SRC	=	src/asm.c \
 				\
 				src/parameter/create_parameter.c \
 				src/parameter/destroy_parameter.c \
+				src/parameter/get_parameter_type.c \
 				\
 				src/parser/parser.c \
 				src/parser/extract_body.c \

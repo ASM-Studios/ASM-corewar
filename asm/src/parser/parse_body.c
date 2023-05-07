@@ -25,8 +25,8 @@ STATIC int parse_body_line(app_t *app, char **body, int i)
     char *exp = (is_label(array[0]) == 1) ? array[1] : array[0];
 
     if (exp != NULL) {
-        print_double_array(array);
         op_t op = linker(exp);
+        my_printf("%s\n%s - %d\n\n", line, array[1], get_parameter_type(array[1]));
         app->header.prog_size += (1 + op.nbr_args);
         append_node(&(app->op), op);
     }
