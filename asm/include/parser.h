@@ -12,9 +12,9 @@
 
     /* op */
     op_t linker(char *mnemonique);
-    op_constructor_t *create_node(op_t op);
+    op_constructor_t *create_node(op_t op, parameter_t **parameter);
     int destroy_node(op_constructor_t *node);
-    int append_node(op_constructor_t **node, op_t op);
+    int append_node(op_constructor_t **node, op_t op, parameter_t **parameter);
     int destroy_list(op_constructor_t *op);
 
     char **file_to_array(app_t *app, int no_line);

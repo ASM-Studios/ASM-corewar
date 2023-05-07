@@ -18,17 +18,29 @@ STATIC int is_label(char *exp)
     }
 }
 
+STATIC parameter_t **detect_parameter(app_t *app, char **arg, op_t op)
+{
+    int i = 0;
+    parameter_t **parameters = create_parameter_list();
+    while (arg[i] != NULL) {
+        args_type_t type = get_parameter_type(arg[i]);
+        parameters[i] = create_parameter(arg[i], type);
+        i += 1;
+    }
+    return parameters;
+}
+
 STATIC int parse_body_line(app_t *app, char **body, int i)
 {
     char *line = body[i];
     char **array = split(line, " ,\t");
     char *exp = (is_label(array[0]) == 1) ? array[1] : array[0];
+    char **arg = (is_label(array[0]) == 1) ? &array[2] : &array[1];
 
     if (exp != NULL) {
         op_t op = linker(exp);
-        my_printf("%s\n%s - %d\n\n", line, array[1], get_parameter_type(array[1]));
-        app->header.prog_size += (1 + op.nbr_args);
-        append_node(&(app->op), op);
+        parameter_t **parameters = detect_parameter(app, arg, op);
+        append_node(&(app->op), op, parameters);
     }
     free_double_array(array);
     return 0;

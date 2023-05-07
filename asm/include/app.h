@@ -24,7 +24,7 @@
 
     typedef struct op_constructor {
         op_t op;
-        parameter_t *parameter;
+        parameter_t **parameter;
         struct op_constructor *next;
     } op_constructor_t;
 
@@ -39,7 +39,9 @@
     int destroy_app(app_t *app);
 
     parameter_t *create_parameter(char *arg, args_type_t type);
+    parameter_t **create_parameter_list(void);
     int destroy_parameter(parameter_t *parameter);
+    int destroy_parameter_list(parameter_t **list);
     args_type_t get_parameter_type(char *parameter);
 
 #endif //ASM_H_

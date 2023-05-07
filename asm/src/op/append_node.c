@@ -24,9 +24,9 @@ STATIC int create_final_node(op_constructor_t *node,
     return 0;
 }
 
-int append_node(op_constructor_t **node, op_t op)
+int append_node(op_constructor_t **node, op_t op, parameter_t **parameter)
 {
-    op_constructor_t *op_constructor = create_node(op);
+    op_constructor_t *op_constructor = create_node(op, parameter);
 
     if ((*node) == NULL) {
         create_first_node(node, op_constructor);
