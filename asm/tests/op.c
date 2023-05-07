@@ -13,7 +13,7 @@ void redirect_all_std(void);
 
 Test(op, create_node) {
     op_t op = linker("live");
-    op_constructor_t *node = create_node(op);
+    op_constructor_t *node = create_node(op, NULL);
     cr_assert_not_null(node);
     destroy_node(node);
 }
@@ -33,7 +33,7 @@ Test(op, no_link) {
 Test(op_linked_list, creation) {
     op_constructor_t *initial_node = NULL;
     op_t op = linker("live");
-    append_node(&initial_node, op);
+    append_node(&initial_node, op, NULL);
     cr_assert_not_null(initial_node);
     cr_assert_null(initial_node->next);
     cr_assert_eq(initial_node->op.code, 1);
@@ -42,9 +42,9 @@ Test(op_linked_list, creation) {
 Test(op_linked_list, append) {
     op_constructor_t *initial_node = NULL;
     op_t op = linker("live");
-    append_node(&initial_node, op);
+    append_node(&initial_node, op, NULL);
     op = linker("ld");
-    append_node(&initial_node, op);
+    append_node(&initial_node, op, NULL);
     cr_assert_not_null(initial_node);
     cr_assert_not_null(initial_node->next);
     cr_assert_null(initial_node->next->next);
@@ -55,11 +55,11 @@ Test(op_linked_list, append) {
 Test(op_linked_list, append_big) {
     op_constructor_t *initial_node = NULL;
     op_t op = linker("live");
-    append_node(&initial_node, op);
+    append_node(&initial_node, op, NULL);
     op = linker("ld");
-    append_node(&initial_node, op);
+    append_node(&initial_node, op, NULL);
     op = linker("st");
-    append_node(&initial_node, op);
+    append_node(&initial_node, op, NULL);
 
     cr_assert_not_null(initial_node);
     cr_assert_not_null(initial_node->next);
