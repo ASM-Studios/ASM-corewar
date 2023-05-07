@@ -10,7 +10,6 @@
 STATIC int write_parameter(app_t *app, op_constructor_t *op)
 {
     int i = 0;
-    int value = 0;
 
     while (i < 4) {
         if (op->parameter[i] == NULL) {
