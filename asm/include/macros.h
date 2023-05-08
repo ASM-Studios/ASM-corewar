@@ -10,4 +10,7 @@
 
     #define MAX_SIZE    1024
 
+    #define LEN(x)  my_strlen(x)
+    #define END(x)  x[my_strlen(x) - 1]
+
 #endif //MACROS_H_

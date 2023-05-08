@@ -9,8 +9,14 @@
 
 label_t *create_label(char *name, int position)
 {
+    int len_name = my_strlen(name);
     label_t *label = malloc(sizeof(label_t));
-    label->name = my_strdup(name);
+
+    if (name[len_name - 1] == ':') {
+        label->name = my_strndup(name, len_name - 1);
+    } else {
+        label->name = my_strdup(name);
+    }
     label->position = position;
     return label;
 }

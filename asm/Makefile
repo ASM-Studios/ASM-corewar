@@ -44,6 +44,7 @@ FILE_SRC	=	src/asm.c \
 				src/parser/header/extract_header.c \
 				src/parser/header/parse_header.c \
 				\
+				src/parser/label/existing_label.c \
 				src/parser/label/is_label.c \
 				src/parser/label/get_no_label.c \
 				src/parser/label/parse_label.c \

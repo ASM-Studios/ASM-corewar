@@ -51,6 +51,7 @@
     int destroy_parameter_list(parameter_t **list);
     args_type_t get_parameter_type(char *parameter);
 
+    int is_existing_label(label_t **label, char *name);
     int is_label(char *exp);
     int get_no_label(app_t *app, char **body);
     label_t *create_label(char *name, int position);

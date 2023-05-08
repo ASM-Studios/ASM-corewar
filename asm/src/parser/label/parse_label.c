@@ -18,32 +18,34 @@ STATIC int fill_label(app_t *app, char **body, label_t **label)
     while (body[i] != NULL) {
         array = split(body[i], " \t");
         if (is_label(array[0]) == 1) {
-            label[index] = malloc(sizeof(label_t));
-            label[index]->name = my_strndup(array[0], my_strlen(array[0]) - 1);
-            label[index]->position = real_position;
-            index += 1;
+            if (is_existing_label(label, array[0]) == 1)
+                return 84;
+            label[index++] = create_label(array[0], real_position);
         }
-        if (is_label(array[0]) == 1) {
-            real_position = real_position + 1 + linker(array[1]).nbr_args;
-            op = linker(array[1]);
-        } else {
-            real_position = real_position + 1 + linker(array[0]).nbr_args;
-            op = linker(array[0]);
-        }
-        if (op.code != 1 || op.code != 9 || op.code != 12 || op.code != 15)
-            real_position += 1;
         free_double_array(array);
         i += 1;
     }
-    label[index] = NULL;
     return 0;
+}
+
+STATIC label_t **alloc_label_array(int no_label)
+{
+    int i = 0;
+    label_t **label = malloc(sizeof(label_t) * (no_label + 1));
+
+    while(i <= no_label) {
+        label[i] = NULL;
+        i += 1;
+    }
+    return label;
 }
 
 int parse_label(app_t *app, char **body)
 {
     int no_label = get_no_label(app, body);
-    app->label = malloc(sizeof(label_t) * (no_label + 1));
+    app->label = alloc_label_array(no_label);
 
-    fill_label(app, body, app->label);
+    if(fill_label(app, body, app->label) == 84)
+        return 84;
     return 0;
 }
