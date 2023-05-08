@@ -55,8 +55,21 @@
 
     int check_param(parameter_t *parameter, char op, int param_index);
     int check_param_bop(parameter_t *parameter, char op, int param_index);
+
+    int check_param_aff(parameter_t *parameter, char op, int param_index);
+
     int check_param_ld(parameter_t *parameter, char op, int param_index);
+    int check_param_lld(parameter_t *parameter, char op, int param_index);
+
+    int check_param_ldi(parameter_t *parameter, char op, int param_index);
+    int check_param_lldi(parameter_t *parameter, char op, int param_index);
+
+    int check_param_fork(parameter_t *parameter, char op, int param_index);
+    int check_param_lfork(parameter_t *parameter, char op, int param_index);
     int check_param_zjmp(parameter_t *parameter, char op, int param_index);
+
+    int check_param_st(parameter_t *parameter, char op, int param_index);
+    int check_param_sti(parameter_t *parameter, char op, int param_index);
 
 
     int is_existing_label(label_t **label, char *name);

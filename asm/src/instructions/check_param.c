@@ -32,6 +32,9 @@ int check_param(parameter_t *parameter, char op, int param_index)
         case 2:
             status = check_param_ld(parameter, op, param_index);
             break;
+        case 9:
+            status = check_param_zjmp(parameter, op, param_index);
+            break;
         default:
             status = check_param_bop_switch(parameter, op, param_index);
             break;

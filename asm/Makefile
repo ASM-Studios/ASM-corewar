@@ -31,8 +31,8 @@ FILE_SRC	=	src/asm.c \
 				\
 				src/instructions/check_param.c \
 				src/instructions/check_param_ld.c \
+				src/instructions/check_param_ldi.c \
 				src/instructions/check_param_st.c \
-				\
 				src/instructions/check_param_bop.c \
 				src/instructions/check_param_zjmp.c \
 				\
