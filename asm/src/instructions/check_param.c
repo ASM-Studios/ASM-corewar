@@ -80,7 +80,7 @@ int check_param(parameter_t *parameter, char op, int param_index)
         case 15:
             status = check_param_lfork(parameter, op, param_index);
             break;
-        case 16:
+        case 9:
             status = check_param_zjmp(parameter, op, param_index);
             break;
         default:
