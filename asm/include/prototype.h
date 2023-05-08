@@ -29,7 +29,7 @@
 
     int asm_main(const char *path);
     int write_file(app_t *app);
-    int write_value(char *arg, args_type_t type, FILE *stream);
+    int write_value(char *arg, type_t type, FILE *stream);
     int little_endian_converter(int number);
     int remove_trailing_space(char *line);
     void *my_malloc(size_t sz);

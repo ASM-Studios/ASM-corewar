@@ -12,9 +12,9 @@ STATIC int shift_bytecode_2(op_constructor_t *op, int i)
     parameter_t *parameter = op->parameter[i];
     args_type_t type = 0;
 
-    type = (parameter == NULL) ? 0 : op->parameter[i]->type;
+    type = (parameter == NULL) ? 99 : op->parameter[i]->type;
     switch (type) {
-        case T_DIR:
+        case Direct:
             op->bytecode = (op->bytecode << 1) + 1;
             op->bytecode = op->bytecode << 1;
             break;
@@ -29,15 +29,15 @@ STATIC int shift_bytecode_2(op_constructor_t *op, int i)
 STATIC int shift_bytecode(op_constructor_t *op, int i)
 {
     parameter_t *parameter = op->parameter[i];
-    args_type_t type = 0;
+    type_t type = 0;
 
-    type = (parameter == NULL) ? 0 : op->parameter[i]->type;
+    type = (parameter == NULL) ? 99 : op->parameter[i]->type;
     switch (type) {
-        case T_REG:
+        case Register:
             op->bytecode = op->bytecode << 1;
             op->bytecode = (op->bytecode << 1) + 1;
             break;
-        case T_IND:
+        case Indirect:
             op->bytecode = (op->bytecode << 1) + 1;
             op->bytecode = (op->bytecode << 1) + 1;
             break;

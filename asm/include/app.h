@@ -25,6 +25,7 @@
 
     typedef struct parameter {
         type_t type;
+        int is_index;
         char *arg;
     } parameter_t;
 
@@ -47,7 +48,7 @@
     app_t *create_app(void);
     int destroy_app(app_t *app);
 
-    parameter_t *create_parameter(char *arg, args_type_t type);
+    parameter_t *create_parameter(char *arg, type_t type);
     parameter_t **create_parameter_list(void);
     int destroy_parameter(parameter_t *parameter);
     int destroy_parameter_list(parameter_t **list);

@@ -9,6 +9,6 @@
 
 int check_param_lfork(parameter_t *parameter, char op, int param_index)
 {
-    parameter->type = Index;
+    parameter->is_index = 1;
     return 0;
 }
