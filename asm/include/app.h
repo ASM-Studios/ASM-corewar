@@ -53,6 +53,12 @@
     int destroy_parameter_list(parameter_t **list);
     type_t get_parameter_type(char *parameter);
 
+    int check_param(parameter_t *parameter, char op, int param_index);
+    int check_param_bop(parameter_t *parameter, char op, int param_index);
+    int check_param_ld(parameter_t *parameter, char op, int param_index);
+    int check_param_zjmp(parameter_t *parameter, char op, int param_index);
+
+
     int is_existing_label(label_t **label, char *name);
     int is_label(char *exp);
     int get_no_label(app_t *app, char **body);

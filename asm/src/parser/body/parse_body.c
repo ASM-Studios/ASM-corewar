@@ -18,8 +18,10 @@ STATIC parameter_t **detect_parameter(app_t *app, char **arg, op_t op)
     }
     parameters = (parameter_t **)alloc_double_array(4);
     while (arg[i] != NULL) {
-        args_type_t type = get_parameter_type(arg[i]);
+        type_t type = get_parameter_type(arg[i]);
         parameters[i] = create_parameter(arg[i], type);
+        if (check_param(parameters[i], op.code, i) == 84)
+            return NULL;
         i += 1;
     }
     return parameters;

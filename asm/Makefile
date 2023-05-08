@@ -29,6 +29,13 @@ FILE_SRC	=	src/asm.c \
 				src/op/append_node.c \
 				src/op/destroy_list.c \
 				\
+				src/instructions/check_param.c \
+				src/instructions/check_param_ld.c \
+				src/instructions/check_param_st.c \
+				\
+				src/instructions/check_param_bop.c \
+				src/instructions/check_param_zjmp.c \
+				\
 				src/parameter/create_parameter.c \
 				src/parameter/destroy_parameter.c \
 				src/parameter/get_parameter_type.c \
