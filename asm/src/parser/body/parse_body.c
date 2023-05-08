@@ -7,17 +7,6 @@
 
 #include "../../../include/prototype.h"
 
-STATIC int is_label(char *exp)
-{
-    int len = my_strlen(exp);
-
-    if (exp[len - 1] == LABEL_CHAR) {
-        return 1;
-    } else {
-        return 0;
-    }
-}
-
 STATIC parameter_t **detect_parameter(app_t *app, char **arg, op_t op)
 {
     int i = 0;

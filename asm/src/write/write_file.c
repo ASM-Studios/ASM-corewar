@@ -30,7 +30,9 @@ int write_file(app_t *app)
     while (op != NULL) {
         op_t tmp_op = op->op;
         fwrite(&tmp_op.code, 1, 1, app->output);
-        fwrite(&op->bytecode, 1, 1, app->output);
+        if (op->op.code != 1 || op->op.code != 9 || op->op.code != 12 ||
+            op->op.code != 15)
+            fwrite(&op->bytecode, 1, 1, app->output);
         write_parameter(app, op);
         op = op->next;
     }

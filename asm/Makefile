@@ -37,10 +37,18 @@ FILE_SRC	=	src/asm.c \
 				src/parser/get_len.c \
 				src/parser/get_mid.c \
 				src/parser/calcul_bytecode.c \
+				\
 				src/parser/body/extract_body.c \
 				src/parser/body/parse_body.c \
+				\
 				src/parser/header/extract_header.c \
 				src/parser/header/parse_header.c \
+				\
+				src/parser/label/is_label.c \
+				src/parser/label/get_no_label.c \
+				src/parser/label/parse_label.c \
+				src/parser/label/create_label.c \
+				src/parser/label/destroy_label.c \
 				\
 				src/array/is_in.c \
 				src/array/split.c \

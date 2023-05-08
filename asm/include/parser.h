@@ -22,6 +22,8 @@
     int get_no_line(app_t *app);
 
     /* parser */
+    int is_label(char *exp);
+
     void *get_mid(char **array);
     int get_len(void **array, void *start, void *end);
     int parser(app_t *app);
@@ -30,6 +32,7 @@
     char **extract_body(char **array, void *ptr);
 
     int parse_header(app_t *app, char **header);
+    int parse_label(app_t *app, char **body);
     int parse_body(app_t *app, char **body);
 
     int calcul_bytecode(op_constructor_t *op);

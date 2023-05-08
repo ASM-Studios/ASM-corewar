@@ -25,6 +25,11 @@ int asm_main(const char *path)
         return 84;
     if (parser(app) == 84)
         return 84;
+    int i = 0;
+    while(app->label[i] != NULL) {
+        printf("%s - %d\n", app->label[i]->name, app->label[i]->position);
+        i += 1;
+    }
     write_file(app);
     close_app(app);
     return 0;

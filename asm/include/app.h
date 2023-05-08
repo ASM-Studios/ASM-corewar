@@ -39,6 +39,7 @@
         FILE *output;
         header_t header;
         op_constructor_t *op;
+        label_t **label;
     } app_t;
 
     app_t *create_app(void);
@@ -49,5 +50,10 @@
     int destroy_parameter(parameter_t *parameter);
     int destroy_parameter_list(parameter_t **list);
     args_type_t get_parameter_type(char *parameter);
+
+    int is_label(char *exp);
+    int get_no_label(app_t *app, char **body);
+    label_t *create_label(char *name, int position);
+    int destroy_label(label_t *label);
 
 #endif //ASM_H_
