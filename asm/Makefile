@@ -32,9 +32,15 @@ FILE_SRC	=	src/asm.c \
 				src/instructions/check_param.c \
 				src/instructions/check_param_ld.c \
 				src/instructions/check_param_ldi.c \
+				src/instructions/check_param_lld.c \
+				src/instructions/check_param_lldi.c \
 				src/instructions/check_param_st.c \
+				src/instructions/check_param_sti.c \
 				src/instructions/check_param_bop.c \
 				src/instructions/check_param_zjmp.c \
+				src/instructions/check_param_fork.c \
+				src/instructions/check_param_lfork.c \
+				src/instructions/check_param_aff.c \
 				\
 				src/parameter/create_parameter.c \
 				src/parameter/destroy_parameter.c \
