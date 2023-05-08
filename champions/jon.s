@@ -1,7 +1,7 @@
         .name "Jon Snow"
         .comment "Winter is coming"
 
-        sti r4, %:crow, %65534, %ratio
+        sti r4, %:crow, %65534
         live %234
 crow:   ld %0, r3
         zjmp %:crow

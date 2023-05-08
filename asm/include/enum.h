@@ -15,4 +15,9 @@
         Index
     } type_t;
 
+    #define DIRECT_SIZE     4
+    #define REGISTER_SIZE   1
+    #define INDIRECT_SIZE   2
+    #define INDEX_SIZE      2
+
 #endif //ENUM_H_
