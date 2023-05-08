@@ -28,22 +28,10 @@ STATIC int fill_label(app_t *app, char **body, label_t **label)
     return 0;
 }
 
-STATIC label_t **alloc_label_array(int no_label)
-{
-    int i = 0;
-    label_t **label = malloc(sizeof(label_t) * (no_label + 1));
-
-    while(i <= no_label) {
-        label[i] = NULL;
-        i += 1;
-    }
-    return label;
-}
-
 int parse_label(app_t *app, char **body)
 {
     int no_label = get_no_label(app, body);
-    app->label = alloc_label_array(no_label);
+    app->label = (label_t **)alloc_double_array(no_label);
 
     if(fill_label(app, body, app->label) == 84)
         return 84;

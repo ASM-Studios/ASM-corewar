@@ -20,7 +20,6 @@ int write_value(char *arg, args_type_t type, FILE *stream)
         fwrite(&value, 1, 1, stream);
     }
     if (type == T_DIR) {
-        //printf("%d - %s\n", my_atoi(&(arg[1])), arg);
         value = my_atoi(&(arg[1]));
         fwrite(&value, DIR_SIZE, 1, stream);
     }

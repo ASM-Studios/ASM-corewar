@@ -58,6 +58,7 @@ FILE_SRC	=	src/asm.c \
 				src/array/double/free_array.c \
 				src/array/double/len_array.c \
 				src/array/double/print_array.c \
+				src/array/double/alloc_array.c \
 				\
 				src/file/open_file.c \
 				src/file/close_file.c \
