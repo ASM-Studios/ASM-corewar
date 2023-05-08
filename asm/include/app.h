@@ -7,6 +7,7 @@
 
 #include "include.h"
 #include "op.h"
+#include "enum.h"
 
 #ifndef ASM_H_
     #define ASM_H_
@@ -23,13 +24,14 @@
     } label_t;
 
     typedef struct parameter {
-        args_type_t type;
+        type_t type;
         char *arg;
     } parameter_t;
 
     typedef struct op_constructor {
         op_t op;
         int bytecode;
+        int size;
         parameter_t **parameter;
         struct op_constructor *next;
     } op_constructor_t;
@@ -49,7 +51,7 @@
     parameter_t **create_parameter_list(void);
     int destroy_parameter(parameter_t *parameter);
     int destroy_parameter_list(parameter_t **list);
-    args_type_t get_parameter_type(char *parameter);
+    type_t get_parameter_type(char *parameter);
 
     int is_existing_label(label_t **label, char *name);
     int is_label(char *exp);

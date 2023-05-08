@@ -10,8 +10,13 @@
 STATIC parameter_t **detect_parameter(app_t *app, char **arg, op_t op)
 {
     int i = 0;
-    parameter_t **parameters = create_parameter_list();
+    parameter_t **parameters = NULL;
 
+    if (len_double_array(arg) != op.nbr_args) {
+        my_printf("%s: Invalid number of arguments", op.mnemonique);
+        return NULL;
+    }
+    parameters = (parameter_t **)alloc_double_array(4);
     while (arg[i] != NULL) {
         args_type_t type = get_parameter_type(arg[i]);
         parameters[i] = create_parameter(arg[i], type);
@@ -30,6 +35,8 @@ STATIC int parse_body_line(app_t *app, char **body, int i)
     if (exp != NULL) {
         op_t op = linker(exp);
         parameter_t **parameters = detect_parameter(app, arg, op);
+        if (parameters == NULL)
+            return 84;
         op_constructor_t *op_c = append_node(&(app->op), op, parameters);
         calcul_bytecode(op_c);
     }
@@ -46,7 +53,8 @@ int parse_body(app_t *app, char **body)
             i += 1;
             continue;
         }
-        parse_body_line(app, body, i);
+        if (parse_body_line(app, body, i) == 84)
+            return 84;
         i += 1;
     }
     return 0;

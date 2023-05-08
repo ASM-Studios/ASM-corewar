@@ -7,16 +7,16 @@
 
 #include "../../include/prototype.h"
 
-args_type_t get_parameter_type(char *parameter)
+type_t get_parameter_type(char *parameter)
 {
     char first_character = parameter[0];
 
     switch (first_character) {
         case '%':
-            return T_DIR;
+            return Direct;
         case 'r':
-            return T_REG;
+            return Register;
         default:
-            return T_IND;
+            return Indirect;
     }
 }
