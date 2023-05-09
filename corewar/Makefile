@@ -18,10 +18,10 @@ TEST_OBJ	=	$(TEST_SRC:.c=_test.o)
 CC	=	gcc
 INCLUDE	=	./include
 SANITIZE	=	-fsanitize=address
-CFLAGS	= -I$(INCLUDE) -Wall -g3
+CFLAGS	= -I$(INCLUDE) -Wall -Wextra -g3
 LDFLAGS	=	-L../lib -lmy_printf -lmy_stdlib -lmy_string
 COVERAGE	=	--coverage -lcriterion
-EXE	=	corewar
+EXE	=	asm
 TEST_EXE	=	$(EXE)_test
 
 all:	$(EXE)
@@ -48,7 +48,7 @@ tests_run:	unit_tests
 			./$(TEST_EXE)
 
 clean:
-		rm -rf $(MAIN_OBJ) $(FILE_OBJ) $(TEST_OBJ) $(MALLOC_OBJ)
+		rm -rf $(MAIN_OBJ) $(FILE_OBJ) $(TEST_OBJ)
 		$(shell find * -name "vgcore.*" -delete)
 		$(shell find * -name "*.gcda" -delete)
 		$(shell find * -name "*.gcno" -delete)

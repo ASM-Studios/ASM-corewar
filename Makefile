@@ -6,25 +6,25 @@
 ##
 
 all:
-		@make --no-print-directory -C ./lib
+		@make -s -C ./lib
 		@make --no-print-directory -C ./asm
 		@make --no-print-directory -C ./corewar
 
 clean:
-		@make --no-print-directory -C ./lib clean
+		@make -s -C ./lib clean
 		@make --no-print-directory -C ./asm clean
 		@make --no-print-directory -C ./corewar clean
 		$(shell find * -name "*.cor" -delete)
 
 fclean:	clean
-		@make --no-print-directory -C ./lib fclean
+		@make -s -C ./lib fclean
 		@make --no-print-directory -C ./asm fclean
 		@make --no-print-directory -C ./corewar fclean
 
 re:	fclean all
 
 unit_tests:
-			@make --no-print-directory -C ./lib
+			@make -s -C ./lib
 			@make --no-print-directory -C ./asm unit_tests
 			@make --no-print-directory -C ./corewar unit_tests
 
