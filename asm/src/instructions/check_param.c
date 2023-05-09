@@ -70,7 +70,7 @@ int check_param(parameter_t *parameter, char op, int param_index)
     int status = 0;
 
     switch (op) {
-        case 10:
+        case 16:
             status = check_param_aff(parameter, op, param_index);
             break;
         case 12:
