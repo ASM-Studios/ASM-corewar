@@ -16,8 +16,6 @@ STATIC int get_parameter_size_type(parameter_t *parameter)
             return REGISTER_SIZE;
         case Indirect:
             return INDIRECT_SIZE;
-        default:
-            return 0;
     }
     return 0;
 }
@@ -33,7 +31,7 @@ STATIC int get_parameter_len(parameter_t **parameter)
             i += 1;
             continue;
         }
-        get_parameter_size_type(parameter[i]);
+        size += get_parameter_size_type(parameter[i]);
         i += 1;
     }
     return size;
@@ -41,16 +39,23 @@ STATIC int get_parameter_len(parameter_t **parameter)
 
 int get_len_instruction(op_constructor_t *op)
 {
+    int tmp_size = 1;
+
+    if (op->op.code != 1 && op->op.code != 9 && op->op.code != 12 &&
+        op->op.code != 15)
+        tmp_size += 1;
+    tmp_size += get_parameter_len(op->parameter);
+    return tmp_size;
+}
+
+int program_size(op_constructor_t *op)
+{
     int tmp_size = 0;
 
     if (op == NULL) {
         return 0;
     } else {
-        tmp_size += 1;
-        if (op->op.code != 1 && op->op.code != 9 && op->op.code != 12 &&
-            op->op.code != 15)
-            tmp_size += 1;
-        tmp_size += get_parameter_len(op->parameter);
-        return tmp_size + get_len_instruction(op->next);
+        tmp_size = get_len_instruction(op);
+        return tmp_size + program_size(op->next);
     }
 }

@@ -29,6 +29,7 @@
 
     int asm_main(const char *path);
 
+    int program_size(op_constructor_t *op);
     int get_len_instruction(op_constructor_t *op);
 
     int write_file(app_t *app);
