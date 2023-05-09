@@ -26,7 +26,7 @@ int asm_main(const char *path)
     if (parser(app) == 84)
         return 84;
     app->header.prog_size =
-        little_endian_converter(program_size(app->op));
+        little_endian_converter(program_size(app->op), 4);
     write_file(app);
     close_app(app);
     return 0;

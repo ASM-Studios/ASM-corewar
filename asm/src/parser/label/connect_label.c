@@ -21,10 +21,8 @@ STATIC int get_offset(app_t *app, label_t *label, int start, int end)
     int offset = 0;
     op_constructor_t *op = app->op;
     int is_neg = 0;
-
     if (end < start) {
-        is_neg = 0;
-        offset -= 1;
+        is_neg = 1;
         start ^= end;
         end ^= start;
         start ^= end;
@@ -40,6 +38,7 @@ STATIC int get_offset(app_t *app, label_t *label, int start, int end)
     }
     if (is_neg == 1)
         offset = 0 - offset;
+    printf("%d\n", offset);
     return offset;
 }
 
@@ -65,7 +64,6 @@ STATIC int connect_label_op(app_t *app, op_constructor_t *op)
     while (op->parameter[i] != NULL) {
         if (is_label_offset(op->parameter[i]->arg) == 1) {
             op->parameter[i]->value = get_label(app, op->parameter[i]->arg, op);
-            my_printf("%s\n", op->parameter[i]->arg);
         }
         i += 1;
     }

@@ -19,6 +19,7 @@ TEST_SRC	=	tests/op.c \
 				tests/array_manipulation.c \
 
 FILE_SRC	=	src/asm.c \
+				src/convert.c \
 				src/get_program_size.c \
 				\
 				src/write/write_file.c \
