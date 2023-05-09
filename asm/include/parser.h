@@ -37,4 +37,6 @@
 
     int calcul_bytecode(op_constructor_t *op);
 
+    int connect_label(app_t *app);
+
 #endif //PARSER_H_

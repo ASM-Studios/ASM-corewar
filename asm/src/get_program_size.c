@@ -16,6 +16,8 @@ STATIC int get_parameter_size_type(parameter_t *parameter)
             return REGISTER_SIZE;
         case Indirect:
             return INDIRECT_SIZE;
+        default:
+            return 0;
     }
     return 0;
 }

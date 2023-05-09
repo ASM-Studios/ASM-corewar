@@ -41,6 +41,7 @@ STATIC int parse_body_line(app_t *app, char **body, int i)
             return 84;
         op_constructor_t *op_c = append_node(&(app->op), op, parameters);
         calcul_bytecode(op_c);
+        op_c->line_index = i;
     }
     free_double_array(array);
     return 0;

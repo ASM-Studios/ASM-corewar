@@ -21,18 +21,21 @@
     typedef struct label {
         char *name;
         int position;
+        int line;
     } label_t;
 
     typedef struct parameter {
         type_t type;
         int is_index;
         char *arg;
+        int value;
     } parameter_t;
 
     typedef struct op_constructor {
         op_t op;
         int bytecode;
         int size;
+        int line_index;
         parameter_t **parameter;
         struct op_constructor *next;
     } op_constructor_t;

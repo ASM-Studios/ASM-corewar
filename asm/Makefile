@@ -65,6 +65,7 @@ FILE_SRC	=	src/asm.c \
 				src/parser/label/parse_label.c \
 				src/parser/label/create_label.c \
 				src/parser/label/destroy_label.c \
+				src/parser/label/connect_label.c \
 				\
 				src/array/is_in.c \
 				src/array/split.c \

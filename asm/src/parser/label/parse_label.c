@@ -20,7 +20,7 @@ STATIC int fill_unique_label(char **body, int line_index, label_t **label,
     if (is_label(array[0]) == 1) {
         if (is_existing_label(label, array[0]) == 1)
             return 84;
-        label[*index] = create_label(array[0], 0);
+        label[*index] = create_label(array[0], line_index);
         *index += 1;
     }
     free_double_array(array);
