@@ -21,12 +21,8 @@ STATIC int get_offset(app_t *app, label_t *label, int start, int end)
     int offset = 0;
     op_constructor_t *op = app->op;
     int is_neg = 0;
-    if (end < start) {
-        is_neg = 1;
-        start ^= end;
-        end ^= start;
-        start ^= end;
-    }
+
+    swap(&start, &end, &is_neg);
     while (start != i) {
         op = op->next;
         i += 1;
@@ -48,7 +44,8 @@ STATIC int get_label(app_t *app, char *label, op_constructor_t *op)
 
     while (app->label[i] != NULL) {
         if (my_strcmp(app->label[i]->name, nlabel) == 0) {
-            return get_offset(app, app->label[i], op->line_index, app->label[i]->position);
+            return get_offset(app, app->label[i],
+                op->line_index, app->label[i]->position);
         }
         i += 1;
     }

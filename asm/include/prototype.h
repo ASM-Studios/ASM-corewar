@@ -29,6 +29,8 @@
 
     int asm_main(const char *path);
 
+    int swap(int *start, int *end, int *is_neg);
+
     int program_size(op_constructor_t *op);
     int get_len_instruction(op_constructor_t *op);
 
