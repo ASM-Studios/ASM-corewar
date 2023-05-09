@@ -17,6 +17,7 @@ int write_value(char *arg, type_t type, FILE *stream, int value)
         fwrite(&value, REGISTER_SIZE, 1, stream);
     }
     if (type == Indirect) {
+        value = little_endian_converter(value, 2);
         fwrite(&value, INDIRECT_SIZE, 1, stream);
     }
     if (type == Index) {

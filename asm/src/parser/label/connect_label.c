@@ -38,7 +38,6 @@ STATIC int get_offset(app_t *app, label_t *label, int start, int end)
     }
     if (is_neg == 1)
         offset = 0 - offset;
-    printf("%d\n", offset);
     return offset;
 }
 
