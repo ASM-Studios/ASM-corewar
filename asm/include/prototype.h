@@ -28,6 +28,9 @@
     #endif
 
     int asm_main(const char *path);
+
+    int get_len_instruction(op_constructor_t *op);
+
     int write_file(app_t *app);
     int write_value(char *arg, type_t type, FILE *stream);
     int little_endian_converter(int number);

@@ -14,6 +14,10 @@ int get_no_label(app_t *app, char **body)
     int no_label = 0;
 
     while (body[i] != NULL) {
+        if (my_strlen(body[i]) == 0) {
+            i += 1;
+            continue;
+        }
         array = split(body[i], " \t");
         no_label += (is_label(array[0]) == 1) ? 1 : 0;
         free_double_array(array);
