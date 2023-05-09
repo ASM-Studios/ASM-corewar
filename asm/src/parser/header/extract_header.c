@@ -5,7 +5,7 @@
 ** header.c
 */
 
-#include "../../include/prototype.h"
+#include "../../../include/prototype.h"
 
 char **extract_header(char **array, void *ptr)
 {

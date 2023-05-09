@@ -28,7 +28,15 @@
     #endif
 
     int asm_main(const char *path);
-    int little_endian_converter(int number);
+
+    int swap(int *start, int *end, int *is_neg);
+
+    int program_size(op_constructor_t *op);
+    int get_len_instruction(op_constructor_t *op);
+
+    int write_file(app_t *app);
+    int write_value(char *arg, type_t type, FILE *stream, int value);
+    int little_endian_converter(int number, int size);
     int remove_trailing_space(char *line);
     void *my_malloc(size_t sz);
 

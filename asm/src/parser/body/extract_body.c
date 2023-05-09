@@ -5,7 +5,7 @@
 ** body.c
 */
 
-#include "../../include/prototype.h"
+#include "../../../include/prototype.h"
 
 char **extract_body(char **array, void *ptr)
 {

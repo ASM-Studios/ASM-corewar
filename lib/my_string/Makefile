@@ -7,6 +7,7 @@
 
 SRC	=   my_putstr.c	\
 		my_memset.c \
+		my_memcpy.c \
 		my_strlen.c	\
 		my_strcat.c	\
 		my_strcpy.c	\
