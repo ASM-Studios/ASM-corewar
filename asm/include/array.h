@@ -18,5 +18,6 @@
     int free_triple_array(char ***array);
     int len_triple_array(char ***array);
     int print_triple_array(char ***array);
+    void **alloc_double_array(int no_line);
 
 #endif //ARRAY_H_

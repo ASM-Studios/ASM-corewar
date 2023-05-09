@@ -5,7 +5,7 @@
 ** parse_header.c
 */
 
-#include "../../include/prototype.h"
+#include "../../../include/prototype.h"
 
 STATIC int detect_start_end(int *r_start, int *r_end, int i)
 {

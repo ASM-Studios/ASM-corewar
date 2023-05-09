@@ -22,3 +22,18 @@ int my_putnbr(int number)
     write(1, buffer, i + 1);
     return 0;
 }
+
+char *my_putnbr_in_string(int number)
+{
+    char *buffer = malloc(nb_size(number) + 1);
+    int i = 0;
+
+    buffer[0] = '\0';
+    while (number >= 1) {
+        buffer[i] = (number % 10) + 48;
+        number /= 10;
+        i += 1;
+    }
+    buffer[i] = '\0';
+    return buffer;
+}

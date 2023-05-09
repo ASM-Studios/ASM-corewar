@@ -10,5 +10,6 @@
 
     int my_atoi(const char *src);
     double my_atof(const char *src);
+    char *my_putnbr_in_string(int number);
 
 #endif
