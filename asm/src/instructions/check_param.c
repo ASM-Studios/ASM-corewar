@@ -45,7 +45,6 @@ STATIC int check_param_stx(parameter_t *parameter, char op, int param_index)
 STATIC int check_param_ldx(parameter_t *parameter, char op, int param_index)
 {
     int status = 0;
-
     switch (op) {
         case 2:
             status = check_param_ld(parameter, op, param_index);

@@ -12,6 +12,7 @@ MALLOC_SRC	=	src/my_malloc.c
 TEST_SRC	=	tests/op.c \
 				tests/asm.c \
 				tests/parser.c \
+				tests/instruction.c \
 				tests/open_file.c \
 				tests/create_app.c \
 				tests/file_manipulation.c \
