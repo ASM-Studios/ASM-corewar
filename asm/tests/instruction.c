@@ -124,7 +124,7 @@ Test(sti, basic) {
 
 Test(sti, bad_args) {
     parameter_t *param = create_parameter("r5", Direct);
-    int status = check_param(param, 3, 0);
+    int status = check_param(param, 11, 0);
     cr_assert_eq(status, 84);
 }
 
