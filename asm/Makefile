@@ -7,8 +7,6 @@
 
 MAIN_SRC	=	src/main.c
 
-MALLOC_SRC	=	src/my_malloc.c
-
 TEST_SRC	=	tests/op.c \
 				tests/asm.c \
 				tests/parser.c \
@@ -90,7 +88,6 @@ FILE_SRC	=	src/asm.c \
 FILE_OBJ	=	$(FILE_SRC:.c=.o)
 MAIN_OBJ	=	$(MAIN_SRC:.c=.o)
 TEST_OBJ	=	$(TEST_SRC:.c=_test.o)
-MALLOC_OBJ	=	$(MALLOC_SRC:.c=.o)
 
 CC	=	gcc
 INCLUDE	=	./include
@@ -114,9 +111,6 @@ main.o:	main.c
 
 $(EXE):	$(MAIN_OBJ) $(FILE_OBJ)
 		$(CC) -o $(EXE) $(MAIN_OBJ) $(FILE_OBJ) $(LDFLAGS)
-
-no_malloc:	$(MAIN_OBJ) $(FILE_OBJ) $(MALLOC_OBJ)
-			$(CC) -o $(EXE) $^ $(LDFLAGS)
 
 sanitize:	$(MAIN_OBJ) $(FILE_OBJ)
 			$(CC) -o $(EXE) $^ $(LDFLAGS)

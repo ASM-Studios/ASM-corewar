@@ -14,10 +14,6 @@
     #include "array.h"
     #include "app.h"
 
-    #ifdef NO_MALLOC
-        #define malloc(size)    my_malloc(size)
-    #endif
-
     #define MAX_MALLOC 10
     #define MIN_MALLOC 0
 
