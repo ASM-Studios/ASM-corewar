@@ -21,7 +21,7 @@ SANITIZE	=	-fsanitize=address
 CFLAGS	= -I$(INCLUDE) -Wall -Wextra -g3
 LDFLAGS	=	-L../lib -lmy_printf -lmy_stdlib -lmy_string
 COVERAGE	=	--coverage -lcriterion
-EXE	=	asm
+EXE	=	corewar
 TEST_EXE	=	$(EXE)_test
 
 all:	$(EXE)
