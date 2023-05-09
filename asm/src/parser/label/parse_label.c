@@ -33,7 +33,7 @@ int parse_label(app_t *app, char **body)
     int no_label = get_no_label(app, body);
     app->label = (label_t **)alloc_double_array(no_label);
 
-    if(fill_label(app, body, app->label) == 84)
+    if (fill_label(app, body, app->label) == 84)
         return 84;
     return 0;
 }
