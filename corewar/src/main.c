@@ -31,5 +31,5 @@ int main(const int ac, const char **av)
         return 84;
     if (!my_strcmp(av[1], "-h"))
         return display_help();
-    return 0;
+    return corewar(ac, av);
 }
