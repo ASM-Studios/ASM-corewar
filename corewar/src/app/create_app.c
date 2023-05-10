@@ -12,5 +12,6 @@ app_t *create_app(void)
     app_t *app = malloc(sizeof(app_t));
 
     app->champions = NULL;
+    my_memset(app->memory, 0, sizeof(app->memory));
     return app;
 }

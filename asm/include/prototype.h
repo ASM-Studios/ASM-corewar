@@ -14,9 +14,6 @@
     #include "array.h"
     #include "app.h"
 
-    #define MAX_MALLOC 10
-    #define MIN_MALLOC 0
-
     #ifdef UNIT_TEST
         #define STATIC
     #else

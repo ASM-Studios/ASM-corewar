@@ -6,11 +6,13 @@
 */
 
 #include "include.h"
+#include "op.h"
 
 #ifndef CHAMPION_H_
     #define CHAMPION_H_
 
     typedef struct champion {
+        uint8_t reg[REG_NUMBER];
         int alive;
     } champion_t;
 

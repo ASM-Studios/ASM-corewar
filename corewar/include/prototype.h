@@ -11,6 +11,12 @@
     #include "app.h"
     #include "include.h"
 
+    #ifdef UNIT_TEST
+        #define STATIC
+    #else
+        #define STATIC  static
+    #endif
+
     int corewar(const int ac, const char **av);
 
 #endif //BASE_REPO_PROTOTYPE_H
