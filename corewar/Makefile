@@ -57,13 +57,13 @@ main.o:	main.c
 		$(CC) -o $@ -c $< $(CFLAGS)
 
 $(EXE):	$(MAIN_OBJ) $(FILE_OBJ)
-		$(CC) -o $(EXE) $(MAIN_OBJ) $(FILE_OBJ) $(LDFLAGS)
+		$(CC) -o $(EXE) $^ $(LDFLAGS)
 
 sanitize:	$(MAIN_OBJ) $(FILE_OBJ)
 			$(CC) -o $(EXE) $^ $(LDFLAGS)
 
-unit_tests: clean $(FILE_OBJ) $(TEST_OBJ)
-			$(CC) -o $(TEST_EXE) $(FILE_OBJ) $(TEST_OBJ) $(LDFLAGS)
+unit_tests: $(FILE_OBJ) $(TEST_OBJ)
+			$(CC) -o $(TEST_EXE) $^ $(LDFLAGS)
 
 tests_run:	unit_tests
 			./$(TEST_EXE)
@@ -87,8 +87,6 @@ lib:
 
 sanitize: CFLAGS += $(SANITIZE)
 sanitize: LDFLAGS += $(SANITIZE)
-
-no_malloc:	CFLAGS += -DNO_MALLOC
 
 unit_tests: CFLAGS += $(COVERAGE)
 unit_tests: CFLAGS += -DUNIT_TEST

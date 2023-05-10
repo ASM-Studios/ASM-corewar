@@ -12,6 +12,7 @@ int arg_parser(const int ac, const char **av, app_t *app)
     int i = 1;
 
     while (i < ac) {
+        my_printf("%s\n", av[i]);
         i += 1;
     }
     return 0;
