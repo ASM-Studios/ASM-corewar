@@ -7,7 +7,7 @@
 
 #include "../../../include/prototype.h"
 
-STATIC parameter_t **detect_parameter(app_t *app, char **arg, op_t op)
+STATIC parameter_t **detect_parameter(char **arg, op_t op)
 {
     int i = 0;
     parameter_t **parameters = NULL;
@@ -36,7 +36,7 @@ STATIC int parse_body_line(app_t *app, char **body, int i)
 
     if (exp != NULL) {
         op_t op = linker(exp);
-        parameter_t **parameters = detect_parameter(app, arg, op);
+        parameter_t **parameters = detect_parameter(arg, op);
         if (parameters == NULL)
             return 84;
         op_constructor_t *op_c = append_node(&(app->op), op, parameters);

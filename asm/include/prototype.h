@@ -31,7 +31,7 @@
     int get_len_instruction(op_constructor_t *op);
 
     int write_file(app_t *app);
-    int write_value(char *arg, type_t type, FILE *stream, int value);
+    int write_value(type_t type, FILE *stream, int value);
     int little_endian_converter(int number, int size);
     int remove_trailing_space(char *line);
     void *my_malloc(size_t sz);

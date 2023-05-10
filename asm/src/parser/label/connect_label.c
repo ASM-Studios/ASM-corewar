@@ -15,7 +15,7 @@ STATIC int is_label_offset(char *args)
         return 0;
 }
 
-STATIC int get_offset(app_t *app, label_t *label, int start, int end)
+STATIC int get_offset(app_t *app, int start, int end)
 {
     int i = 0;
     int offset = 0;
@@ -44,8 +44,7 @@ STATIC int get_label(app_t *app, char *label, op_constructor_t *op)
 
     while (app->label[i] != NULL) {
         if (my_strcmp(app->label[i]->name, nlabel) == 0) {
-            return get_offset(app, app->label[i],
-                op->line_index, app->label[i]->position);
+            return get_offset(app, op->line_index, app->label[i]->position);
         }
         i += 1;
     }
