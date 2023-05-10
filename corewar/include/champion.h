@@ -14,4 +14,7 @@
         int alive;
     } champion_t;
 
+    champion_t *create_champion(void);
+    int destroy_champion(champion_t *champion);
+
 #endif //CHAMPION_H_
