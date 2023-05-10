@@ -11,7 +11,12 @@ TEST_SRC	=
 
 FILE_SRC	=	src/corewar.c \
 				\
-				src/op/op.c
+				src/op/op.c \
+				\
+				src/app/create_app.c \
+				src/app/destroy_app.c \
+				\
+				src/champion/create_champion.c
 
 FILE_OBJ	=	$(FILE_SRC:.c=.o)
 MAIN_OBJ	=	$(MAIN_SRC:.c=.o)
