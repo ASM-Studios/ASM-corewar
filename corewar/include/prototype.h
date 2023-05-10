@@ -10,6 +10,7 @@
 
     #include "app.h"
     #include "include.h"
+    #include "array.h"
 
     #ifdef UNIT_TEST
         #define STATIC
@@ -18,5 +19,8 @@
     #endif
 
     int corewar(const int ac, const char **av);
+
+    /* file */
+    char *get_suffix(const char *path);
 
 #endif //BASE_REPO_PROTOTYPE_H

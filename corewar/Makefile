@@ -13,11 +13,24 @@ FILE_SRC	=	src/corewar.c \
 				\
 				src/op/op.c \
 				\
+				src/arg_parser/arg_parser.c \
+				\
 				src/app/create_app.c \
 				src/app/destroy_app.c \
 				\
 				src/champion/create_champion.c \
-				src/champion/destroy_champion.c
+				src/champion/destroy_champion.c \
+				\
+				src/file_manipulation/suffix.c \
+				\
+				src/array/is_in.c \
+				src/array/split.c \
+				src/array/trailing_space.c \
+				src/array/double/array_to_line.c \
+				src/array/double/free_array.c \
+				src/array/double/len_array.c \
+				src/array/double/print_array.c \
+				src/array/double/alloc_array.c
 
 FILE_OBJ	=	$(FILE_SRC:.c=.o)
 MAIN_OBJ	=	$(MAIN_SRC:.c=.o)

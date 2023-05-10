@@ -20,4 +20,6 @@
     app_t *create_app(void);
     int destroy_app(app_t *app);
 
+    int arg_parser(const int ac, const char **av, app_t *app);
+
 #endif //APP_H_
