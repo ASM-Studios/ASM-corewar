@@ -36,6 +36,8 @@ STATIC int parse_body_line(app_t *app, char **body, int i)
 
     if (exp != NULL) {
         op_t op = linker(exp);
+        if (op.mnemonique == 0)
+            return 84;
         parameter_t **parameters = detect_parameter(arg, op);
         if (parameters == NULL)
             return 84;
