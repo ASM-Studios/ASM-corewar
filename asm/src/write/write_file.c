@@ -17,10 +17,9 @@ STATIC int write_parameter(app_t *app, op_constructor_t *op)
             continue;
         }
         if (op->parameter[i]->is_index == 1 && op->parameter[i])
-            write_value(op->parameter[i]->arg, Index, app->output,
-                op->parameter[i]->value);
+            write_value(Index, app->output, op->parameter[i]->value);
         else
-            write_value(op->parameter[i]->arg, op->parameter[i]->type,
+            write_value(op->parameter[i]->type,
                 app->output, op->parameter[i]->value);
         i += 1;
     }

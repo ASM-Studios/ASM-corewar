@@ -9,6 +9,9 @@
 
 int check_param_fork(parameter_t *parameter, char op, int param_index)
 {
+    (void)parameter;
+    (void)op;
+    (void)param_index;
     parameter->is_index = 1;
     return 0;
 }

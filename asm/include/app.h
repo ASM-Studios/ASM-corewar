@@ -78,7 +78,7 @@
 
     int is_existing_label(label_t **label, char *name);
     int is_label(char *exp);
-    int get_no_label(app_t *app, char **body);
+    int get_no_label(char **body);
     label_t *create_label(char *name, int position);
     int destroy_label(label_t *label);
 

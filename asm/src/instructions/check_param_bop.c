@@ -9,6 +9,9 @@
 
 int check_param_bop(parameter_t *parameter, char op, int param_index)
 {
+    (void)parameter;
+    (void)op;
+    (void)param_index;
     if (parameter->type != Register) {
         return 84;
     }

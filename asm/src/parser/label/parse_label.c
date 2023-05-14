@@ -27,7 +27,7 @@ STATIC int fill_unique_label(char **body, int line_index, label_t **label,
     return 0;
 }
 
-STATIC int fill_label(app_t *app, char **body, label_t **label)
+STATIC int fill_label(char **body, label_t **label)
 {
     int i = 0;
     int index = 0;
@@ -41,10 +41,10 @@ STATIC int fill_label(app_t *app, char **body, label_t **label)
 
 int parse_label(app_t *app, char **body)
 {
-    int no_label = get_no_label(app, body);
+    int no_label = get_no_label(body);
 
     app->label = (label_t **)alloc_double_array(no_label);
-    if (fill_label(app, body, app->label) == 84)
+    if (fill_label(body, app->label) == 84)
         return 84;
     return 0;
 }
