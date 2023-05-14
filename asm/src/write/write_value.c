@@ -7,7 +7,7 @@
 
 #include "../../include/prototype.h"
 
-int write_value(char *arg, type_t type, FILE *stream, int value)
+int write_value(type_t type, FILE *stream, int value)
 {
     if (type == Direct) {
         value = little_endian_converter(value, 4);

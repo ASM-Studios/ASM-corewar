@@ -31,5 +31,6 @@
     int my_strstr(const char *fullstring, const char *substring);
     void *my_memset(void *ptr, int c, size_t n);
     void *my_memcpy(void *dest, const void *src, size_t n);
+    void *my_memmove(void *dest, const void *src, size_t t);
 
 #endif

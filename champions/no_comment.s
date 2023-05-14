@@ -1,4 +1,5 @@
         .name "Jon Snow"
+        .comment "ratio"
 
         sti r1, %:crow, %1
 crow:   live %234

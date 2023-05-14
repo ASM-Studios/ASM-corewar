@@ -7,7 +7,7 @@
 
 #include "../../../include/prototype.h"
 
-int get_no_label(app_t *app, char **body)
+int get_no_label(char **body)
 {
     int i = 0;
     char **array = NULL;
