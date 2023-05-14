@@ -53,7 +53,8 @@ int parser(app_t *app)
     void *ptr = get_mid(array);
     char **header = extract_header(array, ptr);
     char **body = extract_body(array, ptr);
-
+    print_double_array(header);
+    print_double_array(body);
     if (ptr == NULL)
         return 84;
     if (parse_header(app, header) == 84)

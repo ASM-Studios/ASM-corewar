@@ -13,8 +13,8 @@ void *get_mid(char **array)
     void *ptr = NULL;
 
     while (array[i] != NULL) {
-        if (my_strlen(array[i]) == 0) {
-            ptr = array[i];
+        if (my_strstr(array[i], ".comment") != -1) {
+            ptr = array[i + 1];
             break;
         }
         i += 1;

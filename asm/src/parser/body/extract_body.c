@@ -15,7 +15,7 @@ char **extract_body(char **array, void *ptr)
     int no = get_len((void **)array, ptr, (void *)array[len - 1]);
     char **body = malloc(sizeof(char **) * (no + 2));
 
-    while (array[i] != ptr) {
+    while (array[i + 1] != ptr) {
         i += 1;
     }
     i += 1;
