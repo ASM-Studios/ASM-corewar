@@ -2,20 +2,20 @@
 ** EPITECH PROJECT, 2023
 ** ASM-corewar
 ** File description:
-** get_no_label.c
+** complete_offset.c
 */
 
 #include "../../../include/prototype.h"
 
-int get_no_label(app_t *app)
+int complete_offset(app_t *app)
 {
-    int no_label = 0;
+    int offset = 0;
     op_constructor_t *op = app->op;
 
-    while (op != NULL) {
-        if (op->label != NULL)
-            no_label += 1;
+    while (op != NULL){
+        op->index = offset;
+        offset += op->size;
         op = op->next;
     }
-    return no_label;
+    return 0;
 }

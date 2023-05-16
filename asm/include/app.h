@@ -35,7 +35,8 @@
         op_t op;
         int bytecode;
         int size;
-        int line_index;
+        int index;
+        label_t *label;
         parameter_t **parameter;
         struct op_constructor *next;
     } op_constructor_t;
@@ -45,7 +46,7 @@
         FILE *output;
         header_t header;
         op_constructor_t *op;
-        label_t **label;
+        op_constructor_t **label;
     } app_t;
 
     app_t *create_app(void);
@@ -78,7 +79,7 @@
 
     int is_existing_label(label_t **label, char *name);
     int is_label(char *exp);
-    int get_no_label(char **body);
+    int get_no_label(app_t *app);
     label_t *create_label(char *name, int position);
     int destroy_label(label_t *label);
 

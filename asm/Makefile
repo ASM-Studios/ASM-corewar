@@ -30,6 +30,7 @@ FILE_SRC	=	src/asm.c \
 				src/op/destroy_node.c \
 				src/op/append_node.c \
 				src/op/destroy_list.c \
+				src/op/len_list.c \
 				\
 				src/instructions/check_param.c \
 				src/instructions/check_param_ld.c \
@@ -49,12 +50,14 @@ FILE_SRC	=	src/asm.c \
 				src/parameter/get_parameter_type.c \
 				\
 				src/parser/parser.c \
+				src/parser/count_index.c \
 				src/parser/get_len.c \
 				src/parser/get_mid.c \
 				src/parser/calcul_bytecode.c \
 				\
 				src/parser/body/extract_body.c \
 				src/parser/body/parse_body.c \
+				src/parser/body/complete_offset.c \
 				\
 				src/parser/header/extract_header.c \
 				src/parser/header/parse_header.c \

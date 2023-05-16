@@ -22,6 +22,7 @@
     int get_no_line(app_t *app);
 
     /* parser */
+    int count_index(op_constructor_t *op);
     int is_label(char *exp);
 
     void *get_mid(char **array);
@@ -38,5 +39,8 @@
     int calcul_bytecode(op_constructor_t *op);
 
     int connect_label(app_t *app);
+    int get_len_list(app_t *app);
+
+    int complete_offset(app_t *app);
 
 #endif //PARSER_H_

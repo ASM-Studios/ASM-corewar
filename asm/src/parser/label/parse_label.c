@@ -7,44 +7,28 @@
 
 #include "../../../include/prototype.h"
 
-STATIC int fill_unique_label(char **body, int line_index, label_t **label,
-    int *index)
+STATIC int fill_label(app_t *app)
 {
-    char **array = NULL;
-    char *line = body[line_index];
-
-    if (my_strlen(line) == 0) {
-        return 0;
-    }
-    array = split(line, " \t");
-    if (is_label(array[0]) == 1) {
-        if (is_existing_label(label, array[0]) == 1)
-            return 84;
-        label[*index] = create_label(array[0], line_index);
-        *index += 1;
-    }
-    free_double_array(array);
-    return 0;
-}
-
-STATIC int fill_label(char **body, label_t **label)
-{
-    int i = 0;
     int index = 0;
+    op_constructor_t *op = app->op;
 
-    while (body[i] != NULL) {
-        fill_unique_label(body, i, label, &index);
-        i += 1;
+    while (op != NULL) {
+        if (op->label != NULL) {
+            app->label[index] = op;
+            app->label[index + 1] = NULL;
+            index += 1;
+        }
+        op = op->next;
     }
     return 0;
 }
 
 int parse_label(app_t *app, char **body)
 {
-    int no_label = get_no_label(body);
+    int no_label = get_no_label(app);
 
-    app->label = (label_t **)alloc_double_array(no_label);
-    if (fill_label(body, app->label) == 84)
+    app->label = (op_constructor_t **)alloc_double_array(no_label);
+    if (fill_label(app) == 84)
         return 84;
     return 0;
 }

@@ -27,13 +27,15 @@ STATIC parameter_t **detect_parameter(char **arg, op_t op)
     return parameters;
 }
 
-STATIC int parse_body_line(app_t *app, char **body, int i)
+STATIC int parse_body_line(app_t *app, char **body, int i, char **label)
 {
     char *line = body[i];
     char **array = split(line, " ,\t");
     char *exp = (is_label(array[0]) == 1) ? array[1] : array[0];
     char **arg = (is_label(array[0]) == 1) ? &array[2] : &array[1];
 
+    if (is_label(array[0]) == 1)
+        (*label) = my_strdup(array[0]);
     if (exp != NULL) {
         op_t op = linker(exp);
         if (op.mnemonique == 0)
@@ -42,8 +44,12 @@ STATIC int parse_body_line(app_t *app, char **body, int i)
         if (parameters == NULL)
             return 84;
         op_constructor_t *op_c = append_node(&(app->op), op, parameters);
+        op_c->size = get_len_instruction(op_c);
+        if (*label != NULL) {
+            op_c->label = create_label((*label), 0);
+        }
         calcul_bytecode(op_c);
-        op_c->line_index = i;
+        *label = NULL;
     }
     free_double_array(array);
     return 0;
@@ -52,13 +58,14 @@ STATIC int parse_body_line(app_t *app, char **body, int i)
 int parse_body(app_t *app, char **body)
 {
     int i = 0;
+    char *label = NULL;
 
     while (body[i] != NULL) {
         if (my_strlen(body[i]) == 0 || body[i][0] == COMMENT_CHAR) {
             i += 1;
             continue;
         }
-        if (parse_body_line(app, body, i) == 84)
+        if (parse_body_line(app, body, i, &label) == 84)
             return 84;
         i += 1;
     }

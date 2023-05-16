@@ -9,28 +9,29 @@
 
 STATIC int is_label_offset(char *args)
 {
-    if (args[1] == ':')
+    if (args[1] == ':') {
         return 1;
-    else
+     } else {
         return 0;
+     }
 }
 
 STATIC int get_offset(app_t *app, int start, int end)
 {
-    int i = 0;
+    int i = app->op->index;
     int offset = 0;
     op_constructor_t *op = app->op;
     int is_neg = 0;
 
     swap(&start, &end, &is_neg);
     while (start != i) {
+        i  = op->index;
         op = op->next;
-        i += 1;
     }
     while (i != end) {
         offset += get_len_instruction(op);
+        i  = op->index;
         op = op->next;
-        i += 1;
     }
     if (is_neg == 1)
         offset = 0 - offset;
@@ -43,8 +44,8 @@ STATIC int get_label(app_t *app, char *label, op_constructor_t *op)
     char *nlabel = my_strndup(&label[2], LEN(label) - 1);
 
     while (app->label[i] != NULL) {
-        if (my_strcmp(app->label[i]->name, nlabel) == 0) {
-            return get_offset(app, op->line_index, app->label[i]->position);
+        if (my_strcmp(app->label[i]->label->name, nlabel) == 0) {
+            return app->label[i]->index - op->index;
         }
         i += 1;
     }
