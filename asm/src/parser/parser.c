@@ -62,7 +62,6 @@ int parser(app_t *app)
         return 84;
     if (parse_label(app, body) == 84)
         return 84;
-
     complete_offset(app);
     connect_label(app);
     free_parser_array(header, body, array);
