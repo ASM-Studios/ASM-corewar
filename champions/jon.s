@@ -1,5 +1,5 @@
         .name "Jon Snow"
-        .comment "Winter is coming"
+        .comment Winter is coming"
 
         sti r4, %:crow
         live %234

@@ -36,22 +36,34 @@ STATIC char *extract_header_text_born(char *line, int start, int end)
     return text;
 }
 
-STATIC int extract_header_text(app_t *app, char *line)
+STATIC int extract_header_name(app_t *app, char *line)
 {
     int name = my_strstr(line, ".name");
     int comment = my_strstr(line, ".comment");
     char *name_t = NULL;
-    char *comment_t = NULL;
 
     if (name == -1 || comment == -1)
         return 84;
     name_t = extract_header_text_born(line, name + 5, comment - 1);
-    comment_t = extract_header_text_born(line, comment + 8, my_strlen(line));
-    if (name_t == NULL || comment_t == NULL)
+    if (name_t == NULL)
         return 84;
     my_strcpy(app->header.prog_name, name_t);
-    my_strcpy(app->header.comment, comment_t);
     free(name_t);
+    return 0;
+}
+
+STATIC int extract_header_comment(app_t *app, char *line)
+{
+    int name = my_strstr(line, ".name");
+    int comment = my_strstr(line, ".comment");
+    char *comment_t = NULL;
+
+    if (comment == -1)
+        return 84;
+    comment_t = extract_header_text_born(line, comment + 8, my_strlen(line));
+    if (comment_t == NULL)
+        return 84;
+    my_strcpy(app->header.comment, comment_t);
     free(comment_t);
     return 0;
 }
@@ -60,8 +72,14 @@ int parse_header(app_t *app, char **header)
 {
     char *line = array_to_line(header);
 
-    if (extract_header_text(app, line) == 84) {
+    if (extract_header_name(app, line) == 84) {
         free(line);
+        close_app(app);
+        return 84;
+    }
+    if (extract_header_comment(app, line) == 84) {
+        free(line);
+        close_app(app);
         return 84;
     }
     free(line);
