@@ -23,7 +23,7 @@ STATIC int fill_label(app_t *app)
     return 0;
 }
 
-int parse_label(app_t *app, char **body)
+int parse_label(app_t *app)
 {
     int no_label = get_no_label(app);
 

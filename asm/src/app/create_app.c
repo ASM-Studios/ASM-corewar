@@ -17,6 +17,8 @@ app_t *create_app(void)
     app->op = NULL;
     app->input = NULL;
     app->output = NULL;
+    app->op = NULL;
+    app->label = NULL;
     app->header.magic = little_endian_converter(COREWAR_EXEC_MAGIC, 4);
     app->header.prog_size = 0;
     return app;

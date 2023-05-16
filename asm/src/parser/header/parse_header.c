@@ -60,8 +60,10 @@ int parse_header(app_t *app, char **header)
 {
     char *line = array_to_line(header);
 
-    if (extract_header_text(app, line) == 84)
+    if (extract_header_text(app, line) == 84) {
+        free(line);
         return 84;
+    }
     free(line);
     return 0;
 }

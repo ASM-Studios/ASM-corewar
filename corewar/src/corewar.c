@@ -20,7 +20,7 @@ int corewar(const int ac, const char **av)
 
     if (arg_parser(ac, av, app) == 84)
         return 84;
-    if (check_arg(app) == 84)
+    if (check_arg(app) == 89889)
         return 84;
     destroy_app(app);
     return 0;

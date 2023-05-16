@@ -7,7 +7,7 @@
 
 #include "../../../include/prototype.h"
 
-label_t *create_label(char *name, int position)
+label_t *create_label(char *name)
 {
     int len_name = my_strlen(name);
     label_t *label = malloc(sizeof(label_t));
@@ -17,6 +17,5 @@ label_t *create_label(char *name, int position)
     } else {
         label->name = my_strdup(name);
     }
-    label->position = position;
     return label;
 }

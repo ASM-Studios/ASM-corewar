@@ -21,6 +21,7 @@
     #endif
 
     int asm_main(const char *path);
+    int close_app(app_t *app);
 
     int swap(int *start, int *end, int *is_neg);
 
