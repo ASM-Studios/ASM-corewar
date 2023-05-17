@@ -14,5 +14,6 @@ app_t *create_app(void)
     app->champions = NULL;
     app->nbr_cycle = -1;
     my_memset(app->memory, 0, sizeof(app->memory));
+    app->champions = (champion_t **)alloc_double_array(2);
     return app;
 }

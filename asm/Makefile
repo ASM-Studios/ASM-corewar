@@ -50,6 +50,7 @@ FILE_SRC	=	src/asm.c \
 				src/parameter/get_parameter_type.c \
 				\
 				src/parser/parser.c \
+				src/parser/extract_file.c \
 				src/parser/count_index.c \
 				src/parser/get_len.c \
 				src/parser/get_mid.c \
