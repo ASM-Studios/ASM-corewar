@@ -8,6 +8,7 @@
 #ifndef ARRAY_H_
     #define ARRAY_H_
 
+    int is_number(const char *str);
     int is_in(const char character, const char *separator);
     char **split(char *arg, char *separator);
     char *array_to_line(char **array);

@@ -20,6 +20,8 @@
 
     int corewar(const int ac, const char **av);
 
+    int count_champion(const int ac);
+
     /* file */
     char *get_suffix(const char *path);
 

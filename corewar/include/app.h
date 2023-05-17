@@ -21,5 +21,6 @@
     int destroy_app(app_t *app);
 
     int arg_parser(const int ac, const char **av, app_t *app);
+    int dump_cycle_condition(app_t *app, const char **av, int i);
 
 #endif //APP_H_

@@ -10,10 +10,13 @@ MAIN_SRC	=	src/main.c
 TEST_SRC	=
 
 FILE_SRC	=	src/corewar.c \
+				src/count_champion.c \
+				src/extract_bytecode.c \
 				\
 				src/op/op.c \
 				\
 				src/arg_parser/arg_parser.c \
+				src/arg_parser/condition/dump_cycle.c \
 				\
 				src/app/create_app.c \
 				src/app/destroy_app.c \
@@ -25,6 +28,7 @@ FILE_SRC	=	src/corewar.c \
 				src/file_manipulation/suffix.c \
 				\
 				src/array/is_in.c \
+				src/array/is_number.c \
 				src/array/split.c \
 				src/array/trailing_space.c \
 				src/array/double/array_to_line.c \
