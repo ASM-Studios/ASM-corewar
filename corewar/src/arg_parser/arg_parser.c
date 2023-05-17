@@ -22,8 +22,8 @@ int arg_parser(const int ac, const char **av, app_t *app)
     while (i < ac) {
         app->champions[0] = create_champion();
         detect_champion(app, app->champions[0], av[1]);
-        //if (get_nbr_cycle(av, i, app) == 84)
-            //return 84;
+        if (get_nbr_cycle(av, i, app) == 84)
+            return 84;
         i += 1;
     }
     return 0;
