@@ -26,7 +26,9 @@ int check_integrity(app_t *app)
 {
     if (check_no_champ(app) == 84)
         return 84;
-    if (check_adress(app) == 84)
+    if (check_load_adress(app) == 84)
+        return 84;
+    if (check_prog_number(app) == 84)
         return 84;
     return 0;
 }

@@ -29,7 +29,8 @@ FILE_SRC	=	src/corewar.c \
 				src/champion/detect_champion.c \
 				src/champion/destroy_list.c \
 				src/champion/integrity/check_integrity.c \
-				src/champion/integrity/check_adress.c \
+				src/champion/integrity/check_load_adress.c \
+				src/champion/integrity/check_prog_number.c \
 				\
 				src/file_manipulation/suffix.c \
 				\
