@@ -13,12 +13,14 @@
     char **split(char *arg, char *separator);
     char *array_to_line(char **array);
 
-    int free_double_array(char **array);
-    int len_double_array(char **array);
+    void **add_in_array(void **array, void *memb);
+    void **alloc_array(int no_line);
+    int free_array(void **array);
+    int len_array(void **array);
+
     int print_double_array(char **array);
     int free_triple_array(char ***array);
     int len_triple_array(char ***array);
     int print_triple_array(char ***array);
-    void **alloc_double_array(int no_line);
 
 #endif //ARRAY_H_

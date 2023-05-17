@@ -31,11 +31,12 @@ FILE_SRC	=	src/corewar.c \
 				src/array/is_number.c \
 				src/array/split.c \
 				src/array/trailing_space.c \
-				src/array/double/array_to_line.c \
-				src/array/double/free_array.c \
-				src/array/double/len_array.c \
-				src/array/double/print_array.c \
-				src/array/double/alloc_array.c
+				src/array/array_to_line.c \
+				src/array/free_array.c \
+				src/array/len_array.c \
+				src/array/print_array.c \
+				src/array/alloc_array.c \
+				src/array/add_in_array.c
 
 FILE_OBJ	=	$(FILE_SRC:.c=.o)
 MAIN_OBJ	=	$(MAIN_SRC:.c=.o)
