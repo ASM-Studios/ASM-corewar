@@ -33,7 +33,7 @@
     char **extract_body(char **array, void *ptr);
 
     int parse_header(app_t *app, char **header);
-    int parse_label(app_t *app, char **body);
+    int parse_label(app_t *app);
     int parse_body(app_t *app, char **body);
 
     int calcul_bytecode(op_constructor_t *op);

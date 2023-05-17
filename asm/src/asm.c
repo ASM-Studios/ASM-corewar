@@ -7,9 +7,10 @@
 
 #include "../include/prototype.h"
 
-STATIC int close_app(app_t *app)
+int close_app(app_t *app)
 {
-    destroy_list(app->op);
+    if (app->op != NULL)
+        destroy_list(app->op);
     close_file(app);
     destroy_app(app);
     return 0;

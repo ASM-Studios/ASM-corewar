@@ -23,6 +23,7 @@ STATIC int get_label(app_t *app, char *label, op_constructor_t *op)
 
     while (app->label[i] != NULL) {
         if (my_strcmp(app->label[i]->label->name, nlabel) == 0) {
+            free(nlabel);
             return app->label[i]->index - op->index;
         }
         i += 1;
