@@ -5,7 +5,7 @@
 ** check_integrity.c
 */
 
-#include "../../include/prototype.h"
+#include "../../../include/prototype.h"
 
 STATIC int check_no_champ(app_t *app)
 {
@@ -25,6 +25,8 @@ STATIC int check_no_champ(app_t *app)
 int check_integrity(app_t *app)
 {
     if (check_no_champ(app) == 84)
+        return 84;
+    if (check_adress(app) == 84)
         return 84;
     return 0;
 }

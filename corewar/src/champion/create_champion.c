@@ -12,5 +12,10 @@ champion_t *create_champion(void)
     champion_t *champion = malloc(sizeof(champion_t));
 
     champion->alive = 1;
+    champion->load_adress = -1;
+    champion->prog_number = -1;
+    champion->PC = -1;
+    champion->alive = 0;
+    champion->cor_file = NULL;
     return champion;
 }

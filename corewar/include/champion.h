@@ -29,5 +29,6 @@ typedef struct app app_t;
     int detect_champion(app_t *app, champion_t *champion, const char *path);
 
     int check_integrity(app_t *app);
+    int check_adress(app_t *app);
 
 #endif //CHAMPION_H_

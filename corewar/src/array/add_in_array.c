@@ -19,5 +19,6 @@ void **add_in_array(void **array, void *memb)
     }
     new_array[index] = memb;
     new_array[index + 1] = NULL;
+    free(array);
     return new_array;
 }
