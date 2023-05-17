@@ -20,7 +20,7 @@ int arg_parser(const int ac, const char **av, app_t *app)
     int i = 1;
 
     while (i < ac) {
-        if (get_nbr_cycle(av, i, app) == 84)
+        if (dump_cycle(av, i, app) == 84)
             return 84;
         i += 1;
     }
