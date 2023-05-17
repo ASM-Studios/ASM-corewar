@@ -12,11 +12,14 @@ TEST_SRC	=
 FILE_SRC	=	src/corewar.c \
 				src/count_champion.c \
 				src/extract_bytecode.c \
+				src/close_app.c \
 				\
 				src/op/op.c \
 				\
 				src/arg_parser/arg_parser.c \
 				src/arg_parser/condition/dump_cycle.c \
+				src/arg_parser/condition/load_adress.c \
+				src/arg_parser/condition/prog_number.c \
 				\
 				src/app/create_app.c \
 				src/app/destroy_app.c \
@@ -24,6 +27,8 @@ FILE_SRC	=	src/corewar.c \
 				src/champion/create_champion.c \
 				src/champion/destroy_champion.c \
 				src/champion/detect_champion.c \
+				src/champion/destroy_list.c \
+				src/champion/check_integrity.c \
 				\
 				src/file_manipulation/suffix.c \
 				\

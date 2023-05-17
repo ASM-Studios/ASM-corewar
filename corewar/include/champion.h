@@ -19,10 +19,15 @@ typedef struct app app_t;
         int reg[REG_NUMBER];
         int alive;
         int PC;
+        int prog_number;
+        int load_adress;
     } champion_t;
 
     champion_t *create_champion(void);
     int destroy_champion(champion_t *champion);
+    int destroy_champions(champion_t **champions);
     int detect_champion(app_t *app, champion_t *champion, const char *path);
+
+    int check_integrity(app_t *app);
 
 #endif //CHAMPION_H_

@@ -23,4 +23,11 @@
     int arg_parser(const int ac, const char **av, app_t *app);
     int dump_cycle_condition(app_t *app, const char **av, int i);
 
+    int prog_number_condition(app_t *app, const char **av, int i,
+        champion_t *champion);
+    int load_adress_condition(app_t *app, const char **av, int i,
+        champion_t *champion);
+
+
+
 #endif //APP_H_

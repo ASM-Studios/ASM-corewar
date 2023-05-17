@@ -7,7 +7,7 @@
 
 #include "../include/prototype.h"
 
-static int display_help(void)
+int display_help(void)
 {
     FILE *stream = fopen("corewar/help.txt", "r");
     size_t len;

@@ -9,6 +9,8 @@
 
 int destroy_champion(champion_t *champion)
 {
+    if (champion->cor_file != NULL)
+        fclose(champion->cor_file);
     free(champion);
     return 0;
 }
