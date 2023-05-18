@@ -39,6 +39,8 @@ FILE_SRC	=	src/corewar.c \
 				\
 				src/file_manipulation/suffix.c \
 				\
+				src/instruction/instruction.c \
+				\
 				src/array/is_in.c \
 				src/array/swap.c \
 				src/array/is_number.c \

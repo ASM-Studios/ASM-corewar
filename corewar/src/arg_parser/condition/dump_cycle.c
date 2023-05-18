@@ -10,11 +10,11 @@
 int dump_cycle_condition(app_t *app, const char **av, int i)
 {
     if (av[i + 1] == NULL) {
-        my_printf("-dump: invalid option.");
+        my_printf("-dump: invalid option.\n");
         return 84;
     }
     if (is_number(av[i + 1]) == 0) {
-        my_printf("-dump: invalid option.");
+        my_printf("-dump: invalid option.\n");
         return 84;
     }
     app->nbr_cycle = my_atoi(av[i + 1]);

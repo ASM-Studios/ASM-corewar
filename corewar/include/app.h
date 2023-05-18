@@ -29,5 +29,6 @@
     int complete_champion(app_t *app);
     int complete_prog_number(app_t *app);
 
+    int instruction(app_t *app, champion_t *champion);
 
 #endif //APP_H_

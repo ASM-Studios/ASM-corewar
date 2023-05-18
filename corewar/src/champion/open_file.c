@@ -22,7 +22,7 @@ int open_file(app_t *app)
     while (app->champions[i] != NULL) {
         app->champions[i]->cor_file = fopen(app->champions[i]->path, "rb");
         if (app->champions[i]->cor_file == NULL) {
-            my_printf("Cannot open file\n");
+            my_printf("Cannot open file.\n");
             return 84;
         } else {
             open_header(app, i);

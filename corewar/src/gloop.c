@@ -9,11 +9,11 @@
 
 int gloop(app_t *app)
 {
-    int is_running = 1;
+    int i = 0;
 
-    (void)app;
-    while (is_running == 0) {
-        my_printf("a\n");
+    while (i < 20) {
+        instruction(app, app->champions[0]);
+        i += 1;
     }
     return 0;
 }
