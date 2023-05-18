@@ -17,6 +17,9 @@ int corewar(const int ac, const char **av)
         close_app(app);
         return 84;
     }
+    if (complete_champion(app) == 84)
+        return 84;
+    gloop(app);
     close_app(app);
     return 0;
 }

@@ -19,5 +19,7 @@ int prog_number_condition(app_t *app, const char **av, int i,
         return 84;
     }
     champion->prog_number = my_atoi(av[i + 1]);
+    if (champion->prog_number < 1 || champion->prog_number > 4)
+        return 84;
     return 0;
 }

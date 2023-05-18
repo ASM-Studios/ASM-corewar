@@ -17,6 +17,7 @@
     void **alloc_array(int no_line);
     int free_array(void **array);
     int len_array(void **array);
+    int swap(void **array, int f1, int f2);
 
     int print_double_array(char **array);
     int free_triple_array(char ***array);

@@ -28,6 +28,8 @@
     int load_adress_condition(app_t *app, const char **av, int i,
         champion_t *champion);
 
+    int complete_champion(app_t *app);
+    int complete_prog_number(app_t *app);
 
 
 #endif //APP_H_

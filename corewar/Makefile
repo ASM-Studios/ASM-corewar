@@ -13,6 +13,7 @@ FILE_SRC	=	src/corewar.c \
 				src/count_champion.c \
 				src/extract_bytecode.c \
 				src/close_app.c \
+				src/gloop.c \
 				\
 				src/op/op.c \
 				\
@@ -31,10 +32,13 @@ FILE_SRC	=	src/corewar.c \
 				src/champion/integrity/check_integrity.c \
 				src/champion/integrity/check_load_adress.c \
 				src/champion/integrity/check_prog_number.c \
+				src/champion/complete/complete.c \
+				src/champion/complete/complete_prog_number.c \
 				\
 				src/file_manipulation/suffix.c \
 				\
 				src/array/is_in.c \
+				src/array/swap.c \
 				src/array/is_number.c \
 				src/array/split.c \
 				src/array/trailing_space.c \
