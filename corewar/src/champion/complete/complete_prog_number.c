@@ -13,12 +13,12 @@ STATIC int swap_champions(app_t *app)
 
     while (app->champions[i] != NULL) {
         if (app->champions[i]->prog_number != -1) {
-            swap((void **)app->champions, app->champions[i]->prog_number - 1, i);
+            swap((void **)app->champions,
+                app->champions[i]->prog_number - 1, i);
         }
         i += 1;
     }
     return 0;
-
 }
 
 STATIC int complete_champions_number(app_t *app)

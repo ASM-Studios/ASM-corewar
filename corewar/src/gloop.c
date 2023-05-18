@@ -9,10 +9,9 @@
 
 int gloop(app_t *app)
 {
-    return 0;
     int is_running = 1;
 
-    while (is_running == 1) {
+    while (is_running == 0) {
         my_printf("a\n");
     }
     return 0;

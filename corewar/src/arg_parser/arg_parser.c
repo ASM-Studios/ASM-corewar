@@ -42,11 +42,14 @@ STATIC int load_adress(const char **av, int *i, app_t *app,
     return 0;
 }
 
-STATIC int detect_cor(const char **av, int *i, app_t *app, champion_t **champion)
+STATIC int detect_cor(const char **av, int *i, app_t *app,
+    champion_t **champion)
 {
     char *suffix = get_suffix(av[*i]);
+
     if (my_strcmp(suffix, ".cor") == 0) {
-        app->champions = (void *)add_in_array((void *)app->champions, *champion);
+        app->champions = (void *)add_in_array((void *)app->champions,
+            *champion);
         *champion = create_champion();
     }
     free(suffix);
