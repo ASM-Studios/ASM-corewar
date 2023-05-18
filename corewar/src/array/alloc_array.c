@@ -5,9 +5,9 @@
 ** alloc_array.c
 */
 
-#include "../../../include/prototype.h"
+#include "../../include/prototype.h"
 
-void **alloc_double_array(int no_line)
+void **alloc_array(int no_line)
 {
     int i = 0;
     void **array = malloc(8 * (no_line + 1));

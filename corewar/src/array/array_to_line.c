@@ -5,7 +5,7 @@
 ** array_to_line.c
 */
 
-#include "../../../include/prototype.h"
+#include "../../include/prototype.h"
 
 STATIC int get_total_len_array(char **array)
 {

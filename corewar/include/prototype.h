@@ -9,6 +9,7 @@
     #define BASE_REPO_PROTOTYPE_H
 
     #include "app.h"
+    #include "enum.h"
     #include "include.h"
     #include "array.h"
 
@@ -19,6 +20,11 @@
     #endif
 
     int corewar(const int ac, const char **av);
+    int display_help(void);
+    int close_app(app_t *app);
+    int gloop(app_t *app);
+
+    int count_champion(const int ac);
 
     /* file */
     char *get_suffix(const char *path);

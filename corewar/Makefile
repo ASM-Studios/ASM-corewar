@@ -10,28 +10,48 @@ MAIN_SRC	=	src/main.c
 TEST_SRC	=
 
 FILE_SRC	=	src/corewar.c \
+				src/display_help.c \
+				src/count_champion.c \
+				src/extract_bytecode.c \
+				src/close_app.c \
+				src/gloop.c \
 				\
 				src/op/op.c \
 				\
 				src/arg_parser/arg_parser.c \
+				src/arg_parser/condition/dump_cycle.c \
+				src/arg_parser/condition/load_adress.c \
+				src/arg_parser/condition/prog_number.c \
 				\
 				src/app/create_app.c \
 				src/app/destroy_app.c \
 				\
 				src/champion/create_champion.c \
 				src/champion/destroy_champion.c \
-				src/champion/detect_champion.c \
+				src/champion/destroy_list.c \
+				\
+				src/champion/open_file.c \
+				src/champion/integrity/check_integrity.c \
+				src/champion/integrity/check_load_adress.c \
+				src/champion/integrity/check_prog_number.c \
+				src/champion/complete/complete.c \
+				src/champion/complete/complete_prog_number.c \
 				\
 				src/file_manipulation/suffix.c \
 				\
+				src/instruction/instruction.c \
+				\
 				src/array/is_in.c \
+				src/array/swap.c \
+				src/array/is_number.c \
 				src/array/split.c \
 				src/array/trailing_space.c \
-				src/array/double/array_to_line.c \
-				src/array/double/free_array.c \
-				src/array/double/len_array.c \
-				src/array/double/print_array.c \
-				src/array/double/alloc_array.c
+				src/array/array_to_line.c \
+				src/array/free_array.c \
+				src/array/len_array.c \
+				src/array/print_array.c \
+				src/array/alloc_array.c \
+				src/array/add_in_array.c
 
 FILE_OBJ	=	$(FILE_SRC:.c=.o)
 MAIN_OBJ	=	$(MAIN_SRC:.c=.o)

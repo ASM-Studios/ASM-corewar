@@ -21,5 +21,15 @@
     int destroy_app(app_t *app);
 
     int arg_parser(const int ac, const char **av, app_t *app);
+    int dump_cycle_condition(app_t *app, const char **av, int i);
+
+    int prog_number_condition(const char **av, int i, champion_t *champion);
+    int load_adress_condition(const char **av, int i, champion_t *champion);
+
+    int complete_champion(app_t *app);
+    int complete_prog_number(app_t *app);
+
+    int instruction(app_t *app, champion_t *champion);
+    int extract_bytecode(int bytecode, int *array);
 
 #endif //APP_H_

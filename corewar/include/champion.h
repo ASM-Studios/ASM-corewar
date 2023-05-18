@@ -15,14 +15,23 @@ typedef struct app app_t;
 
     typedef struct champion {
         header_t header;
+        char *path;
         FILE *cor_file;
         int reg[REG_NUMBER];
         int alive;
         int PC;
+        int prog_number;
+        int load_adress;
     } champion_t;
 
     champion_t *create_champion(void);
     int destroy_champion(champion_t *champion);
-    int detect_champion(app_t *app, champion_t *champion, const char *path);
+    int destroy_champions(champion_t **champions);
+
+    int open_file(app_t *app);
+
+    int check_integrity(app_t *app);
+    int check_load_adress(app_t *app);
+    int check_prog_number(app_t *app);
 
 #endif //CHAMPION_H_
