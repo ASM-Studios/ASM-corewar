@@ -17,13 +17,12 @@ STATIC int extract_param(int *number)
     return param_type;
 }
 
-int extract_bytecode(int bytecode, int param_index)
+int extract_bytecode(int bytecode, int *array)
 {
-    int number = 0b11111111;
     int i = 0;
 
     while (i < 4) {
-        my_printf("%d\n", extract_param(&number));
+        array[i] = extract_param(&bytecode);
         i += 1;
     }
     return 0;

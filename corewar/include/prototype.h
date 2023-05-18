@@ -9,6 +9,7 @@
     #define BASE_REPO_PROTOTYPE_H
 
     #include "app.h"
+    #include "enum.h"
     #include "include.h"
     #include "array.h"
 

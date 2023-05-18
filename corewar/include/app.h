@@ -30,5 +30,6 @@
     int complete_prog_number(app_t *app);
 
     int instruction(app_t *app, champion_t *champion);
+    int extract_bytecode(int bytecode, int *array);
 
 #endif //APP_H_
