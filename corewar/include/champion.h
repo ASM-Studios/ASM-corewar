@@ -15,6 +15,7 @@ typedef struct app app_t;
 
     typedef struct champion {
         header_t header;
+        char *path;
         FILE *cor_file;
         int reg[REG_NUMBER];
         int alive;
@@ -27,6 +28,8 @@ typedef struct app app_t;
     int destroy_champion(champion_t *champion);
     int destroy_champions(champion_t **champions);
     int detect_champion(app_t *app, champion_t *champion, const char *path);
+
+    int open_file(app_t *app);
 
     int check_integrity(app_t *app);
     int check_load_adress(app_t *app);

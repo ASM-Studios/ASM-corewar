@@ -48,6 +48,7 @@ STATIC int detect_cor(const char **av, int *i, app_t *app,
     char *suffix = get_suffix(av[*i]);
 
     if (my_strcmp(suffix, ".cor") == 0) {
+        (*champion)->path = my_strdup(av[*i]);
         app->champions = (void *)add_in_array((void *)app->champions,
             *champion);
         *champion = create_champion();
