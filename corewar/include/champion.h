@@ -27,7 +27,6 @@ typedef struct app app_t;
     champion_t *create_champion(void);
     int destroy_champion(champion_t *champion);
     int destroy_champions(champion_t **champions);
-    int detect_champion(app_t *app, champion_t *champion, const char *path);
 
     int open_file(app_t *app);
 

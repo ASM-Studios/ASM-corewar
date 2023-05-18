@@ -28,7 +28,6 @@ FILE_SRC	=	src/corewar.c \
 				\
 				src/champion/create_champion.c \
 				src/champion/destroy_champion.c \
-				src/champion/detect_champion.c \
 				src/champion/destroy_list.c \
 				\
 				src/champion/open_file.c \

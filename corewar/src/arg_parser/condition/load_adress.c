@@ -7,8 +7,7 @@
 
 #include "../../../include/prototype.h"
 
-int load_adress_condition(app_t *app, const char **av, int i,
-    champion_t *champion)
+int load_adress_condition(const char **av, int i, champion_t *champion)
 {
     if (av[i + 1] == NULL) {
         my_printf("-a: invalid option.");

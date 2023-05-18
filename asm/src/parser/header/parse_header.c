@@ -54,7 +54,6 @@ STATIC int extract_header_name(app_t *app, char *line)
 
 STATIC int extract_header_comment(app_t *app, char *line)
 {
-    int name = my_strstr(line, ".name");
     int comment = my_strstr(line, ".comment");
     char *comment_t = NULL;
 

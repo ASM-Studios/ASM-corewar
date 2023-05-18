@@ -18,11 +18,10 @@ STATIC int dump_cycle(const char **av, int *i, app_t *app)
     return 0;
 }
 
-STATIC int prog_number(const char **av, int *i, app_t *app,
-    champion_t *champion)
+STATIC int prog_number(const char **av, int *i, champion_t *champion)
 {
     if (my_strcmp(av[*i], "-n") == 0) {
-        if (prog_number_condition(app, av, *i, champion) == 84)
+        if (prog_number_condition(av, *i, champion) == 84)
             return 84;
         else
             *i += 1;
@@ -30,11 +29,10 @@ STATIC int prog_number(const char **av, int *i, app_t *app,
     return 0;
 }
 
-STATIC int load_adress(const char **av, int *i, app_t *app,
-    champion_t *champion)
+STATIC int load_adress(const char **av, int *i, champion_t *champion)
 {
     if (my_strcmp(av[*i], "-a") == 0) {
-        if (load_adress_condition(app, av, *i, champion) == 84)
+        if (load_adress_condition(av, *i, champion) == 84)
             return 84;
         else
             *i += 1;
@@ -65,9 +63,9 @@ int arg_parser(const int ac, const char **av, app_t *app)
     while (i < ac) {
         if (dump_cycle(av, &i, app) == 84)
             return 84;
-        if (prog_number(av, &i, app, champion) == 84)
+        if (prog_number(av, &i, champion) == 84)
             return 84;
-        if (load_adress(av, &i, app, champion) == 84)
+        if (load_adress(av, &i, champion) == 84)
             return 84;
         if (detect_cor(av, &i, app, &champion) == 84)
             return 84;
