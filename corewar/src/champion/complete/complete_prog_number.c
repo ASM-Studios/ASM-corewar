@@ -36,7 +36,5 @@ int complete_prog_number(app_t *app)
 {
     swap_champions(app);
     complete_champions_number(app);
-    for (int i = 0; i < 4; i++)
-        printf("%d\n", app->champions[i]->prog_number);
     return 0;
 }
