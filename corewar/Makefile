@@ -41,6 +41,9 @@ FILE_SRC	=	src/corewar.c \
 				\
 				src/instruction/instruction.c \
 				\
+				src/parameter/create_parameter.c \
+				src/parameter/destroy_parameter.c \
+				\
 				src/array/is_in.c \
 				src/array/swap.c \
 				src/array/is_number.c \

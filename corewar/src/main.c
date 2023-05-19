@@ -7,6 +7,14 @@
 
 #include "../include/prototype.h"
 
+int get_arg(int bytecode, int index)
+{
+    int mask = (1 << ((4 - index) * 2)) - 1;
+    printf("%d\n", mask);
+    printf("%d\n", bytecode & mask);
+    return 0;
+}
+
 int main(const int ac, const char **av)
 {
     if (ac == 1)
