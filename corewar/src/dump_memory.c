@@ -11,25 +11,26 @@ STATIC int nbsize(unsigned int nb)
 {
     int i = 0;
 
-    while (nb != 0) {
+    while (nb > 16) {
         i += 1;
-        nb /= 10;
+        nb /= 16;
     }
-    return i;
+    return i + 1;
 }
 
-int display_hexa(unsigned int nb)
+int display_hexa(unsigned int nb, int complete)
 {
     int len = 0;
     char tab[] = "0123456789ABCDEF";
-    char result[nbsize(nb)];
+    char result[nbsize(nb) + 1];
+
     result[0] = '\0';
-    while (nb > 16) {
+    while (nb >= 16) {
         my_strappend(result, tab[nb % 16]);
         nb /= 16;
     }
     my_strappend(result, tab[nb % 16]);
-    if (my_strlen(result) == 1) {
+    if (my_strlen(result) == 1 && complete == 1) {
         result[1] = '0';
         result[2] = '\0';
     }
@@ -41,7 +42,7 @@ int display_hexa(unsigned int nb)
 int display_line(unsigned int i)
 {
     int j = 0;
-    int len = display_hexa(i);
+    int len = display_hexa(i, 0);
 
     while (j < 5 - len) {
         my_printf(" ");
@@ -54,17 +55,18 @@ int display_line(unsigned int i)
 int dump_memory(app_t *app)
 {
     int i = 0;
+    int j = 0;
 
-    display_line(i);
     while (i < MEM_SIZE) {
-        display_hexa(app->memory[i]);
-        if (i % 32 == 0 && i != 0) {
-            my_printf("\n");
-            display_line(i);
-        }
-        else
+        j = 0;
+        display_line(i);
+        while (j < 32) {
+            display_hexa(app->memory[i], 1);
             my_printf(" ");
-        i += 1;
+            i += 1;
+            j += 1;
+        }
+        my_printf("\n");
     }
     return 0;
 }
