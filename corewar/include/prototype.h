@@ -20,6 +20,7 @@
     #endif
 
     int corewar(const int ac, const char **av);
+    int dump_memory(app_t *app);
     int display_help(void);
     int close_app(app_t *app);
     int gloop(app_t *app);

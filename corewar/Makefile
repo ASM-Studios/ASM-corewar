@@ -10,6 +10,7 @@ MAIN_SRC	=	src/main.c
 TEST_SRC	=
 
 FILE_SRC	=	src/corewar.c \
+				src/dump_memory.c \
 				src/display_help.c \
 				src/count_champion.c \
 				src/extract_bytecode.c \
