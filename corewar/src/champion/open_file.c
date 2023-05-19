@@ -18,8 +18,9 @@ STATIC int load_champion(app_t *app, champion_t *champion)
     int index = champion->load_adress;
 
     champion->PC = index;
-    fread(&(app->memory[index]), champion->header.prog_size, 1,
-        champion->cor_file);
+    while (fread(&(app->memory[index]), 1, 1, champion->cor_file) != 0) {
+        index += 1;
+    }
     return 0;
 }
 
