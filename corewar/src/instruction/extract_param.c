@@ -9,5 +9,5 @@
 
 int extract_param(app_t *app, champion_t *champion, int bytecode)
 {
-
+    return 0;
 }
