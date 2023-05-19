@@ -20,7 +20,6 @@ STATIC int nbsize(unsigned int nb)
 
 int display_hexa(unsigned int nb, int complete)
 {
-    int len = 0;
     char tab[] = "0123456789ABCDEF";
     char result[nbsize(nb) + 1];
 
