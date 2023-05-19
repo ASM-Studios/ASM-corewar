@@ -35,6 +35,19 @@ int display_hexa(unsigned int nb)
     }
     my_revstr(result);
     my_printf("%s", result);
+    return my_strlen(result);
+}
+
+int display_line(unsigned int i)
+{
+    int j = 0;
+    int len = display_hexa(i);
+
+    while (j < 5 - len) {
+        my_printf(" ");
+        j += 1;
+    }
+    my_printf(": ");
     return 0;
 }
 
@@ -42,12 +55,12 @@ int dump_memory(app_t *app)
 {
     int i = 0;
 
+    display_line(i);
     while (i < MEM_SIZE) {
         display_hexa(app->memory[i]);
-        if (i % 32 == 0) {
+        if (i % 32 == 0 && i != 0) {
             my_printf("\n");
-            display_hexa(i);
-            my_printf(" : ");
+            display_line(i);
         }
         else
             my_printf(" ");
