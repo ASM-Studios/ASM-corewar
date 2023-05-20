@@ -41,6 +41,7 @@ FILE_SRC	=	src/corewar.c \
 				src/file_manipulation/suffix.c \
 				\
 				src/instruction/instruction.c \
+				src/instruction/extract_param.c \
 				\
 				src/parameter/create_parameter.c \
 				src/parameter/destroy_parameter.c \
@@ -55,6 +56,7 @@ FILE_SRC	=	src/corewar.c \
 				src/array/len_array.c \
 				src/array/print_array.c \
 				src/array/alloc_array.c \
+				src/array/free_array.c \
 				src/array/add_in_array.c
 
 FILE_OBJ	=	$(FILE_SRC:.c=.o)

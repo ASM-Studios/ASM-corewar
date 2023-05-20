@@ -32,7 +32,7 @@ int corewar(const int ac, const char **av)
         return 84;
     if (config_champions(app) == 84)
         return 84;
-    dump_memory(app);
+    gloop(app);
     close_app(app);
     return 0;
 }

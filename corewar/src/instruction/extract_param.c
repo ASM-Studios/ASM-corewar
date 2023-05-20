@@ -7,7 +7,16 @@
 
 #include "../../include/prototype.h"
 
-int extract_param(app_t *app, champion_t *champion, int bytecode)
+parameter_t **extract_param(int bytecode)
 {
-    return 0;
+    int i = 3;
+    int copy = bytecode;
+    parameter_t **parameters = (parameter_t **)alloc_array(5);
+
+    while (i >= 0) {
+        int type = extract_param_type(&copy);
+        parameters[i] = create_parameter(type);
+        i -= 1;
+    }
+    return parameters;
 }

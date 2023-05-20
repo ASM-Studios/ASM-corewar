@@ -42,6 +42,6 @@ typedef struct app app_t;
     int check_prog_number(app_t *app);
 
     parameter_t *create_parameter(type_t type);
-    int destroy_parameter(parameter_t *parameter);
+    void destroy_parameter(parameter_t *parameter);
 
 #endif //CHAMPION_H_

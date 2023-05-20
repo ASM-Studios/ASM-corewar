@@ -7,14 +7,12 @@
 
 #include "../../include/prototype.h"
 
-int free_array(void **array)
+int free_ptr_array(void **array, void(free_element)(void *))
 {
     int i = 0;
 
-    if (array == NULL)
-        return 0;
     while (array[i] != NULL) {
-        free(array[i]);
+        free_element(array[i]);
         i += 1;
     }
     free(array);

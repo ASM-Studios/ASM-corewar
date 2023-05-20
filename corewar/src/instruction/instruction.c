@@ -17,23 +17,32 @@ int need_bytecode(int instruction)
     }
 }
 
-int instruction(app_t *app, champion_t *champion)
+STATIC parameter_t **extract_parameters(app_t *app, champion_t *champion,
+    unsigned char instruction)
 {
-    int array[4] = {0};
-    unsigned char instruction = 0;
     unsigned char bytecode = 0;
+    parameter_t **parameters = NULL;
 
-    instruction = app->memory[champion->PC];
-    champion->PC += 1;
-    my_printf("PC: %d\n", champion->PC);
-    my_printf("Instruction: %d\n", instruction);
     if (need_bytecode(instruction) == 1) {
         bytecode = app->memory[champion->PC];
         champion->PC += 1;
-        my_printf("Bytecode: %d\n", bytecode);
-        extract_bytecode(bytecode, array);
-        for (int i = 0; i < 4; i++)
-            printf("%d\n", array[i]);
+        parameters = extract_param(bytecode);
+        return parameters;
+    } else {
+        return parameters;
     }
+
+}
+
+int instruction(app_t *app, champion_t *champion)
+{
+    unsigned char instruction = 0;
+    parameter_t **parameters = NULL;
+
+    instruction = app->memory[champion->PC];
+    champion->PC += 1;
+    parameters = extract_parameters(app, champion, instruction);
+    if (parameters != NULL)
+        free_ptr_array((void **)parameters, &destroy_parameter);
     return 0;
 }

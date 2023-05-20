@@ -7,8 +7,7 @@
 
 #include "../../include/prototype.h"
 
-int destroy_parameter(parameter_t *parameter)
+void destroy_parameter(parameter_t *parameter)
 {
     free(parameter);
-    return 0;
 }
