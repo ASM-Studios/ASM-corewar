@@ -28,6 +28,7 @@ typedef struct app app_t;
         int PC;
         int prog_number;
         int load_adress;
+        int cd;
     } champion_t;
 
     champion_t *create_champion(void);

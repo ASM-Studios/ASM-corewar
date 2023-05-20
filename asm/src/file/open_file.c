@@ -39,8 +39,5 @@ int open_file(app_t *app, const char *path)
     app->input = open_input_file(path);
     if (app->input == NULL)
         return 84;
-    app->output = open_output_file(path);
-    if (app->output == NULL)
-        return 84;
     return 0;
 }

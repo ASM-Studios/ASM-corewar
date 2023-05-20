@@ -28,7 +28,7 @@ int asm_main(const char *path)
         return 84;
     app->header.prog_size =
         little_endian_converter(program_size(app->op), 4);
-    write_file(app);
+    write_file(app, path);
     close_app(app);
     return 0;
 }
