@@ -34,6 +34,8 @@ STATIC parameter_t **extract_parameters(app_t *app, champion_t *champion,
 
 }
 
+#pragma GCC diagnostic ignored "-Wincompatible-pointer-types"
+
 int instruction(app_t *app, champion_t *champion)
 {
     unsigned char instruction = 0;
@@ -46,3 +48,5 @@ int instruction(app_t *app, champion_t *champion)
         free_ptr_array((void **)parameters, &destroy_parameter);
     return 0;
 }
+
+#pragma GCC diagnostic warning "-Wincompatible-pointer-types"
