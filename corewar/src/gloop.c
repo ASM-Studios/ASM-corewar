@@ -19,7 +19,7 @@ int gloop(app_t *app)
 {
     int i = 0;
 
-    while (i < 20) {
+    while (i < 4) {
         need_dump(app, i);
         instruction(app, app->champions[0]);
         i += 1;

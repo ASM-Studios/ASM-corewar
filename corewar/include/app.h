@@ -32,5 +32,15 @@
     int instruction(app_t *app, champion_t *champion);
     parameter_t **extract_param(int bytecode);
     int extract_param_type(int *number);
+    int read_value(app_t *app, champion_t *champion, parameter_t **parameters);
+
+    int special_param(parameter_t *parameter, unsigned char instruction,
+        int index);
+    int special_param_zjmp(parameter_t *parameter, int index);
+    int special_param_fork(parameter_t *parameter, int index);
+    int special_param_lfork(parameter_t *parameter, int index);
+    int special_param_ldi(parameter_t *parameter, int index);
+    int special_param_lldi(parameter_t *parameter, int index);
+    int special_param_sti(parameter_t *parameter, int index);
 
 #endif //APP_H_

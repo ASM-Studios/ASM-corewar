@@ -42,6 +42,15 @@ FILE_SRC	=	src/corewar.c \
 				\
 				src/instruction/instruction.c \
 				src/instruction/extract_param.c \
+				src/instruction/read_value.c \
+				\
+				src/instruction/special_param/special_param.c \
+				src/instruction/special_param/fork.c \
+				src/instruction/special_param/ldi.c \
+				src/instruction/special_param/lfork.c \
+				src/instruction/special_param/lldi.c \
+				src/instruction/special_param/sti.c \
+				src/instruction/special_param/zjmp.c \
 				\
 				src/parameter/create_parameter.c \
 				src/parameter/destroy_parameter.c \

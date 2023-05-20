@@ -39,7 +39,7 @@ parameter_t **extract_param_no_cb(int instruction)
         case 9:
         case 12:
         case 15:
-            parameters[0] = create_parameter(Index);
+            parameters[0] = create_parameter(Indirect);
             break;
         case 1:
             parameters[0] = create_parameter(Direct);
