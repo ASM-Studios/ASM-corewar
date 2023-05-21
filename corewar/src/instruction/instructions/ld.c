@@ -9,7 +9,7 @@
 
 int instruction_ld(app_t *app, champion_t *champion, parameter_t **parameter)
 {
-    int value = parameter[0]->value;
+    int value = load_value(app, champion, parameter[0], 1);
     int reg = parameter[1]->value;
 
     champion->reg[reg] = value;

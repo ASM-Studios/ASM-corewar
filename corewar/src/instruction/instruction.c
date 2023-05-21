@@ -27,11 +27,10 @@ int instruction(app_t *app, champion_t *champion)
 
     instruction = app->memory[champion->PC];
     champion->PC += 1;
-    printf("Instruction: %X\n", instruction);
     parameters = extract_parameters(app, champion, instruction);
     detect_index(parameters, instruction);
     read_value(app, champion, parameters);
-    printf("\n");
+    execute_instruction(app, champion, parameters, instruction);
     if (parameters != NULL)
         free_ptr_array((void **)parameters, &destroy_parameter);
     return 0;

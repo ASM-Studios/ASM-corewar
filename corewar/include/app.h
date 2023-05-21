@@ -43,4 +43,11 @@
     int special_param_lldi(parameter_t *parameter, int index);
     int special_param_sti(parameter_t *parameter, int index);
 
+    int execute_instruction(app_t *app, champion_t *champion,
+        parameter_t **parameters, int instruction);
+    int load_value(app_t *app, champion_t *champion, parameter_t *parameter,
+        int idx_mod);
+    int instruction_ld(app_t *, champion_t *, parameter_t **);
+
+
 #endif //APP_H_

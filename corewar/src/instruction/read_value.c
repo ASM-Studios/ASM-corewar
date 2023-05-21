@@ -16,12 +16,10 @@ STATIC int read_unique_value_2(app_t *app, champion_t *champion,
         case Register:
             parameter->value = (char)(c[0]);
             champion->PC += 1;
-            printf("Register: %d\n", parameter->value);
             break;
         case Index:
             parameter->value = (short)((c[0]) << 8) | (c[1]);
             champion->PC += 2;
-            printf("Index: %d\n", parameter->value);
             break;
         default:
             break;
@@ -39,12 +37,10 @@ STATIC int read_unique_value(app_t *app, champion_t *champion,
             parameter->value = (int)(c[0] << 24) | ((c[1]) << 16) |
                 ((c[2]) << 8) | (c[3]);
             champion->PC += 4;
-            printf("Direct: %d\n", parameter->value);
             break;
         case Indirect:
             parameter->value = (short)((c[0]) << 8) | (c[1]);
             champion->PC += 2;
-            printf("Indirect: %d\n", parameter->value);
             break;
         default:
             read_unique_value_2(app, champion, parameter);
