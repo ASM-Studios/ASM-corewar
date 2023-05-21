@@ -7,21 +7,34 @@
 
 #include "../../include/prototype.h"
 
-int instruction(app_t *app, champion_t *champion)
-{
-    int array[4] = {0};
-    unsigned char instruction = 0;
-    unsigned int bytecode = 0;
+#pragma GCC diagnostic ignored "-Wincompatible-pointer-types"
 
-    fread(&instruction, 1, 1, champion->cor_file);
-    my_printf("Instruction: %d\n", instruction);
-    if (instruction != 1 && instruction != 9 && instruction != 12 &&
-        instruction != 15) {
-        fread(&bytecode, 1, 1, champion->cor_file);
-        printf("Bytecode: %d\n", bytecode);
-        extract_bytecode(bytecode, array);
-        for (int i = 0; i < 4; i++)
-            printf("%d\n", array[i]);
+int detect_index(parameter_t **parameters, unsigned char instruction)
+{
+    int i = 0;
+
+    while (parameters[i] != NULL) {
+        special_param(parameters[i], instruction, i);
+        i += 1;
     }
     return 0;
 }
+
+int instruction(app_t *app, champion_t *champion)
+{
+    unsigned char instruction = 0;
+    parameter_t **parameters = NULL;
+
+    instruction = app->memory[champion->PC];
+    champion->PC += 1;
+    printf("Instruction: %X\n", instruction);
+    parameters = extract_parameters(app, champion, instruction);
+    detect_index(parameters, instruction);
+    read_value(app, champion, parameters);
+    printf("\n");
+    if (parameters != NULL)
+        free_ptr_array((void **)parameters, &destroy_parameter);
+    return 0;
+}
+
+#pragma GCC diagnostic warning "-Wincompatible-pointer-types"

@@ -9,9 +9,10 @@
     #define ENUM_H_
 
     typedef enum type {
-        Direct = 0,
-        Indirect,
-        Register,
+        None = 0,
+        Register = 1,
+        Direct = 2,
+        Indirect = 3,
         Index
     } type_t;
 

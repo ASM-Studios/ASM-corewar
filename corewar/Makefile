@@ -10,6 +10,7 @@ MAIN_SRC	=	src/main.c
 TEST_SRC	=
 
 FILE_SRC	=	src/corewar.c \
+				src/dump_memory.c \
 				src/display_help.c \
 				src/count_champion.c \
 				src/extract_bytecode.c \
@@ -40,6 +41,19 @@ FILE_SRC	=	src/corewar.c \
 				src/file_manipulation/suffix.c \
 				\
 				src/instruction/instruction.c \
+				src/instruction/extract_param.c \
+				src/instruction/read_value.c \
+				\
+				src/instruction/special_param/special_param.c \
+				src/instruction/special_param/fork.c \
+				src/instruction/special_param/ldi.c \
+				src/instruction/special_param/lfork.c \
+				src/instruction/special_param/lldi.c \
+				src/instruction/special_param/sti.c \
+				src/instruction/special_param/zjmp.c \
+				\
+				src/parameter/create_parameter.c \
+				src/parameter/destroy_parameter.c \
 				\
 				src/array/is_in.c \
 				src/array/swap.c \
@@ -51,6 +65,7 @@ FILE_SRC	=	src/corewar.c \
 				src/array/len_array.c \
 				src/array/print_array.c \
 				src/array/alloc_array.c \
+				src/array/free_array.c \
 				src/array/add_in_array.c
 
 FILE_OBJ	=	$(FILE_SRC:.c=.o)

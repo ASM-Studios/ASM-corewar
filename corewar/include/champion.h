@@ -7,11 +7,17 @@
 
 #include "include.h"
 #include "op.h"
+#include "enum.h"
 
 typedef struct app app_t;
 
 #ifndef CHAMPION_H_
     #define CHAMPION_H_
+
+    typedef struct parameter {
+        type_t type;
+        int value;
+    } parameter_t;
 
     typedef struct champion {
         header_t header;
@@ -22,6 +28,7 @@ typedef struct app app_t;
         int PC;
         int prog_number;
         int load_adress;
+        int cd;
     } champion_t;
 
     champion_t *create_champion(void);
@@ -34,4 +41,9 @@ typedef struct app app_t;
     int check_load_adress(app_t *app);
     int check_prog_number(app_t *app);
 
+    parameter_t *create_parameter(type_t type);
+    void destroy_parameter(parameter_t *parameter);
+
+    parameter_t **extract_parameters(app_t *app, champion_t *champion,
+        unsigned char instruction);
 #endif //CHAMPION_H_

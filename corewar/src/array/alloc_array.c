@@ -10,9 +10,9 @@
 void **alloc_array(int no_line)
 {
     int i = 0;
-    void **array = malloc(8 * (no_line + 1));
+    void **array = malloc(8 * (no_line));
 
-    while (i <= no_line) {
+    while (i < no_line) {
         array[i] = NULL;
         i += 1;
     }

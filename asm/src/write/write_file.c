@@ -26,10 +26,13 @@ STATIC int write_parameter(app_t *app, op_constructor_t *op)
     return 0;
 }
 
-int write_file(app_t *app)
+int write_file(app_t *app, const char *path)
 {
     op_constructor_t *op = app->op;
 
+    app->output = open_output_file(path);
+    if (app->output == NULL)
+        return 84;
     fwrite(&app->header, sizeof(app->header), 1, app->output);
     while (op != NULL) {
         op_t tmp_op = op->op;

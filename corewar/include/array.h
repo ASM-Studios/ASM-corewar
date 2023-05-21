@@ -15,6 +15,7 @@
 
     void **add_in_array(void **array, void *memb);
     void **alloc_array(int no_line);
+    int free_ptr_array(void **array, void(free_element)(void *));
     int free_array(void **array);
     int len_array(void **array);
     int swap(void **array, int f1, int f2);
