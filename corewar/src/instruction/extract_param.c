@@ -63,6 +63,4 @@ parameter_t **extract_parameters(app_t *app, champion_t *champion,
         parameters = extract_param_no_cb(instruction);
         return parameters;
     }
-
 }
-

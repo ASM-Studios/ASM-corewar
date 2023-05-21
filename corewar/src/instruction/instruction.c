@@ -9,23 +9,6 @@
 
 #pragma GCC diagnostic ignored "-Wincompatible-pointer-types"
 
-int display_type(type_t type)
-{
-    switch(type) {
-        case Direct:
-            printf("Direct\n"); break;
-        case Indirect:
-            printf("Indirect\n"); break;
-        case Index:
-            printf("Index\n"); break;
-        case Register:
-            printf("Register\n"); break;
-        default:
-            break;
-    }
-    return 0;
-}
-
 int detect_index(parameter_t **parameters, unsigned char instruction)
 {
     int i = 0;
@@ -48,8 +31,6 @@ int instruction(app_t *app, champion_t *champion)
     parameters = extract_parameters(app, champion, instruction);
     detect_index(parameters, instruction);
     read_value(app, champion, parameters);
-    for (int i = 0; parameters[i] != NULL; i += 1)
-        display_type(parameters[i]->type);
     printf("\n");
     if (parameters != NULL)
         free_ptr_array((void **)parameters, &destroy_parameter);

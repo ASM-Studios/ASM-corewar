@@ -7,10 +7,11 @@
 
 #include "../../../include/prototype.h"
 
-int ld(app_t *app, champion_t *champion, parameter_t **parameter)
+int instruction_ld(app_t *app, champion_t *champion, parameter_t **parameter)
 {
     int value = parameter[0]->value;
     int reg = parameter[1]->value;
+
     champion->reg[reg] = value;
     return 0;
 }
