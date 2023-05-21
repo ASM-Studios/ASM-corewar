@@ -36,6 +36,7 @@ FILE_SRC	=	src/corewar.c \
 				src/champion/integrity/check_integrity.c \
 				src/champion/integrity/check_load_adress.c \
 				src/champion/integrity/check_prog_number.c \
+				src/champion/integrity/check_overlap_adress.c \
 				src/champion/complete/complete.c \
 				src/champion/complete/complete_prog_number.c \
 				\

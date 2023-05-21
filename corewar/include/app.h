@@ -26,6 +26,8 @@
     int prog_number_condition(const char **av, int i, champion_t *champion);
     int load_adress_condition(const char **av, int i, champion_t *champion);
 
+    int check_overlap_adress(app_t *app);
+
     int set_address(champion_t **champions);
     int complete_champion(app_t *app);
     int complete_prog_number(app_t *app);
