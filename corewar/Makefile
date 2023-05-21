@@ -23,6 +23,7 @@ FILE_SRC	=	src/corewar.c \
 				src/arg_parser/condition/dump_cycle.c \
 				src/arg_parser/condition/load_adress.c \
 				src/arg_parser/condition/prog_number.c \
+				src/arg_parser/set_address.c \
 				\
 				src/app/create_app.c \
 				src/app/destroy_app.c \
