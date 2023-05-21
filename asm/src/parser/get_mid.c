@@ -14,7 +14,6 @@ void *get_mid(char **array)
 
     while (array[i] != NULL) {
         if (my_strstr(array[i], ".comment") == -1 && my_strstr(array[i], ".name") == -1) {
-            printf("%s\n", array[i]);
             return NULL;
         }
         if (my_strstr(array[i], ".comment") != -1) {
