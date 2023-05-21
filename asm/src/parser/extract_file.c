@@ -30,8 +30,10 @@ char **file_to_array(app_t *app, int no_line)
 
     while (getline(&line, &len, app->input) != -1) {
         remove_trailing_space(line);
-        array[i] = my_strdup(line);
-        i += 1;
+        if (my_strlen(line) > 0) {
+            array[i] = my_strdup(line);
+            i += 1;
+        }
     }
     array[i] = NULL;
     free(line);
