@@ -20,7 +20,7 @@ STATIC parameter_t **detect_parameter(char **arg, op_t op)
     while (arg[i] != NULL) {
         type_t type = get_parameter_type(arg[i]);
         parameters[i] = create_parameter(arg[i], type);
-        if (check_param(parameters[i], op.code, i) == 84)
+        if (check_param(parameters[i], op, i) == 84)
             return NULL;
         i += 1;
     }

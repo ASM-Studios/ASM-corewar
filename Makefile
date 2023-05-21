@@ -14,7 +14,6 @@ clean:
 		@make -s -C ./lib clean
 		@make --no-print-directory -C ./asm clean
 		@make --no-print-directory -C ./corewar clean
-		$(shell find * -name "*.cor" -delete)
 
 fclean:	clean
 		@make -s -C ./lib fclean
