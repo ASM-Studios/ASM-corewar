@@ -7,9 +7,22 @@
 
 #include "../../include/prototype.h"
 
+STATIC int little_endian_converter_4(int number)
+{
+    int swapped = 0;
+
+    swapped = ((number >> 24)&0xff) |
+        ((number << 8)&0xff0000) |
+        ((number >> 8)&0xff00) |
+        ((number << 24)&0xff000000);
+    return swapped;
+}
+
 STATIC int open_header(champion_t *champion)
 {
     fread(&champion->header, sizeof(header_t), 1, champion->cor_file);
+    champion->header.prog_size = little_endian_converter_4(
+        champion->header.prog_size);
     return 0;
 }
 

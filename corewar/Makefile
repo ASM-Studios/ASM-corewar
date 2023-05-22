@@ -23,6 +23,7 @@ FILE_SRC	=	src/corewar.c \
 				src/arg_parser/condition/dump_cycle.c \
 				src/arg_parser/condition/load_adress.c \
 				src/arg_parser/condition/prog_number.c \
+				src/arg_parser/set_address.c \
 				\
 				src/app/create_app.c \
 				src/app/destroy_app.c \
@@ -35,6 +36,7 @@ FILE_SRC	=	src/corewar.c \
 				src/champion/integrity/check_integrity.c \
 				src/champion/integrity/check_load_adress.c \
 				src/champion/integrity/check_prog_number.c \
+				src/champion/integrity/check_overlap_adress.c \
 				src/champion/complete/complete.c \
 				src/champion/complete/complete_prog_number.c \
 				\
@@ -51,6 +53,17 @@ FILE_SRC	=	src/corewar.c \
 				src/instruction/special_param/lldi.c \
 				src/instruction/special_param/sti.c \
 				src/instruction/special_param/zjmp.c \
+				\
+				src/instruction/instructions/read_value.c \
+				src/instruction/instructions/instructions.c \
+				src/instruction/instructions/load_value.c \
+				src/instruction/instructions/ld.c \
+				src/instruction/instructions/st.c \
+				src/instruction/instructions/a_operations.c \
+				src/instruction/instructions/l_operations.c \
+				src/instruction/instructions/zjmp.c \
+				src/instruction/instructions/aff.c \
+				src/instruction/instructions/live.c \
 				\
 				src/parameter/create_parameter.c \
 				src/parameter/destroy_parameter.c \

@@ -21,6 +21,10 @@ STATIC int config_champions(app_t *app)
         close_app(app);
         return 84;
     }
+    if (check_overlap_adress(app) == 84) {
+        close_app(app);
+        return 84;
+    }
     return 0;
 }
 

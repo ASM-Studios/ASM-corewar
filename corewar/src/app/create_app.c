@@ -13,6 +13,7 @@ app_t *create_app(void)
 
     app->champions = NULL;
     app->nbr_cycle = -1;
+    app->cycle_to_die = CYCLE_TO_DIE;
     my_memset(app->memory, 0, sizeof(app->memory));
     return app;
 }

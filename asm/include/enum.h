@@ -5,14 +5,16 @@
 ** enum.h
 */
 
+#include "op.h"
+
 #ifndef ENUM_H_
     #define ENUM_H_
 
     typedef enum type {
-        Direct = 0,
-        Indirect,
-        Register,
-        Index
+        Direct = T_DIR,
+        Indirect = T_IND,
+        Register = T_REG,
+        Index = T_LAB
     } type_t;
 
     #define DIRECT_SIZE     4

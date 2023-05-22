@@ -27,11 +27,6 @@ static int display_help(void)
 
 int main(const int ac, const char **av)
 {
-    #ifdef NO_MALLOC
-        int seed_time = (unsigned int)time(NULL);
-        srand(seed_time);
-    #endif
-
     if (ac != 2)
         return 84;
     if (!my_strcmp(av[1], "-h"))
