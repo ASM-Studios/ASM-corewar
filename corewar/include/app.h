@@ -37,7 +37,8 @@
     parameter_t **extract_param(int bytecode);
     int extract_param_type(int *number);
     int read_value(app_t *app, champion_t *champion, parameter_t **parameters);
-    int read_mem_value(unsigned char *mem, int pos, int size);
+    int read_mem_value_4(unsigned char *mem, int pos);
+    int set_mem_value_4(unsigned char *mem, int pos, int value);
 
     int special_param(parameter_t *parameter, unsigned char instruction,
         int index);

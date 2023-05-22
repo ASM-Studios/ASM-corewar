@@ -19,6 +19,7 @@ int instruction_st(app_t *app, champion_t *champion, parameter_t **parameters)
             champion->reg[reg_dest] = value;
             break;
         case Indirect:
+            set_mem_value_4(app->memory, parameters[1]->value, value);
             break;
         default:
             return 84;
