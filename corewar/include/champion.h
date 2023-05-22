@@ -46,4 +46,5 @@ typedef struct app app_t;
 
     parameter_t **extract_parameters(app_t *app, champion_t *champion,
         unsigned char instruction);
+
 #endif //CHAMPION_H_

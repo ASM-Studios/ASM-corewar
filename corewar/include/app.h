@@ -13,7 +13,7 @@
 
     typedef struct app {
         unsigned char memory[MEM_SIZE];
-        int nbr_cycle;
+        int nbr_cycle:4;
         int cycle_to_die;
         champion_t **champions;
     } app_t;
@@ -38,6 +38,7 @@
     int extract_param_type(int *number);
     int read_value(app_t *app, champion_t *champion, parameter_t **parameters);
     int read_mem_value_4(unsigned char *mem, int pos);
+    int read_mem_value_2(unsigned char *mem, int pos);
     int set_mem_value_4(unsigned char *mem, int pos, int value);
 
     int special_param(parameter_t *parameter, unsigned char instruction,
