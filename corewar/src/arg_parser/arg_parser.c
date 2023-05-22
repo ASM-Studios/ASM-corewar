@@ -71,7 +71,8 @@ int arg_parser(const int ac, const char **av, app_t *app)
             return 84;
         i += 1;
     }
-    set_address(app->champions);
     destroy_champion(champion);
+    if (set_address(app->champions) == 84)
+        return 84;
     return 0;
 }

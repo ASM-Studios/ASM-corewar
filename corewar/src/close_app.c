@@ -9,7 +9,8 @@
 
 int close_app(app_t *app)
 {
-    destroy_champions(app->champions);
+    if (app->champions != NULL)
+        destroy_champions(app->champions);
     destroy_app(app);
     return 0;
 }

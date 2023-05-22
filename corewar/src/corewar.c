@@ -32,8 +32,10 @@ int corewar(const int ac, const char **av)
 {
     app_t *app = create_app();
 
-    if (arg_parser(ac, av, app) == 84)
+    if (arg_parser(ac, av, app) == 84) {
+        close_app(app);
         return 84;
+    }
     if (config_champions(app) == 84)
         return 84;
     gloop(app);

@@ -11,8 +11,11 @@ int set_address(champion_t **champions)
 {
     int i = 0;
     int len = len_array((void **)champions);
-    int diff = MEM_SIZE / len;
+    int diff = 0;
 
+    if (len == 0)
+        return 84;
+    diff = MEM_SIZE / len;
     while (champions[i] != NULL) {
         if (champions[i]->load_adress == -1) {
             champions[i]->load_adress = diff * i;
