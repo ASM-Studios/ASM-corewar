@@ -23,6 +23,10 @@ STATIC int open_header(champion_t *champion)
     fread(&champion->header, sizeof(header_t), 1, champion->cor_file);
     champion->header.prog_size = little_endian_converter_4(
         champion->header.prog_size);
+    if (champion->header.prog_size >= MEM_SIZE) {
+        my_printf("Fais un régime mgl.\n");
+        return 84;
+    }
     return 0;
 }
 
@@ -46,10 +50,10 @@ int open_file(app_t *app)
         if (app->champions[i]->cor_file == NULL) {
             my_printf("Cannot open file.\n");
             return 84;
-        } else {
-            open_header(app->champions[i]);
-            load_champion(app, app->champions[i]);
         }
+        if (open_header(app->champions[i]) == 84)
+            return 84;
+        load_champion(app, app->champions[i]);
         i += 1;
     }
     return 0;
