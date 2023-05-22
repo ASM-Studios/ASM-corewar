@@ -39,6 +39,8 @@ int execute_instruction(app_t *app, champion_t *champion,
 {
     set_cd(champion, instruction);
     switch (instruction) {
+        case 1:
+            return instruction_live(app, champion, parameters);
         case 2:
             return instruction_ld(app, champion, parameters);
         case 3:

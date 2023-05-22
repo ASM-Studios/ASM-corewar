@@ -14,6 +14,7 @@
     typedef struct app {
         unsigned char memory[MEM_SIZE];
         int nbr_cycle;
+        int cycle_to_die;
         champion_t **champions;
     } app_t;
 
@@ -62,6 +63,7 @@
     int instruction_xor(app_t *, champion_t *, parameter_t **);
     int instruction_zjmp(app_t *, champion_t *, parameter_t **);
     int instruction_aff(app_t *, champion_t *, parameter_t **);
+    int instruction_live(app_t *, champion_t *, parameter_t **);
 
 
 #endif //APP_H_
