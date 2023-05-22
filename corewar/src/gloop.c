@@ -39,25 +39,6 @@ STATIC int decrease_cd(app_t *app)
     return 0;
 }
 
-STATIC int detect_winner(app_t *app)
-{
-    int i = 0;
-    int count = 0;
-    int len = len_array((void **)app->champions);
-
-    while (app->champions[i] != NULL) {
-        if (app->champions[i]->alive > 0)
-            count += 1;
-        i += 1;
-    }
-    if (len - count == 1) {
-        my_printf("WIN\n");
-        return 1;
-    } else {
-        return 0;
-    }
-}
-
 int gloop(app_t *app)
 {
     int i = 0;
