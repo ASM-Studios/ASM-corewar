@@ -50,9 +50,12 @@ STATIC int detect_winner(app_t *app)
             count += 1;
         i += 1;
     }
-    if (len - count == 1)
-        my_printf("WIN");
-    return 0;
+    if (len - count == 1) {
+        my_printf("WIN\n");
+        return 1;
+    } else {
+        return 0;
+    }
 }
 
 int gloop(app_t *app)
@@ -60,10 +63,11 @@ int gloop(app_t *app)
     int i = 0;
 
     while (i < 10000000) {
-        need_dump(app, i);
         launch_instruction(app);
+        need_dump(app, i);
         decrease_cd(app);
-        detect_winner(app);
+        if (detect_winner(app) == 1)
+            break;
         i += 1;
     }
     return 0;

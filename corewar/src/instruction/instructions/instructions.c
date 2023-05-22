@@ -15,6 +15,17 @@ STATIC int set_cd(champion_t *champion, int instruction)
     return 0;
 }
 
+int execute_instruction_fork(app_t *app, champion_t *champion,
+    parameter_t **parameters, int instruction)
+{
+    switch (instruction) {
+        case 12:
+            return instruction_fork(app, champion, parameters);
+        default:
+            return 0;
+    }
+}
+
 int execute_instruction_operations(app_t *app, champion_t *champion,
     parameter_t **parameters, int instruction)
 {
@@ -30,7 +41,8 @@ int execute_instruction_operations(app_t *app, champion_t *champion,
         case 8:
             return instruction_xor(app, champion, parameters);
         default:
-            return 0;
+            return execute_instruction_fork(app, champion, parameters,
+                instruction);
     }
 }
 
