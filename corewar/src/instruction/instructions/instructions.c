@@ -47,6 +47,8 @@ int execute_instruction(app_t *app, champion_t *champion,
             return instruction_lld(app, champion, parameters);
         case 9:
             return instruction_zjmp(app, champion, parameters);
+        case 16:
+            return instruction_aff(app, champion, parameters);
         default:
             return execute_instruction_operations(app, champion, parameters,
                 instruction);

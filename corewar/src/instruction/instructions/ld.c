@@ -18,7 +18,7 @@ int instruction_lld(app_t *app, champion_t *champion, parameter_t **parameters)
             value = parameters[0]->value;
             break;
         case Indirect:
-            value = read_mem_value(app, pos, 4);
+            value = read_mem_value(app->memory, pos, 4);
             break;
         default:
             return 84;
@@ -38,7 +38,7 @@ int instruction_ld(app_t *app, champion_t *champion, parameter_t **parameters)
             value = parameters[0]->value;
             break;
         case Indirect:
-            value = read_mem_value(app, pos, 4);
+            value = read_mem_value(app->memory, pos, 4);
             break;
         default:
             return 84;
