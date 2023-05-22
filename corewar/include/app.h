@@ -42,5 +42,6 @@
     int special_param_ldi(parameter_t *parameter, int index);
     int special_param_lldi(parameter_t *parameter, int index);
     int special_param_sti(parameter_t *parameter, int index);
+    int instruction_fork(app_t *app, champion_t *champion, parameter_t **parameters);
 
 #endif //APP_H_
