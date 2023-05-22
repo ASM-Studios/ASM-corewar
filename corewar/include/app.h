@@ -57,6 +57,10 @@
     int instruction_st(app_t *, champion_t *, parameter_t **);
     int instruction_add(app_t *, champion_t *, parameter_t **);
     int instruction_sub(app_t *, champion_t *, parameter_t **);
+    int instruction_and(app_t *, champion_t *, parameter_t **);
+    int instruction_or(app_t *, champion_t *, parameter_t **);
+    int instruction_xor(app_t *, champion_t *, parameter_t **);
+    int instruction_zjmp(app_t *, champion_t *, parameter_t **);
 
 
 #endif //APP_H_

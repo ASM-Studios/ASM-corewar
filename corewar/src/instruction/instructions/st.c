@@ -19,7 +19,6 @@ int instruction_st(app_t *app, champion_t *champion, parameter_t **parameters)
             champion->reg[reg_dest] = value;
             break;
         case Indirect:
-
             break;
         default:
             return 84;

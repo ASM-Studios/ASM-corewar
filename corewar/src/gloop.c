@@ -42,7 +42,7 @@ int gloop(app_t *app)
 {
     int i = 0;
 
-    while (i < 20) {
+    while (i < 100000) {
         need_dump(app, i);
         launch_instruction(app);
         decrease_cd(app);
