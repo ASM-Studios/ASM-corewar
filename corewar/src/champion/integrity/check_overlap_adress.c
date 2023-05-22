@@ -27,7 +27,8 @@ int check_overlap_adress(app_t *app)
     int i = 0;
 
     while (app->champions[i + 1] != NULL) {
-        if (check_overlap_adress_unique(app, i) == 84);
+        if (check_overlap_adress_unique(app, i) == 84)
+            return 84;
         i += 1;
     }
     return 0;

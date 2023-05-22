@@ -54,6 +54,7 @@ FILE_SRC	=	src/corewar.c \
 				src/instruction/special_param/sti.c \
 				src/instruction/special_param/zjmp.c \
 				\
+				src/instruction/instructions/read_value.c \
 				src/instruction/instructions/instructions.c \
 				src/instruction/instructions/load_value.c \
 				src/instruction/instructions/ld.c \
