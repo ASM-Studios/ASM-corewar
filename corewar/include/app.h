@@ -51,7 +51,10 @@
         parameter_t **parameters, int instruction);
     int load_value(app_t *app, champion_t *champion, parameter_t *parameter,
         int idx_mod);
+
     int instruction_ld(app_t *, champion_t *, parameter_t **);
+    int instruction_lld(app_t *, champion_t *, parameter_t **);
+    int instruction_st(app_t *, champion_t *, parameter_t **);
 
 
 #endif //APP_H_
