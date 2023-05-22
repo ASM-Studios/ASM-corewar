@@ -11,6 +11,12 @@
 #ifndef APP_H_
     #define APP_H_
 
+    typedef struct mem_find {
+        app_t *app;
+        parameter_t *parameter;
+        champion_t *champion;
+    } mem_find_t;
+
     typedef struct app {
         unsigned char memory[MEM_SIZE];
         int nbr_cycle;
@@ -37,8 +43,7 @@
     parameter_t **extract_param(int bytecode);
     int extract_param_type(int *number);
     int read_value(app_t *app, champion_t *champion, parameter_t **parameters);
-    int read_mem_value_4(unsigned char *mem, int pos);
-    int read_mem_value_2(unsigned char *mem, int pos);
+    int read_mem(unsigned char *mem, int pos, int size);
     int set_mem_value_4(unsigned char *mem, int pos, int value);
 
     int special_param(parameter_t *parameter, unsigned char instruction,
@@ -52,8 +57,7 @@
 
     int execute_instruction(app_t *app, champion_t *champion,
         parameter_t **parameters, int instruction);
-    int load_value(app_t *app, champion_t *champion, parameter_t *parameter,
-        int idx_mod);
+    int load_value(mem_find_t info, int idx_mod, int size);
 
     int instruction_ld(app_t *, champion_t *, parameter_t **);
     int instruction_lld(app_t *, champion_t *, parameter_t **);

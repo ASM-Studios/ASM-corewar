@@ -26,6 +26,7 @@ typedef struct app app_t;
         int reg[REG_NUMBER];
         int alive;
         int PC;
+        int tmp_pc;
         int prog_number;
         int load_adress;
         int cd;

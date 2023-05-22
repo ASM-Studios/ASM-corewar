@@ -7,28 +7,30 @@
 
 #include "../../../include/prototype.h"
 
-STATIC int indirect_load_value(app_t *app, champion_t *champion,
-    parameter_t *parameter, int idx_mod)
+STATIC int indirect_load_value(mem_find_t info, int idx_mod, int size)
 {
+    int index = 0;
+
     if (idx_mod == 1) {
-        return app->memory[champion->PC + parameter->value % IDX_MOD];
+        index = info.champion->PC + info.parameter->value % IDX_MOD;
+        return read_mem(info.app->memory, index, size);
     } else {
-        return app->memory[champion->PC + parameter->value];
+        index = info.champion->PC + info.parameter->value % IDX_MOD;
+        return read_mem(info.app->memory, index, size);
     }
 }
 
-int load_value(app_t *app, champion_t *champion, parameter_t *parameter,
-    int idx_mod)
+int load_value(mem_find_t info, int idx_mod, int size)
 {
-    switch (parameter->type) {
+    switch (info.parameter->type) {
         case Register:
-            return champion->reg[parameter->value];
+            return info.champion->reg[info.parameter->value];
         case Direct:
-            return parameter->value;
+            return info.parameter->value;
         case Indirect:
-            return indirect_load_value(app, champion, parameter, idx_mod);
+            return indirect_load_value(info, idx_mod, size);
         case Index:
-            return parameter->value;
+            return info.parameter->value;
         default:
             return 0;
     }

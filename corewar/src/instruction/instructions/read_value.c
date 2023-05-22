@@ -7,21 +7,17 @@
 
 #include "../../../include/prototype.h"
 
-int read_mem_value_2(unsigned char *mem, int pos)
+int read_mem(unsigned char *mem, int pos, int size)
 {
-    int value = 0;
-
-    value = (int)(mem[pos] << 24) | ((mem[pos + 1]) << 16);
-    return value;
-}
-
-int read_mem_value_4(unsigned char *mem, int pos)
-{
-    int value = 0;
-
-    value = (int)(mem[pos] << 24) | ((mem[pos + 1]) << 16) |
-        ((mem[pos + 2]) << 8) | (mem[pos + 3]);
-    return value;
+    switch (size) {
+        case 2:
+            return (int)(mem[pos] << 24) | ((mem[pos + 1]) << 16);
+        case 4:
+            return (int)(mem[pos] << 24) | ((mem[pos + 1]) << 16) |
+                ((mem[pos + 2]) << 8) | (mem[pos + 3]);
+        default:
+            return 0;
+    }
 }
 
 int set_mem_value_4(unsigned char *mem, int pos, int value)

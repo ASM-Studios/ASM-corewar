@@ -30,4 +30,5 @@ op_t op_table[] = {
         "long load index"},
     {"lfork", 1, {T_DIR}, 15, 1000, "long fork"},
     {"aff", 1, {T_REG}, 16, 2, "aff"},
-    {0, 0, {0}, 0, 0, 0}};
+    {0, 0, {0}, 0, 0, 0}
+};
