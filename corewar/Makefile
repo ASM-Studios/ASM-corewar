@@ -59,6 +59,7 @@ FILE_SRC	=	src/corewar.c \
 				src/instruction/instructions/load_value.c \
 				src/instruction/instructions/ld.c \
 				src/instruction/instructions/st.c \
+				src/instruction/instructions/a_operations.c \
 				\
 				src/parameter/create_parameter.c \
 				src/parameter/destroy_parameter.c \

@@ -55,6 +55,8 @@
     int instruction_ld(app_t *, champion_t *, parameter_t **);
     int instruction_lld(app_t *, champion_t *, parameter_t **);
     int instruction_st(app_t *, champion_t *, parameter_t **);
+    int instruction_add(app_t *, champion_t *, parameter_t **);
+    int instruction_sub(app_t *, champion_t *, parameter_t **);
 
 
 #endif //APP_H_
