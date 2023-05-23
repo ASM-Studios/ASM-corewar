@@ -50,7 +50,7 @@ int parser(app_t *app)
     if (parse_label(app) == 84)
         return 84;
     complete_offset(app);
-    if (connect_label(app) ==  84)
+    if (connect_label(app) == 84)
         return 84;
     count_index(app->op);
     free_double_array(array);
