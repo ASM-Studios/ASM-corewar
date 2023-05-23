@@ -42,7 +42,7 @@ int parser(app_t *app)
     void *ptr = get_mid(array);
 
     if (ptr == NULL)
-        return 84;
+        return 83;
     if (main_parser_header(app, array, ptr) == 84)
         return 84;
     if (main_parser_body(app, array, ptr) == 84)
@@ -50,7 +50,8 @@ int parser(app_t *app)
     if (parse_label(app) == 84)
         return 84;
     complete_offset(app);
-    connect_label(app);
+    if (connect_label(app) ==  84)
+        return 84;
     count_index(app->op);
     free_double_array(array);
     return 0;

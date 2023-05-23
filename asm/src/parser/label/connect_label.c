@@ -16,7 +16,7 @@ STATIC int is_label_offset(char *args)
     }
 }
 
-STATIC int get_label(app_t *app, char *label, op_constructor_t *op)
+STATIC op_constructor_t *get_label(app_t *app, char *label)
 {
     int i = 0;
     char *nlabel = my_strndup(&label[2], LEN(label) - 1);
@@ -24,11 +24,22 @@ STATIC int get_label(app_t *app, char *label, op_constructor_t *op)
     while (app->label[i] != NULL) {
         if (my_strcmp(app->label[i]->label->name, nlabel) == 0) {
             free(nlabel);
-            return app->label[i]->index - op->index;
+            return app->label[i];
         }
         i += 1;
     }
     free(nlabel);
+    return NULL;
+}
+
+STATIC int get_label_condition(app_t *app, op_constructor_t *op, int i)
+{
+    if (is_label_offset(op->parameter[i]->arg) == 1) {
+        op_constructor_t *tmp_op = get_label(app, op->parameter[i]->arg);
+        if (tmp_op == NULL)
+            return 84;
+        op->parameter[i]->value = tmp_op->index - op->index;
+    }
     return 0;
 }
 
@@ -37,9 +48,8 @@ STATIC int connect_label_op(app_t *app, op_constructor_t *op)
     int i = 0;
 
     while (op->parameter[i] != NULL) {
-        if (is_label_offset(op->parameter[i]->arg) == 1) {
-            op->parameter[i]->value = get_label(app, op->parameter[i]->arg, op);
-        }
+        if (get_label_condition(app, op, i) == 84)
+            return 84;
         i += 1;
     }
     return 0;
@@ -50,7 +60,8 @@ int connect_label(app_t *app)
     op_constructor_t *op = app->op;
 
     while (op != NULL) {
-        connect_label_op(app, op);
+        if (connect_label_op(app, op) == 84)
+            return 84;
         op = op->next;
     }
     return 0;

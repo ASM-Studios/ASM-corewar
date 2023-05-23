@@ -11,6 +11,5 @@ int count_champion(const int ac)
 {
     int count = ac - 2;
 
-    printf("%d\n", count);
     return count;
 }
