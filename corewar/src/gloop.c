@@ -34,7 +34,6 @@ STATIC int decrease_cd(app_t *app)
 
     while (app->champions[i] != NULL) {
         app->champions[i]->cd -= 1;
-        app->champions[i]->alive -= 1;
         i += 1;
     }
     return 0;
@@ -56,14 +55,19 @@ STATIC int cycle_to_die(app_t *app, int *cycle)
 
 int gloop(app_t *app)
 {
-    int i = 0;
+    int total_cycle = 0;
+    int die_cycle = 0;
 
     while (count_alive(app) != 0) {
-        cycle_to_die(app, &i);
-        need_dump(app, i);
+        cycle_to_die(app, &die_cycle);
+        need_dump(app, total_cycle);
         decrease_cd(app);
         launch_instruction(app);
-        i += 1;
+        total_cycle += 1;
+        die_cycle += 1;
     }
+    if (app->winner != NULL)
+        my_printf("And da winner is lasalle\nNon je rigole c'est %s\n",
+            app->winner->header.prog_name);
     return 0;
 }

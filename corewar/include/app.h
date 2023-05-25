@@ -23,6 +23,7 @@
         int live_count;
         int cycle_to_die;
         champion_t **champions;
+        champion_t *winner;
     } app_t;
 
     app_t *create_app(void);
