@@ -7,7 +7,8 @@
 
 #include "../../../include/prototype.h"
 
-int instruction_lfork(app_t *app, champion_t *champion, parameter_t **parameters)
+int instruction_lfork(app_t *app, champion_t *champion,
+    parameter_t **parameters)
 {
     int value = parameters[0]->value;
     int prog_counter = champion->tmp_pc;
