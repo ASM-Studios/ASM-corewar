@@ -26,8 +26,8 @@
     int display_help(void);
     int close_app(app_t *app);
     int gloop(app_t *app);
-    int detect_winner(app_t *app);
     int count_alive(app_t *app);
+    int detect_alive(app_t *app);
 
     int count_champion(const int ac);
 

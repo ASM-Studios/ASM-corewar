@@ -19,7 +19,8 @@
 
     typedef struct app {
         unsigned char memory[MEM_SIZE];
-        int nbr_cycle;
+        int dump_cycle;
+        int live_count;
         int cycle_to_die;
         champion_t **champions;
     } app_t;

@@ -15,7 +15,8 @@ FILE_SRC	=	src/corewar.c \
 				src/count_champion.c \
 				src/extract_bytecode.c \
 				src/close_app.c \
-				src/detect_winner.c \
+				src/count_alive.c \
+				src/set_alive.c \
 				src/gloop.c \
 				\
 				src/op/op.c \

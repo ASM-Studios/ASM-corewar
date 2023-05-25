@@ -18,7 +18,8 @@ champion_t *create_champion(void)
     champion->prog_number = -1;
     champion->PC = -1;
     champion->tmp_pc = -1;
-    champion->alive = CYCLE_TO_DIE;
+    champion->alive = 1;
+    champion->is_dead = 0;
     champion->cor_file = NULL;
     return champion;
 }

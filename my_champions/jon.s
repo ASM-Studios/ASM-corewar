@@ -1,8 +1,7 @@
-#        .name "LUL"
-#        .comment "Winter is coming"
         .name "LUL"
         .comment "Winter is coming"
 
-#        ld %4 r9
-label: #ld
+        live %234
         ld %4 r9
+        fork %64
+        st r9

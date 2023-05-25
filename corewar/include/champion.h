@@ -25,6 +25,7 @@ typedef struct app app_t;
         FILE *cor_file;
         int reg[REG_NUMBER];
         int alive;
+        int is_dead;
         int PC;
         int tmp_pc;
         int prog_number;
