@@ -23,8 +23,12 @@ int execute_instruction_fork(app_t *app, champion_t *champion,
             return instruction_ldi(app, champion, parameters);
         case 11:
             return instruction_sti(app, champion, parameters);
+        case 14:
+            return instruction_lldi(app, champion, parameters);
         case 12:
             return instruction_fork(app, champion, parameters);
+        case 15:
+            return instruction_lfork(app, champion, parameters);
         default:
             return 0;
     }

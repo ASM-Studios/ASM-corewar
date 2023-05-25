@@ -62,16 +62,23 @@
     int instruction_ld(app_t *, champion_t *, parameter_t **);
     int instruction_lld(app_t *, champion_t *, parameter_t **);
     int instruction_st(app_t *, champion_t *, parameter_t **);
+
+    int instruction_ldi(app_t *, champion_t *, parameter_t **);
+    int instruction_lldi(app_t *, champion_t *, parameter_t **);
+    int instruction_sti(app_t *, champion_t *, parameter_t **);
+
+
     int instruction_add(app_t *, champion_t *, parameter_t **);
     int instruction_sub(app_t *, champion_t *, parameter_t **);
     int instruction_and(app_t *, champion_t *, parameter_t **);
     int instruction_or(app_t *, champion_t *, parameter_t **);
     int instruction_xor(app_t *, champion_t *, parameter_t **);
+
     int instruction_zjmp(app_t *, champion_t *, parameter_t **);
     int instruction_aff(app_t *, champion_t *, parameter_t **);
     int instruction_live(app_t *, champion_t *, parameter_t **);
+
     int instruction_fork(app_t *, champion_t *, parameter_t **);
-    int instruction_ldi(app_t *, champion_t *, parameter_t **);
-    int instruction_sti(app_t *, champion_t *, parameter_t **);
+    int instruction_lfork(app_t *, champion_t *, parameter_t **);
 
 #endif //APP_H_
