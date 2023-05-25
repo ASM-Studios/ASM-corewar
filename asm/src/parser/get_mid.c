@@ -7,21 +7,13 @@
 
 #include "../../include/prototype.h"
 
-void *get_mid(char **array)
+int get_mid(char **array)
 {
-    int i = 0;
-    void *ptr = NULL;
-
-    while (array[i] != NULL) {
-        if (my_strstr(array[i], ".comment") == -1 &&
-            my_strstr(array[i], ".name") == -1) {
-            return NULL;
-        }
-        if (my_strstr(array[i], ".comment") != -1) {
-            ptr = array[i + 1];
-            break;
-        }
-        i += 1;
-    }
-    return ptr;
+    if (array[0] == NULL || array[1] == NULL)
+        return -1;
+    if (my_strncmp(array[0], ".name", 5) == 0 &&
+        my_strncmp(array[1], ".comment", 8) == 0)
+        return 2;
+    else
+        return -1;
 }

@@ -11,6 +11,8 @@ int count_index(op_constructor_t *op)
 {
     int i = 0;
 
+    if (op == NULL)
+        return 0;
     while (op->next != NULL) {
         op->index = i;
         i += 1;

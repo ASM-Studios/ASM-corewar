@@ -25,7 +25,7 @@
     int count_index(op_constructor_t *op);
     int is_label(char *exp);
 
-    void *get_mid(char **array);
+    int get_mid(char **array);
     int get_len(void **array, void *start, void *end);
     int parser(app_t *app);
 
