@@ -56,6 +56,10 @@ STATIC int parse_body_line(app_t *app, char **body, int i, char **label)
     char *exp = (is_label(array[0]) == 1) ? array[1] : array[0];
     char **arg = (is_label(array[0]) == 1) ? &array[2] : &array[1];
 
+    if (exp[0] == '#') {
+        free_double_array(array);
+        return 0;
+    }
     if (is_label(array[0]) == 1)
         (*label) = my_strdup(array[0]);
     if (exp != NULL) {
