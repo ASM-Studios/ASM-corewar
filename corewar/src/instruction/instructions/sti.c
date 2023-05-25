@@ -14,7 +14,7 @@ int instruction_sti(app_t *app, champion_t *champion, parameter_t **parameters)
     int index_2 = 0;
     int index = 0;
 
-    switch(parameters[2]->type) {
+    switch (parameters[2]->type) {
         case Register:
             index_2 = champion->reg[parameters[2]->value];
             break;

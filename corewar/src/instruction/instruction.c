@@ -38,7 +38,6 @@ int instruction(app_t *app, champion_t *champion)
 
     set_tmp_pc(app);
     instruction = app->memory[champion->PC];
-    printf("%s execute %x at PC: %d (MEMORY: %X)\n", champion->header.prog_name, instruction, champion->PC, app->memory[champion->PC]);
     champion->PC += 1;
     parameters = extract_parameters(app, champion, instruction);
     detect_index(parameters, instruction);

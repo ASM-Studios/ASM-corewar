@@ -15,7 +15,7 @@ int instruction_ldi(app_t *app, champion_t *champion, parameter_t **parameters)
     int res_value = 0;
     int index = 0;
 
-    switch(parameters[1]->type) {
+    switch (parameters[1]->type) {
         case Direct:
             value_2 = parameters[1]->value;
             break;
