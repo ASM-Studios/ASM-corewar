@@ -1,4 +1,4 @@
-        .name "Jon Snow"
+        .name "LUL"
         .comment "Winter is coming"
 
-label:  zjmp %:label
+        ld %4 r9

@@ -20,8 +20,9 @@ STATIC int launch_instruction(app_t *app)
     int i = 0;
 
     while (app->champions[i] != NULL) {
-        if (app->champions[i]->cd == 0 && app->champions[i]->alive > 0)
+        if (app->champions[i]->cd <= 0 && app->champions[i]->alive > 0) {
             instruction(app, app->champions[i]);
+        }
         i += 1;
     }
     return 0;
@@ -43,10 +44,10 @@ int gloop(app_t *app)
 {
     int i = 0;
 
-    while (i < 10000000) {
-        launch_instruction(app);
+    while (count_alive(app) > 1) {
         need_dump(app, i);
         decrease_cd(app);
+        launch_instruction(app);
         if (detect_winner(app) == 1)
             break;
         i += 1;

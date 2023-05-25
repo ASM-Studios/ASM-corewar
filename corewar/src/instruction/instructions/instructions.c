@@ -19,6 +19,10 @@ int execute_instruction_fork(app_t *app, champion_t *champion,
     parameter_t **parameters, int instruction)
 {
     switch (instruction) {
+        case 10:
+            return instruction_ldi(app, champion, parameters);
+        case 11:
+            return instruction_sti(app, champion, parameters);
         case 12:
             return instruction_fork(app, champion, parameters);
         default:

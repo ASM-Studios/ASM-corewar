@@ -1,4 +1,4 @@
-        .name "Jon Snow"
+        .name "TESTING"
 
         .comment "Winter is coming"
 

@@ -66,6 +66,8 @@ FILE_SRC	=	src/corewar.c \
 				src/instruction/instructions/aff.c \
 				src/instruction/instructions/live.c \
 				src/instruction/instructions/fork.c \
+				src/instruction/instructions/ldi.c \
+				src/instruction/instructions/sti.c \
 				\
 				src/parameter/create_parameter.c \
 				src/parameter/destroy_parameter.c \

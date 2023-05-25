@@ -10,6 +10,8 @@
 int read_mem(unsigned char *mem, int pos, int size)
 {
     switch (size) {
+        case 1:
+            return (int)(mem[pos]);
         case 2:
             return (int)(mem[pos] << 24) | ((mem[pos + 1]) << 16);
         case 4:

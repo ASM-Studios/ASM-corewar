@@ -30,6 +30,7 @@ typedef struct app app_t;
         int prog_number;
         int load_adress;
         int cd;
+        int carry;
     } champion_t;
 
     champion_t *create_champion(void);

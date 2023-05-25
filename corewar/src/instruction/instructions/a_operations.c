@@ -10,8 +10,8 @@
 int instruction_sub(app_t *app, champion_t *champion, parameter_t **parameters)
 {
     int reg_1 = parameters[0]->value;
-    int reg_2 = parameters[2]->value;
-    int reg_3 = parameters[3]->value;
+    int reg_2 = parameters[1]->value;
+    int reg_3 = parameters[2]->value;
     int value_1 = champion->reg[reg_1];
     int value_2 = champion->reg[reg_2];
 
@@ -22,8 +22,8 @@ int instruction_sub(app_t *app, champion_t *champion, parameter_t **parameters)
 int instruction_add(app_t *app, champion_t *champion, parameter_t **parameters)
 {
     int reg_1 = parameters[0]->value;
-    int reg_2 = parameters[2]->value;
-    int reg_3 = parameters[3]->value;
+    int reg_2 = parameters[1]->value;
+    int reg_3 = parameters[2]->value;
     int value_1 = champion->reg[reg_1];
     int value_2 = champion->reg[reg_2];
 

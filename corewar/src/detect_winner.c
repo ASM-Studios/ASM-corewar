@@ -39,3 +39,17 @@ int detect_winner(app_t *app)
         return 0;
     }
 }
+
+int count_alive(app_t *app)
+{
+    int i = 0;
+    int count = 0;
+
+    while (app->champions[i] != NULL) {
+        if (app->champions[i]->alive > 0) {
+            count += 1;
+        }
+        i += 1;
+    }
+    return count;
+}
