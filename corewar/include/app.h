@@ -61,6 +61,8 @@
         parameter_t **parameters, int instruction);
     int load_value(mem_find_t info, int idx_mod, int size);
 
+    int modify_carry(champion_t *champion, int res);
+
     int instruction_ld(app_t *, champion_t *, parameter_t **);
     int instruction_lld(app_t *, champion_t *, parameter_t **);
     int instruction_st(app_t *, champion_t *, parameter_t **);

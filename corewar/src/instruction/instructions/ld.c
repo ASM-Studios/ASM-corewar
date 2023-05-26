@@ -24,6 +24,7 @@ int instruction_lld(app_t *app, champion_t *champion, parameter_t **parameters)
             return 84;
     }
     champion->reg[reg_nb] = value;
+    modify_carry(champion, champion->reg[reg_nb]);
     return 0;
 }
 
@@ -44,5 +45,6 @@ int instruction_ld(app_t *app, champion_t *champion, parameter_t **parameters)
             return 84;
     }
     champion->reg[reg_nb] = value;
+    modify_carry(champion, champion->reg[reg_nb]);
     return 0;
 }

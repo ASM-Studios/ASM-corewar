@@ -7,16 +7,6 @@
 
 #include "../../../include/prototype.h"
 
-STATIC int modify_carry(champion_t *champion, int res)
-{
-    if (res == 0) {
-        champion->carry = 1;
-    } else {
-        champion->carry = 0;
-    }
-    return 0;
-}
-
 int instruction_sub(app_t *app, champion_t *champion, parameter_t **parameters)
 {
     int reg_1 = parameters[0]->value;
@@ -26,6 +16,7 @@ int instruction_sub(app_t *app, champion_t *champion, parameter_t **parameters)
     int value_2 = champion->reg[reg_2];
 
     champion->reg[reg_3] = value_1 - value_2;
+    modify_carry(champion, champion->reg[reg_3]);
     return 0;
 }
 
@@ -38,5 +29,6 @@ int instruction_add(app_t *app, champion_t *champion, parameter_t **parameters)
     int value_2 = champion->reg[reg_2];
 
     champion->reg[reg_3] = value_1 + value_2;
+    modify_carry(champion, champion->reg[reg_3]);
     return 0;
 }

@@ -16,6 +16,7 @@ int instruction_lldi(app_t *app, champion_t *champion, parameter_t **parameters)
     int res_value = read_mem(app->memory, index, 4);
 
     champion->reg[reg] = res_value;
+    modify_carry(champion, champion->reg[reg]);
     return 0;
 }
 
@@ -28,5 +29,6 @@ int instruction_ldi(app_t *app, champion_t *champion, parameter_t **parameters)
     int res_value = read_mem(app->memory, index, 4);
 
     champion->reg[reg] = res_value;
+    modify_carry(champion, champion->reg[reg]);
     return 0;
 }
