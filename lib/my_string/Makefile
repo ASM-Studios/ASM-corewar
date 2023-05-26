@@ -21,6 +21,7 @@ SRC	=   my_putstr.c	\
 		my_putchar.c	\
 		my_strncmp.c	\
 		my_strappend.c	\
+		my_realloc_array.c \
 		my_stricat.c \
 		my_strstr.c
 
