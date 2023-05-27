@@ -21,7 +21,11 @@ FILE_SRC	=	src/corewar.c \
 				\
 				src/op/op.c \
 				\
+				src/graphic/open_window.c \
+				src/graphic/close_window.c \
+				\
 				src/arg_parser/arg_parser.c \
+				src/arg_parser/argument.c \
 				src/arg_parser/condition/dump_cycle.c \
 				src/arg_parser/condition/load_adress.c \
 				src/arg_parser/condition/prog_number.c \
@@ -95,7 +99,9 @@ CC	=	gcc
 INCLUDE	=	./include
 SANITIZE	=	-fsanitize=address
 CFLAGS	= -I$(INCLUDE) -Wall -Wextra -g3
-LDFLAGS	=	-L../lib -lmy_printf -lmy_stdlib -lmy_string
+NCURSE	=	-lncurses
+LIB	=	-L../lib -lmy_printf -lmy_stdlib -lmy_string
+LDFLAGS	=	$(LIB) $(NCURSE)
 COVERAGE	=	--coverage -lcriterion
 EXE	=	corewar
 TEST_EXE	=	$(EXE)_test

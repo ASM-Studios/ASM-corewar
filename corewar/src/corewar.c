@@ -38,6 +38,7 @@ int corewar(const int ac, const char **av)
     }
     if (config_champions(app) == 84)
         return 84;
+    open_window(app);
     gloop(app);
     close_app(app);
     return 0;

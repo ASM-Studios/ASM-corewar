@@ -12,6 +12,7 @@
     #include "enum.h"
     #include "include.h"
     #include "array.h"
+    #include "curses.h"
 
     #ifdef UNIT_TEST
         #define STATIC

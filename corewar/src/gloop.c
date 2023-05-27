@@ -41,7 +41,7 @@ STATIC int decrease_cd(app_t *app)
 
 STATIC int cycle_to_die(app_t *app, int *cycle)
 {
-    if (*cycle == app->cycle_to_die) {
+    if (*cycle >= app->cycle_to_die) {
         *cycle = 0;
         detect_alive(app);
         app->live_count += 1;
@@ -58,13 +58,13 @@ int gloop(app_t *app)
     int total_cycle = 0;
     int die_cycle = 0;
 
-    while (count_alive(app) != 0) {
-        cycle_to_die(app, &die_cycle);
+    while (total_cycle < 1500 && count_alive(app) != 0) {
         need_dump(app, total_cycle);
         decrease_cd(app);
         launch_instruction(app);
         total_cycle += 1;
         die_cycle += 1;
+        cycle_to_die(app, &die_cycle);
     }
     if (app->winner != NULL)
         my_printf("And da winner is lasalle\nNon je rigole c'est %s\n",

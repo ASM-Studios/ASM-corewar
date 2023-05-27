@@ -1,8 +1,3 @@
-./asm/asm my_champions/jon.s && hexdump -v jon.cor > /tmp/diff_1
-./binary/asm my_champions/jon.s && hexdump -v jon.cor > /tmp/diff_2
-diff /tmp/diff_1 /tmp/diff_2
-rm jon.cor
-
 ./asm/asm my_champions/bill.s && hexdump -v bill.cor > /tmp/diff_1
 ./binary/asm my_champions/bill.s && hexdump -v bill.cor > /tmp/diff_2
 diff /tmp/diff_1 /tmp/diff_2
@@ -22,3 +17,8 @@ rm header.cor
 ./binary/asm my_champions/pdd.s && hexdump -v pdd.cor > /tmp/diff_2
 diff /tmp/diff_1 /tmp/diff_2
 rm pdd.cor
+
+./asm/asm my_champions/or.s && hexdump -v or.cor > /tmp/diff_1
+./binary/asm my_champions/or.s && hexdump -v or.cor > /tmp/diff_2
+diff /tmp/diff_1 /tmp/diff_2
+rm or.cor

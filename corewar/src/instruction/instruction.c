@@ -37,8 +37,9 @@ int instruction(app_t *app, champion_t *champion)
     parameter_t **parameters = NULL;
 
     set_tmp_pc(app);
-    if (champion->PC > 16 || champion->PC > 1)
+    if (app->memory[champion->PC] > 16 || app->memory[champion->PC] < 1) {
         return 0;
+    }
     instruction = app->memory[champion->PC];
     champion->PC += 1;
     parameters = extract_parameters(app, champion, instruction);

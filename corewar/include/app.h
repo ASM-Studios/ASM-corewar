@@ -24,6 +24,8 @@
         int cycle_to_die;
         champion_t **champions;
         champion_t *winner;
+        int paused;
+        int graphic;
     } app_t;
 
     app_t *create_app(void);
@@ -31,6 +33,11 @@
 
     int arg_parser(const int ac, const char **av, app_t *app);
     int dump_cycle_condition(app_t *app, const char **av, int i);
+
+    int load_adress(const char **av, int *i, champion_t *champion);
+    int prog_number(const char **av, int *i, champion_t *champion);
+    int dump_cycle(const char **av, int *i, app_t *app);
+    int launch_graphic(const char **av, int *i, app_t *app);
 
     int prog_number_condition(const char **av, int i, champion_t *champion);
     int load_adress_condition(const char **av, int i, champion_t *champion);
