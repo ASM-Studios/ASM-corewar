@@ -19,6 +19,7 @@ FILE_SRC	=	src/corewar.c \
 				src/gloop.c \
 				\
 				src/dump/dump_memory.c \
+				src/dump/detect_pc.c \
 				src/dump/dump_memory_curses.c \
 				\
 				src/op/op.c \

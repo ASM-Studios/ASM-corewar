@@ -59,7 +59,7 @@ int gloop(app_t *app)
     int die_cycle = 0;
 
     while (count_alive(app) != 0) {
-        gloop_curses(app);
+        gloop_curses(app, total_cycle);
         need_dump(app, total_cycle);
         decrease_cd(app);
         launch_instruction(app);
