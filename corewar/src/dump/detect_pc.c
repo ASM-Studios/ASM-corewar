@@ -12,7 +12,7 @@ int start_dump_color(int color)
     return 0;
 }
 
-STATIC int detect_color(champion_t *champion)
+int detect_color(champion_t *champion)
 {
     switch (champion->prog_number) {
         case 1:

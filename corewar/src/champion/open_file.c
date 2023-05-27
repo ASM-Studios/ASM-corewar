@@ -46,6 +46,7 @@ int open_file(app_t *app)
     int i = 0;
 
     while (app->champions[i] != NULL) {
+        app->no_champ += 1;
         app->champions[i]->cor_file = fopen(app->champions[i]->path, "rb");
         if (app->champions[i]->cor_file == NULL) {
             my_printf("Cannot open file.\n");

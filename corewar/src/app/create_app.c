@@ -12,6 +12,7 @@ app_t *create_app(void)
     app_t *app = malloc(sizeof(app_t));
 
     app->champions = NULL;
+    app->no_champ = 0;
     app->winner = NULL;
     app->dump_cycle = -1;
     app->cycle_to_die = CYCLE_TO_DIE;

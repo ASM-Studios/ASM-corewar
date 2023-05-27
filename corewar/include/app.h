@@ -23,6 +23,7 @@
         int live_count;
         int cycle_to_die;
         champion_t **champions;
+        int no_champ;
         champion_t *winner;
         int increment;
         int graphic;
