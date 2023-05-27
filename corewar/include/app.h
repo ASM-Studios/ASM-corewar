@@ -24,7 +24,7 @@
         int cycle_to_die;
         champion_t **champions;
         champion_t *winner;
-        int paused;
+        int increment;
         int graphic;
     } app_t;
 

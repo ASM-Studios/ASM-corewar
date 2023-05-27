@@ -17,7 +17,7 @@ app_t *create_app(void)
     app->cycle_to_die = CYCLE_TO_DIE;
     app->live_count = 0;
     my_memset(app->memory, 0, sizeof(app->memory));
-    app->paused = 0;
+    app->increment = 1;
     app->graphic = 0;
     return app;
 }
