@@ -10,6 +10,7 @@
 int realloc_array_fork(app_t *app, champion_t *champion, int index)
 {
     champion_t *new_champion = create_champion();
+
     memcpy(new_champion, champion, sizeof(champion_t));
     new_champion->process = 1;
     new_champion->PC = index;

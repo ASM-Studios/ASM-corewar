@@ -14,7 +14,7 @@ int start_dump_color(int color)
 
 STATIC int detect_color(champion_t *champion)
 {
-    switch(champion->prog_number) {
+    switch (champion->prog_number) {
         case 1:
             attron(COLOR_PAIR(2));
             return 0;
@@ -23,7 +23,7 @@ STATIC int detect_color(champion_t *champion)
             return 0;
         case 3:
             attron(COLOR_PAIR(4));
-           return 0;
+            return 0;
         case 4:
             attron(COLOR_PAIR(5));
             return 0;

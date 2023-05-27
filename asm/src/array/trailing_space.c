@@ -36,6 +36,7 @@ STATIC int remove_end_space(char *line)
 int remove_trailing_space(char *line)
 {
     int i = my_strlen(line);
+
     if (my_strlen(line) == 0)
         return 0;
     if (is_in('#', line) == 1){

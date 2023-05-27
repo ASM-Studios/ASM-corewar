@@ -50,9 +50,10 @@ static int detect_multiple(int total, int var)
     return 0;
 }
 
-static int detect_size()
+static int detect_size(void)
 {
     int size = COLS / 3;
+
     while (detect_multiple(MEM_SIZE, size) == 0 && size != 0) {
         size -= 1;
     }

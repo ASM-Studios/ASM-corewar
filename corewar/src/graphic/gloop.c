@@ -10,6 +10,7 @@
 static int get_input(app_t *app)
 {
     char character = getch();
+
     if (character == 32)
         app->increment = 1 - app->increment;
     if (character == 'q')
