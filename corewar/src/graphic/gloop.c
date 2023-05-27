@@ -11,9 +11,9 @@ static int get_input(app_t *app)
 {
     char character = getch();
 
-    if (character == 32)
+    if (character == ' ')
         app->increment = 1 - app->increment;
-    if (character == 'q')
+    if (character == 'q' || character == 'Q')
         return 1;
     if (character == 'a')
         my_memset(app->memory, '0', MEM_SIZE);
@@ -27,11 +27,15 @@ static int print_champion(champion_t *champion, int offset)
     detect_color(champion);
     printw("%s", champion->header.prog_name);
     attron(COLOR_PAIR(1));
-    if (champion->is_dead == 0)
-        printw(": alive");
-    else
+    if (champion->is_dead == 0) {
+        if (champion->cd > 0)
+            printw(" (on cd) ");
+        printw(": live");
+    } else {
         printw(": dead");
-    for (int i = 0; i < offset - my_strlen(champion->header.prog_name); i++)
+    }
+    offset = offset - 15 - my_strlen(champion->header.prog_name);
+    for (int i = 0; i < offset; i++)
         printw(" ");
     return 0;
 }
