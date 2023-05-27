@@ -61,11 +61,13 @@ int gloop(app_t *app)
     while (count_alive(app) != 0) {
         if (gloop_curses(app, total_cycle) == 1)
             break;
+        if (app->increment == 0)
+            continue;
         need_dump(app, total_cycle);
         decrease_cd(app);
         launch_instruction(app);
-        total_cycle += app->increment;
-        die_cycle += app->increment;
+        total_cycle += 1;
+        die_cycle += 1;
         cycle_to_die(app, &die_cycle);
     }
     if (app->winner != NULL)
