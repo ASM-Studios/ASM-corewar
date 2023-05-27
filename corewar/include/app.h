@@ -38,6 +38,7 @@
     int prog_number(const char **av, int *i, champion_t *champion);
     int dump_cycle(const char **av, int *i, app_t *app);
     int launch_graphic(const char **av, int *i, app_t *app);
+    int gloop_curses(app_t *app);
 
     int prog_number_condition(const char **av, int i, champion_t *champion);
     int load_adress_condition(const char **av, int i, champion_t *champion);

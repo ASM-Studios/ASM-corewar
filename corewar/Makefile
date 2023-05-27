@@ -10,7 +10,6 @@ MAIN_SRC	=	src/main.c
 TEST_SRC	=
 
 FILE_SRC	=	src/corewar.c \
-				src/dump_memory.c \
 				src/display_help.c \
 				src/count_champion.c \
 				src/extract_bytecode.c \
@@ -19,8 +18,12 @@ FILE_SRC	=	src/corewar.c \
 				src/set_alive.c \
 				src/gloop.c \
 				\
+				src/dump/dump_memory.c \
+				src/dump/dump_memory_curses.c \
+				\
 				src/op/op.c \
 				\
+				src/graphic/gloop.c \
 				src/graphic/open_window.c \
 				src/graphic/close_window.c \
 				\

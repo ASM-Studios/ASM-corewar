@@ -5,9 +5,9 @@
 ** dump_memory.c
 */
 
-#include "../include/prototype.h"
+#include "../../include/prototype.h"
 
-STATIC int nbsize(unsigned int nb)
+static int nbsize(unsigned int nb)
 {
     int i = 0;
 

@@ -13,7 +13,6 @@
     #include <string.h>
     #include <unistd.h>
     #include <stdint.h>
-    #include <curses.h>
     #include <sys/ipc.h>
     #include <sys/shm.h>
     #include "my_lib.h"

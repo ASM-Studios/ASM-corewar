@@ -9,7 +9,7 @@
 
 STATIC int need_dump(app_t *app, int cycle)
 {
-    if (cycle == app->dump_cycle) {
+    if (cycle == app->dump_cycle && app->graphic == 0) {
         dump_memory(app);
     }
     return 0;
@@ -58,7 +58,8 @@ int gloop(app_t *app)
     int total_cycle = 0;
     int die_cycle = 0;
 
-    while (total_cycle < 1500 && count_alive(app) != 0) {
+    while (count_alive(app) != 0) {
+        gloop_curses(app);
         need_dump(app, total_cycle);
         decrease_cd(app);
         launch_instruction(app);
