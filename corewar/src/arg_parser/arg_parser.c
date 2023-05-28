@@ -36,7 +36,8 @@ int arg_parser(const int ac, const char **av, app_t *app)
             return 84;
         if (detect_cor(av, &i, app, &champion) == 84)
             return 84;
-        launch_graphic(av, &i, app);
+        if (launch_graphic(av, &i, app) == 84)
+            return 84;
         i += 1;
     }
     destroy_champion(champion);

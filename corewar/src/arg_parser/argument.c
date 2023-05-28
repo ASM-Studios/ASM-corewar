@@ -10,7 +10,12 @@
 int launch_graphic(const char **av, int *i, app_t *app)
 {
     if (my_strcmp(av[*i], "-g") == 0) {
-        app->graphic = 1;
+        #ifdef NCURSE
+            app->graphic = 1;
+        #else
+            my_printf("You must compile with ncurse rule\n");
+            return 84;
+        #endif
     }
     return 0;
 }

@@ -7,14 +7,8 @@
 
 #include "../../include/prototype.h"
 
-int open_window(app_t *app)
+static int init_curse_color(void)
 {
-    if (app->graphic == 0)
-        return 0;
-    initscr();
-    nodelay(stdscr, TRUE);
-    noecho();
-    start_color();
     init_pair(1, COLOR_WHITE, COLOR_BLACK);
     init_pair(2, COLOR_RED, COLOR_BLACK);
     init_pair(3, COLOR_WHITE, COLOR_RED);
@@ -24,5 +18,17 @@ int open_window(app_t *app)
     init_pair(7, COLOR_WHITE, COLOR_YELLOW);
     init_pair(8, COLOR_BLUE, COLOR_BLACK);
     init_pair(9, COLOR_WHITE, COLOR_BLUE);
+    return 0;
+}
+
+int open_window(app_t *app)
+{
+    if (app->graphic == 0)
+        return 0;
+    initscr();
+    nodelay(stdscr, TRUE);
+    noecho();
+    start_color();
+    init_curse_color();
     return 0;
 }

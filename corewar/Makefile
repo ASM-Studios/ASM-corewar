@@ -19,15 +19,8 @@ FILE_SRC	=	src/corewar.c \
 				src/gloop.c \
 				\
 				src/dump/dump_memory.c \
-				src/dump/detect_pc.c \
-				src/dump/dump_memory_curses.c \
 				\
 				src/op/op.c \
-				\
-				src/graphic/gloop.c \
-				src/graphic/print_info.c \
-				src/graphic/open_window.c \
-				src/graphic/close_window.c \
 				\
 				src/arg_parser/arg_parser.c \
 				src/arg_parser/argument.c \
@@ -96,7 +89,15 @@ FILE_SRC	=	src/corewar.c \
 				src/array/free_array.c \
 				src/array/add_in_array.c
 
+CURSES_SRC	=	src/graphic/gloop.c \
+				src/graphic/open_window.c \
+				src/graphic/close_window.c \
+				src/graphic/print_info.c \
+				src/dump/detect_pc.c \
+				src/dump/dump_memory_curses.c
+
 FILE_OBJ	=	$(FILE_SRC:.c=.o)
+CURSES_OBJ	=	$(CURSES_SRC:.c=.o)
 MAIN_OBJ	=	$(MAIN_SRC:.c=.o)
 TEST_OBJ	=	$(TEST_SRC:.c=_test.o)
 
@@ -104,9 +105,9 @@ CC	=	gcc
 INCLUDE	=	./include
 SANITIZE	=	-fsanitize=address
 CFLAGS	= -I$(INCLUDE) -Wall -Wextra -g3
-NCURSE	=	-lncursesw
+NCURSE	=	-lncurses
 LIB	=	-L../lib -lmy_printf -lmy_stdlib -lmy_string
-LDFLAGS	=	$(LIB) $(NCURSE)
+LDFLAGS	=	$(LIB)
 COVERAGE	=	--coverage -lcriterion
 EXE	=	corewar
 TEST_EXE	=	$(EXE)_test
@@ -125,9 +126,19 @@ main.o:	main.c
 $(EXE):	$(MAIN_OBJ) $(FILE_OBJ)
 		$(CC) -o $(EXE) $^ $(LDFLAGS)
 
+ncurse:	LDFLAGS += $(NCURSE)
+ncurse:	CFLAGS += -DNCURSE
+ncurse:	$(MAIN_OBJ) $(FILE_OBJ) $(CURSES_OBJ)
+		$(CC) -o $(EXE) $^ $(LDFLAGS)
+
+sanitize: CFLAGS += $(SANITIZE)
+sanitize: LDFLAGS += $(SANITIZE)
 sanitize:	$(MAIN_OBJ) $(FILE_OBJ)
 			$(CC) -o $(EXE) $^ $(LDFLAGS)
 
+unit_tests: CFLAGS += $(COVERAGE)
+unit_tests: CFLAGS += -DUNIT_TEST
+unit_tests: LDFLAGS += $(COVERAGE)
 unit_tests: $(FILE_OBJ) $(TEST_OBJ)
 			$(CC) -o $(TEST_EXE) $^ $(LDFLAGS)
 
@@ -150,10 +161,3 @@ lib:
 		make -C ../lib
 
 .PHONY: all clean fclean re lib unit_tests tests_run
-
-sanitize: CFLAGS += $(SANITIZE)
-sanitize: LDFLAGS += $(SANITIZE)
-
-unit_tests: CFLAGS += $(COVERAGE)
-unit_tests: CFLAGS += -DUNIT_TEST
-unit_tests: LDFLAGS += $(COVERAGE)

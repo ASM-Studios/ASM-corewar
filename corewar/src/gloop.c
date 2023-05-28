@@ -59,8 +59,10 @@ int gloop(app_t *app)
     int die_cycle = 0;
 
     while (count_alive(app) != 0 || app->graphic == 1) {
-        if (gloop_curses(app, total_cycle) == 1)
-            break;
+        #ifdef NCURSE
+            if (gloop_curses(app, total_cycle) == 1)
+                break;
+        #endif
         if (app->increment == 0)
             continue;
         need_dump(app, total_cycle);
@@ -71,7 +73,6 @@ int gloop(app_t *app)
         cycle_to_die(app, &die_cycle);
     }
     if (app->winner != NULL)
-        my_printf("And da winner is lasalle\nNon je rigole c'est %s\n",
-            app->winner->header.prog_name);
+        my_printf("The winner is %s", app->winner->header.prog_name);
     return 0;
 }

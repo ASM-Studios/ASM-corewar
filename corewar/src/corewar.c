@@ -38,7 +38,10 @@ int corewar(const int ac, const char **av)
     }
     if (config_champions(app) == 84)
         return 84;
-    open_window(app);
+    #ifdef NCURSE
+        if (open_window(app) == 84)
+            return 84;
+    #endif
     gloop(app);
     close_app(app);
     return 0;

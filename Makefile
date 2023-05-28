@@ -10,6 +10,11 @@ all:
 		@make --no-print-directory -C ./asm
 		@make --no-print-directory -C ./corewar
 
+ncurse:
+		@make -s -C ./lib
+		@make --no-print-directory -C ./asm
+		@make --no-print-directory -C ./corewar ncurse
+
 clean:
 		@make -s -C ./lib clean
 		@make --no-print-directory -C ./asm clean
