@@ -25,6 +25,7 @@ FILE_SRC	=	src/corewar.c \
 				src/op/op.c \
 				\
 				src/graphic/gloop.c \
+				src/graphic/print_info.c \
 				src/graphic/open_window.c \
 				src/graphic/close_window.c \
 				\
