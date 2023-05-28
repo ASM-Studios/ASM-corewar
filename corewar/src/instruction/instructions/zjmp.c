@@ -10,7 +10,7 @@
 int instruction_zjmp(app_t *app, champion_t *champion, parameter_t **parameters)
 {
     if (champion->carry == 1)
-        champion->PC = champion->tmp_pc + parameters[0]->value % IDX_MOD;
-    int value = parameters[0]->value;
+        champion->PC = (champion->tmp_pc + parameters[0]->value % IDX_MOD) %
+            MEM_SIZE;
     return 0;
 }

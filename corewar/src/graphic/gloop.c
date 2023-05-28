@@ -16,15 +16,17 @@ static int get_input(app_t *app)
     if (character == 'q' || character == 'Q')
         return 1;
     if (character == 'a')
-        my_memset(app->memory, '0', MEM_SIZE);
+        reset_memory(app);
     return 0;
 }
 
 static int print_champion(champion_t *champion, int offset)
 {
+    int value = detect_color(champion);
+
     if (champion->process == 1)
         return 0;
-    detect_color(champion);
+    attron(COLOR_PAIR(value));
     printw("%s", champion->header.prog_name);
     attron(COLOR_PAIR(1));
     if (champion->is_dead == 0) {

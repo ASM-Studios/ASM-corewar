@@ -60,7 +60,7 @@ int dump_memory(app_t *app)
         j = 0;
         display_line(i);
         while (j < 32) {
-            display_hexa(app->memory[i], 1);
+            display_hexa(app->memory[i].value, 1);
             my_printf(" ");
             i += 1;
             j += 1;

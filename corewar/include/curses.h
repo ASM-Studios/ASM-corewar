@@ -15,6 +15,7 @@ typedef struct champion champion_t;
     int close_window(app_t *app);
 
     int detect_color(champion_t *champion);
+    int set_color(app_t *app, int i);
 
     int show_pc(app_t *app, int cycle);
     int start_dump_color(int color);

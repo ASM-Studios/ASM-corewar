@@ -10,15 +10,17 @@
 STATIC int read_unique_value_2(app_t *app, champion_t *champion,
     parameter_t *parameter)
 {
-    unsigned char *c = &(app->memory[champion->PC]);
+    int i = champion->PC;
+    mem_case_t *mem = app->memory;
 
     switch (parameter->type) {
         case Register:
-            parameter->value = (char)(c[0]);
+            parameter->value = (char)(mem[i % MEM_SIZE].value);
             champion->PC += 1;
             break;
         case Index:
-            parameter->value = (short)((c[0]) << 8) | (c[1]);
+            parameter->value = (short)((mem[i % MEM_SIZE].value) << 8) |
+                (mem[(i + 1) % MEM_SIZE].value);
             champion->PC += 2;
             break;
         default:
@@ -30,23 +32,26 @@ STATIC int read_unique_value_2(app_t *app, champion_t *champion,
 STATIC int read_unique_value(app_t *app, champion_t *champion,
     parameter_t *parameter)
 {
-    unsigned char *c = &(app->memory[champion->PC]);
+    int i = champion->PC;
+    mem_case_t *mem = app->memory;
 
     switch (parameter->type) {
         case Direct:
-            parameter->value = (int)(c[0] << 24) | ((c[1]) << 16) |
-                ((c[2]) << 8) | (c[3]);
+            parameter->value = (int)(mem[i % MEM_SIZE].value << 24) |
+                ((mem[(i + 1) % MEM_SIZE].value) << 16) |
+                ((mem[(i + 2) % MEM_SIZE].value) << 8) |
+                (mem[(i + 3) % MEM_SIZE].value);
             champion->PC += 4;
-            break;
+            return 0;
         case Indirect:
-            parameter->value = (short)((c[0]) << 8) | (c[1]);
+            parameter->value = (short)((mem[i % MEM_SIZE].value) << 8) |
+                (mem[(i + 1) % MEM_SIZE].value);
             champion->PC += 2;
-            break;
+            return 0;
         default:
             read_unique_value_2(app, champion, parameter);
-            break;
+            return 0;
     }
-    return 0;
 }
 
 int read_value(app_t *app, champion_t *champion, parameter_t **parameters)

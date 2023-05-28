@@ -71,8 +71,8 @@ int dump_memory_curses(app_t *app)
     while (i < MEM_SIZE) {
         j = 0;
         while (j < size) {
-            show_pc(app, i);
-            display_hexa_curses(app->memory[i], 1);
+            set_color(app, i);
+            display_hexa_curses(app->memory[i].value, 1);
             attron(COLOR_PAIR(1));
             printw(" ");
             i += 1;

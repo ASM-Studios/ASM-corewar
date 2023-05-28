@@ -7,26 +7,33 @@
 
 #include "../../../include/prototype.h"
 
-int read_mem(unsigned char *mem, int pos, int size)
+int read_mem(mem_case_t *mem, int pos, int size)
 {
     switch (size) {
         case 1:
-            return (int)(mem[pos]);
+            return (int)(mem[pos % MEM_SIZE].value);
         case 2:
-            return (int)(mem[pos] << 24) | ((mem[pos + 1]) << 16);
+            return (int)(mem[pos % MEM_SIZE].value << 24) | ((mem[(pos + 1) %
+                MEM_SIZE].value) << 16);
         case 4:
-            return (int)(mem[pos] << 24) | ((mem[pos + 1]) << 16) |
-                ((mem[pos + 2]) << 8) | (mem[pos + 3]);
+            return (int)(mem[pos % MEM_SIZE].value << 24) | ((mem[(pos + 1) %
+                MEM_SIZE].value) << 16) |
+                ((mem[(pos + 2) % MEM_SIZE].value) << 8) |
+                (mem[(pos + 3) % MEM_SIZE].value);
         default:
             return 0;
     }
 }
 
-int set_mem_value_4(unsigned char *mem, int pos, int value)
+int set_mem_value_4(mem_case_t *mem, int pos, int value, champion_t *champion)
 {
-    mem[pos] = (value >> 24) & 0xFF;
-    mem[pos + 1] = (value >> 16) & 0xFF;
-    mem[pos + 2] = (value >> 8) & 0xFF;
-    mem[pos + 3] = (value) & 0xFF;
+    mem[pos % MEM_SIZE].value = (value >> 24) & 0xFF;
+    mem[(pos + 1) % MEM_SIZE].value = (value >> 16) & 0xFF;
+    mem[(pos + 2) % MEM_SIZE].value = (value >> 8) & 0xFF;
+    mem[(pos + 3) % MEM_SIZE].value = (value) & 0xFF;
+    mem[pos % MEM_SIZE].champion = champion;
+    mem[(pos + 1) % MEM_SIZE].champion = champion;
+    mem[(pos + 2) % MEM_SIZE].champion = champion;
+    mem[(pos + 3) % MEM_SIZE].champion = champion;
     return 0;
 }

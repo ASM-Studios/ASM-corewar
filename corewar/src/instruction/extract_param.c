@@ -55,7 +55,7 @@ parameter_t **extract_parameters(app_t *app, champion_t *champion,
     parameter_t **parameters = NULL;
 
     if (need_bytecode(instruction) == 1) {
-        bytecode = app->memory[champion->PC];
+        bytecode = app->memory[champion->PC].value;
         champion->PC += 1;
         parameters = extract_param(bytecode);
         return parameters;

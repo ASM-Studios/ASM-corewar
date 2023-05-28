@@ -37,10 +37,11 @@ int instruction(app_t *app, champion_t *champion)
     parameter_t **parameters = NULL;
 
     set_tmp_pc(app);
-    if (app->memory[champion->PC] > 16 || app->memory[champion->PC] < 1) {
+    if (app->memory[champion->PC].value > 16 ||
+        app->memory[champion->PC].value < 1) {
         return 0;
     }
-    instruction = app->memory[champion->PC];
+    instruction = app->memory[champion->PC].value;
     champion->PC += 1;
     parameters = extract_parameters(app, champion, instruction);
     detect_index(parameters, instruction);

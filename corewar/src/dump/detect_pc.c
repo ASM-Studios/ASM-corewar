@@ -7,26 +7,32 @@
 
 #include "../../include/prototype.h"
 
-int start_dump_color(int color)
-{
-    return 0;
-}
-
 int detect_color(champion_t *champion)
 {
     switch (champion->prog_number) {
         case 1:
-            attron(COLOR_PAIR(2));
-            return 0;
+            return 2;
         case 2:
-            attron(COLOR_PAIR(3));
-            return 0;
+            return 4;
         case 3:
-            attron(COLOR_PAIR(4));
-            return 0;
+            return 6;
         case 4:
-            attron(COLOR_PAIR(5));
-            return 0;
+            return 8;
+    }
+    return 0;
+}
+
+int set_color(app_t *app, int i)
+{
+    int value = 0;
+
+    if (app->memory[i].champion != NULL) {
+        value = detect_color(app->memory[i].champion);
+        attron(COLOR_PAIR(value));
+    }
+    value = show_pc(app, i);
+    if (value != 0) {
+        attron(COLOR_PAIR(value + 1));
     }
     return 0;
 }
@@ -37,8 +43,7 @@ int show_pc(app_t *app, int cycle)
 
     while (app->champions[i] != NULL) {
         if (cycle == app->champions[i]->PC) {
-            detect_color(app->champions[i]);
-            return 1;
+            return detect_color(app->champions[i]);
         }
         i += 1;
     }

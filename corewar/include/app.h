@@ -17,8 +17,13 @@
         champion_t *champion;
     } mem_find_t;
 
+    typedef struct mem_case {
+        unsigned char value;
+        champion_t *champion;
+    } mem_case_t;
+
     typedef struct app {
-        unsigned char memory[MEM_SIZE];
+        mem_case_t memory[MEM_SIZE];
         int dump_cycle;
         int live_count;
         int cycle_to_die;
@@ -31,6 +36,8 @@
 
     app_t *create_app(void);
     int destroy_app(app_t *app);
+
+    int reset_memory(app_t *app);
 
     int arg_parser(const int ac, const char **av, app_t *app);
     int dump_cycle_condition(app_t *app, const char **av, int i);
@@ -54,8 +61,9 @@
     parameter_t **extract_param(int bytecode);
     int extract_param_type(int *number);
     int read_value(app_t *app, champion_t *champion, parameter_t **parameters);
-    int read_mem(unsigned char *mem, int pos, int size);
-    int set_mem_value_4(unsigned char *mem, int pos, int value);
+    int read_mem(mem_case_t *mem, int pos, int size);
+    int set_mem_value_4(mem_case_t *mem, int pos, int value,
+        champion_t *champion);
 
     int special_param(parameter_t *parameter, unsigned char instruction,
         int index);

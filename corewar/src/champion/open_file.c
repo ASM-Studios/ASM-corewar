@@ -33,9 +33,12 @@ STATIC int open_header(champion_t *champion)
 STATIC int load_champion(app_t *app, champion_t *champion)
 {
     int index = champion->load_adress;
+    char character = 0;
 
     champion->PC = index;
-    while (fread(&(app->memory[index]), 1, 1, champion->cor_file) != 0) {
+    while (fread(&(character), 1, 1, champion->cor_file) != 0) {
+        app->memory[index].value = character;
+        app->memory[index].champion = champion;
         index += 1;
     }
     return 0;
