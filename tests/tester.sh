@@ -22,3 +22,8 @@ rm pdd.cor
 ./binary/asm my_champions/or.s && hexdump -v or.cor > /tmp/diff_2
 diff /tmp/diff_1 /tmp/diff_2
 rm or.cor
+
+./asm/asm my_champions/bad_header.s && hexdump -v bad_header.cor > /tmp/diff_1
+./binary/asm my_champions/bad_header.s && hexdump -v bad_header.cor > /tmp/diff_2
+diff /tmp/diff_1 /tmp/diff_2
+rm bad_header.cor
