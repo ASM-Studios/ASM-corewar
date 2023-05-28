@@ -41,7 +41,7 @@ int instruction(app_t *app, champion_t *champion)
         app->memory[champion->PC].value < 1) {
         return 0;
     }
-    instruction = app->memory[champion->PC].value;
+    instruction = app->memory[champion->PC % MEM_SIZE].value;
     champion->PC += 1;
     parameters = extract_parameters(app, champion, instruction);
     detect_index(parameters, instruction);
