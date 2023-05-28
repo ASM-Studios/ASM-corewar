@@ -21,7 +21,7 @@
         #define STATIC  static
     #endif
 
-    #define CYCLE_TO_SHOW   10
+    #define CYCLE_TO_SHOW   100
 
     #pragma GCC diagnostic ignored "-Wunused-parameter"
 
