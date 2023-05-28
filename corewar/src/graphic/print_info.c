@@ -25,7 +25,7 @@ int print_champion(champion_t *champion, int offset)
     if (champion->process == 1)
         return 0;
     attron(COLOR_PAIR(value));
-    printw("%s", champion->header.prog_name);
+    printw("%d - %s", champion->prog_number, champion->header.prog_name);
     attron(COLOR_PAIR(1));
     if (champion->is_dead == 0) {
         if (champion->cd > 0)
@@ -34,7 +34,7 @@ int print_champion(champion_t *champion, int offset)
     } else {
         printw(": dead");
     }
-    offset = offset - 15 - my_strlen(champion->header.prog_name);
+    offset = offset - 19 - my_strlen(champion->header.prog_name);
     for (int i = 0; i < offset; i++)
         printw(" ");
     return 0;
@@ -51,9 +51,19 @@ int print_footer(void)
 
 int print_header(app_t *app, int cycle)
 {
-    printw("\nTotal cycle: %d\t\tCycle to die: %d\n\n",
-        cycle, app->cycle_to_die);
     int offset = COLS / app->no_champ;
+
+    printw("\nTotal cycle: %d\t\tCycle to die: %d\t\t",
+        cycle, app->cycle_to_die);
+    if (count_alive(app) == 0) {
+        printw("Winner is: ");
+        attron(COLOR_PAIR(detect_color(app->winner)));
+        printw("%s", app->winner->header.prog_name);
+        attron(COLOR_PAIR(1));
+        printw(" (%s)\n\n", app->winner->header.comment);
+    } else {
+        printw("\n\n");
+    }
     for (int i = 0; app->champions[i] != NULL; i++) {
         print_champion(app->champions[i], offset);
     }
