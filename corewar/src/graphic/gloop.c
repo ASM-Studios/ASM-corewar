@@ -22,7 +22,7 @@ static int get_input(app_t *app)
 
 int gloop_curses(app_t *app, int cycle)
 {
-    if (app->graphic == 0 || cycle % 100 != 0)
+    if (app->graphic == 0 || cycle % CYCLE_TO_SHOW != 0)
         return 0;
     if (get_input(app) == 1)
         return 1;

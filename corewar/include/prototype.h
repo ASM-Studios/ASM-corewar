@@ -21,6 +21,8 @@
         #define STATIC  static
     #endif
 
+    #define CYCLE_TO_SHOW   10
+
     #pragma GCC diagnostic ignored "-Wunused-parameter"
 
     int corewar(const int ac, const char **av);
