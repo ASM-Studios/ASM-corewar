@@ -58,7 +58,7 @@ int gloop(app_t *app)
     int total_cycle = 0;
     int die_cycle = 0;
 
-    while (count_alive(app) != 0) {
+    while (count_alive(app) != 0 || app->graphic == 1) {
         if (gloop_curses(app, total_cycle) == 1)
             break;
         if (app->increment == 0)

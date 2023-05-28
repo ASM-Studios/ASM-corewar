@@ -42,7 +42,8 @@ static int print_champion(champion_t *champion, int offset)
 
 static int print_header(app_t *app, int cycle)
 {
-    printw("\nTotal cycle: %d\n\n", cycle);
+    printw("\nTotal cycle: %d\t\tCycle to die: %d\n\n",
+        cycle, app->cycle_to_die);
     int offset = COLS / app->no_champ;
     for (int i = 0; app->champions[i] != NULL; i++) {
         print_champion(app->champions[i], offset);
@@ -55,7 +56,7 @@ static int print_header(app_t *app, int cycle)
 
 int gloop_curses(app_t *app, int cycle)
 {
-    if (app->graphic == 0 || cycle % 10 != 0)
+    if (app->graphic == 0 || cycle % 100 != 0)
         return 0;
     clear();
     if (get_input(app) == 1)

@@ -30,6 +30,8 @@
     int count_alive(app_t *app);
     int detect_alive(app_t *app);
 
+    int set_live_status_process(app_t *app, int prog_number, int death_status);
+
     int dump_memory(app_t *app);
     int dump_memory_curses(app_t *app);
 
