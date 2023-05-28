@@ -43,7 +43,7 @@ int print_champion(champion_t *champion, int offset)
 int print_footer(void)
 {
     display_line_curses();
-    mvprintw(LINES - 2, 0, "ASM-Studios. All rights reserved.\n");
+    mvprintw(LINES - 2, 0, "(C) ASM-Studios. All rights reserved.\n");
     printw("By axel.chypre@epitech.eu, mael.rabot@epitech.eu,");
     printw(" yohann.mangenot@epitech.eu, mathieu.borel@epitech.eu");
     return 0;

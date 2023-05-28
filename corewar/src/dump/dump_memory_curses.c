@@ -66,10 +66,10 @@ int dump_memory_curses(app_t *app)
     int j = 0;
     int size = detect_size();
 
-    if (size == 0)
-        size = 32;
+    size = (size == 0) ? 32 : size;
     while (i < MEM_SIZE) {
         j = 0;
+        printw("| ");
         while (j < size) {
             set_color(app, i);
             display_hexa_curses(app->memory[i].value, 1);
@@ -78,6 +78,7 @@ int dump_memory_curses(app_t *app)
             i += 1;
             j += 1;
         }
+        printw("|");
         printw("\n");
     }
     return 0;

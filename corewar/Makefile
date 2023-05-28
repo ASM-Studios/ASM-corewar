@@ -104,7 +104,7 @@ CC	=	gcc
 INCLUDE	=	./include
 SANITIZE	=	-fsanitize=address
 CFLAGS	= -I$(INCLUDE) -Wall -Wextra -g3
-NCURSE	=	-lncurses
+NCURSE	=	-lncursesw
 LIB	=	-L../lib -lmy_printf -lmy_stdlib -lmy_string
 LDFLAGS	=	$(LIB) $(NCURSE)
 COVERAGE	=	--coverage -lcriterion

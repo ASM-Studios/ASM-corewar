@@ -9,6 +9,8 @@
 
 int read_mem(mem_case_t *mem, int pos, int size)
 {
+    if (pos < 0)
+        pos = MEM_SIZE - pos;
     switch (size) {
         case 1:
             return (int)(mem[pos % MEM_SIZE].value);
@@ -27,6 +29,8 @@ int read_mem(mem_case_t *mem, int pos, int size)
 
 int set_mem_value_4(mem_case_t *mem, int pos, int value, champion_t *champion)
 {
+    if (pos < 0)
+        pos = MEM_SIZE - pos;
     mem[pos % MEM_SIZE].value = (value >> 24) & 0xFF;
     mem[(pos + 1) % MEM_SIZE].value = (value >> 16) & 0xFF;
     mem[(pos + 2) % MEM_SIZE].value = (value >> 8) & 0xFF;
