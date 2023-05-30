@@ -94,7 +94,8 @@ CURSES_SRC	=	src/graphic/gloop.c \
 				src/graphic/close_window.c \
 				src/graphic/print_info.c \
 				src/dump/detect_pc.c \
-				src/dump/dump_memory_curses.c
+				src/dump/dump_memory_curses.c \
+				src/dump/put_offset.c
 
 FILE_OBJ	=	$(FILE_SRC:.c=.o)
 CURSES_OBJ	=	$(CURSES_SRC:.c=.o)

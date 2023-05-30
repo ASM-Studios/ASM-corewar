@@ -24,5 +24,6 @@ typedef struct champion champion_t;
     int print_footer(void);
     int print_champion(champion_t *champion, int offset);
     int display_line_curses(void);
+    int put_offset(int size);
 
 #endif //CURSES_H_

@@ -69,6 +69,7 @@ int dump_memory_curses(app_t *app)
     size = (size == 0) ? 32 : size;
     while (i < MEM_SIZE) {
         j = 0;
+        put_offset(size);
         printw("| ");
         while (j < size) {
             set_color(app, i);
@@ -78,8 +79,7 @@ int dump_memory_curses(app_t *app)
             i += 1;
             j += 1;
         }
-        printw("|");
-        printw("\n");
+        printw("|\n");
     }
     return 0;
 }
